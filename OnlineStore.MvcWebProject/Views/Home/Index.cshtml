@@ -1,0 +1,48 @@
+﻿@using Resources
+@model OnlineStore.MvcWebProject.Models.Index.IndexModel
+
+@{
+    if (Model != null)
+    {
+        ViewBag.Message = Model.Message;
+    }
+    ViewBag.MoneyVisible = false;
+    ViewBag.ProfileVisible = false;
+    ViewBag.LogoutVisible = false;
+    Layout = "~/Views/Layouts/_MainLayout.cshtml";
+}
+
+@section StyleSheets
+{
+    <link rel="Stylesheet" href="@Href("~/Content/StyleSheets/Index.css?" + DateTime.Now.Ticks)" />
+}
+
+<div id="indexHeader" class="table">
+    <h2 class="tableCell horizontalCenter">@Lang.Index_Header</h2>
+</div>
+<div id="indexCredentials" class="table">
+    <div class="tableCell horizontalCenter">
+        @using (Html.BeginForm())
+        {
+            <div>
+                <div class="indexCredentialsTitles">
+                    @Lang.Index_Login
+                </div>
+                @Html.TextBoxFor(m => m.Credentials.Login)
+                <br />
+                @Html.ValidationMessage("Credentials.Login", new {@class = "validationMessage"})
+            </div>
+            <br/>
+            <div>
+                <div class="indexCredentialsTitles">
+                    @Lang.Index_Password
+                </div>
+                @Html.PasswordFor(m => m.Credentials.Password)
+                <br/>
+                @Html.ValidationMessage("Credentials.Password", new {@class = "validationMessage"})
+            </div>
+            <br/>
+            <input type="submit" value="@Lang.Index_ButtonSubmit"/>
+        }
+    </div>
+</div>

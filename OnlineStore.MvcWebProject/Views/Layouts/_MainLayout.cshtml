@@ -1,0 +1,62 @@
+﻿@using System.Drawing
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="@Url.Content("~/Content/StyleSheets/MainLayout.css?" + DateTime.Now.Ticks)" rel="stylesheet" type="text/css"/>
+    @RenderSection("StyleSheets")
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<div id="mainLayoutTop" class="table">
+    <table style="width: 100%">
+        <tr>
+            <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft">
+                <div>Language</div>
+            </td>
+            @if ((bool) ViewBag.MoneyVisible)
+            {
+                <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft dividerLeft">
+                    <div>Money</div>
+                </td>
+            }
+            <td></td>
+            @if ((bool) ViewBag.ProfileVisible)
+            {
+                <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight">
+                    <div>Profile</div>
+                </td>
+            }
+            @if ((bool) ViewBag.LogoutVisible)
+            {
+                <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight dividerLeft">
+                    <div>
+                        @using (Html.BeginForm("LogOut", "MainLayout"))
+                        {
+                            <input type="submit" value="@Resources.Lang.MainLayout_LogOut"/>
+                        }
+                    </div>
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+<div id="mainLayoutRenderBody">
+    @RenderBody()
+</div>
+<div id="mainLayoutBottom">
+    <hr/>
+    <div class="horizontalCenter">
+        @if (ViewBag.Message != null)
+        {
+            @Html.Label((string) ViewBag.Message.Text, new
+            {
+                style = string.Format("color: {0}", ColorTranslator.ToHtml((Color) ViewBag.Message.Color))
+            })
+        }
+    </div>
+</div>
+</body>
+</html>

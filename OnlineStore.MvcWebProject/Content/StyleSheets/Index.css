@@ -1,0 +1,22 @@
+﻿body {
+    font-family: "calibri";
+}
+
+.indexCredentialsTitles {
+    font-size: larger;
+    font-weight: bold;
+}
+
+#indexHeader {
+    color: #228b22;
+
+    height: 15%;
+    width: 100%;
+
+    display: table;
+}
+
+#indexCredentials {
+    height: 60%;
+    width: 100%;
+}

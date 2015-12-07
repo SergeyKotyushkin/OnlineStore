@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "ProductList";
+    ViewBag.MoneyVisible = true;
+    ViewBag.ProfileVisible = true;
+    ViewBag.LogoutVisible = true;
+    Layout = "~/Views/Layouts/_MainLayout.cshtml";
+}
+
+@section StyleSheets
+{
+    <link rel="Stylesheet" href="@Href("~/Content/StyleSheets/ProductCatalog.css?" + DateTime.Now.Ticks)"/>
+}
+
+<h2>ProductList</h2>
