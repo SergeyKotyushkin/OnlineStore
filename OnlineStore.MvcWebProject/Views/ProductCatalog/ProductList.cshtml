@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Resources
+@model OnlineStore.MvcWebProject.Models.ProductCatalog.ProductCatalogModel
+
+@{
     ViewBag.Title = "ProductList";
     ViewBag.MoneyVisible = true;
     ViewBag.ProfileVisible = true;
@@ -11,4 +14,81 @@
     <link rel="Stylesheet" href="@Href("~/Content/StyleSheets/ProductCatalog.css?" + DateTime.Now.Ticks)"/>
 }
 
-<h2>ProductList</h2>
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ProductCatalog/ProductList.js?" + DateTime.Now.Ticks)"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+}
+
+<div id="productCatalogHeader">
+    <span>@Lang.ProductCatalog_Header</span>
+</div>
+
+<div id="productCatalogTableContainer">
+    @if (Model.TableData.Data != null && Model.TableData.Data.Length != 0)
+    {
+        <table id="productCatalogTable">
+            <tr>
+                <th class="productCatalogTableTh"></th>
+                <th class="productCatalogTableTh">@Lang.ProductCatalog_HeaderCount</th>
+                <th class="productCatalogTableTh"></th>
+                <th class="productCatalogTableTh productCatalogTableIdColumn">ID</th>
+                <th class="productCatalogTableTh">@Lang.ProductCatalog_HeaderName</th>
+                <th class="productCatalogTableTh">@Lang.ProductCatalog_HeaderCategory</th>
+                <th class="productCatalogTableTh productCatalogTableThLast">@Lang.ProductCatalog_HeaderPrice</th>
+            </tr>
+
+            @{var rowOdd = 0;
+                foreach (var product in Model.TableData.Data)
+                {
+                    <tr @((rowOdd++)%2 == 1 ? "class=productCatalogTableOddRow" : "class=productCatalogTableEvenRow")>
+                        <td class="productCatalogTableTd">+</td>
+                        <td class="productCatalogTableTd">0</td>
+                        <td class="productCatalogTableTd">-</td>
+                        <td class="productCatalogTableTd productCatalogTableIdColumn">@product.Id</td>
+                        <td class="productCatalogTableTd">@product.Name</td>
+                        <td class="productCatalogTableTd">@product.Category</td>
+                        <td class="productCatalogTableTd">@product.Price</td>
+                    </tr>
+                }
+            }
+        </table>
+
+        <div id="productCatalogPager">
+            @if (Model.TableData.Pager != null && Model.TableData.Pager.PagesCount > 1)
+            {
+                @Html.ActionLink(Lang.ProductCatalog_PagerFirstLink, "ProductList", new {id = "1"}, new {@class = "productCatalogPagerLinks"})
+                @Html.ActionLink(Lang.ProductCatalog_PagerPrevLink, "ProductList", new {id = "prev"}, new {@class = "productCatalogPagerLinks"})
+                foreach (var page in Model.TableData.Pager.Pages)
+                {
+                    var cssClassForLink = "productCatalogPagerLinks" + (page == Model.TableData.Pager.PageIndex ? " productCatalogPagerCurrentLink" : "");
+                    @Html.ActionLink(page.ToString(), "ProductList", new {id = page}, new {@class = cssClassForLink})
+                }
+                @Html.ActionLink(Lang.ProductCatalog_PagerNextLink, "ProductList", new {id = "next"}, new {@class = "productCatalogPagerLinks"})
+                @Html.ActionLink(Lang.ProductCatalog_PagerLastLink, "ProductList", new {id = Model.TableData.Pager.PagesCount}, new {@class = "productCatalogPagerLinks"})
+            }
+        </div>
+        <br/>
+        <br/>
+        <div id="productCatalogSearchContainer">
+            <input type="checkbox" id="IsSearch" onclick="onIsSearchChange()"/>
+            <span>@Lang.ProductCatalog_SearchText</span>
+            @using (Html.BeginForm())
+            {
+                <div id="productCatalogSearchPanel" style="display: none;">
+                    <br/>
+                    <span>@Lang.ProductCatalog_SearchName</span>
+                    @Html.TextBoxFor(x => x.Search.Name)
+                    <span>@Lang.ProductCatalog_SearchCategory</span>
+                    @Html.DropDownListFor(x => x.Search.SelectedCategory, Model.Search.CategoryList)
+                    <span>   </span>
+                    <input type="submit" value="@Lang.ProductCatalog_ButtonSearch"/>
+                    <br/>
+                    <br/>
+                </div>
+            }
+        </div>
+    }
+</div>
+

@@ -1,4 +1,12 @@
-﻿using OnlineStore.BuisnessLogic.UserGruop;
+﻿using System.Web;
+using OnlineStore.BuisnessLogic.Database.Contracts;
+using OnlineStore.BuisnessLogic.Database.Models;
+using OnlineStore.BuisnessLogic.Database.Realizations;
+using OnlineStore.BuisnessLogic.StorageRepository;
+using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
+using OnlineStore.BuisnessLogic.TableManagers;
+using OnlineStore.BuisnessLogic.TableManagers.Contracts;
+using OnlineStore.BuisnessLogic.UserGruop;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using StructureMap;
 using StructureMap.Graph;
@@ -26,7 +34,7 @@ namespace OnlineStore.BuisnessLogic.StructureMap
 
             //// Repository
             //For<IEfPersonRepository>().Use<EfPersonRepository>().Singleton();
-            //For<IEfProductRepository>().Use<EfProductRepository>().Singleton();
+            For<IDbProductRepository>().Use<EfProductRepository>().Singleton();
             //For<IEfOrderHistoryRepository>().Use<EfOrderHistoryRepository>().Singleton();
 
             //// GridViews
@@ -34,6 +42,7 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             //For<IGridViewBasketManager<HttpSessionState>>().Use<GridViewBasketAgent<HttpSessionState>>();
             //For<IGridViewProductManagementManager<HttpSessionState>>().Use<GridViewProductManagementAgent<HttpSessionState>>();
             //For<IGridViewProfileManager<HttpSessionState>>().Use<GridViewProfileAgent<HttpSessionState>>();
+            For<ITableManager<Product>>().Use<TableAgent<Product>>();
 
             //// Other
             //For<ILangSetter>().Use<LangSetter>().Singleton();
@@ -42,6 +51,7 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             //For<IOrderRepository<HttpSessionState>>().Use<OrderSessionRepository>();
             //For<IImageService>().Use<ImageServiceAgent>();
             For<IUserGroup>().Use<UserGroup>();
+            For<IStorageRepository<HttpSessionStateBase>>().Use<StorageSessionRepository>();
         }
     }
 }

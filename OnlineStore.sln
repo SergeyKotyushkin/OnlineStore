@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.MvcWebProject",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.BuisnessLogic", "OnlineStore.BuisnessLogic\OnlineStore.BuisnessLogic.csproj", "{A205261D-FCD6-4468-BC4A-C383BA4B5A1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.BuisnessLogic.UnitTests", "OnlineStore.BuisnessLogic.UnitTests\OnlineStore.BuisnessLogic.UnitTests.csproj", "{489830DD-6D20-419F-8271-EECF28597CFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{A205261D-FCD6-4468-BC4A-C383BA4B5A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A205261D-FCD6-4468-BC4A-C383BA4B5A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A205261D-FCD6-4468-BC4A-C383BA4B5A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{489830DD-6D20-419F-8271-EECF28597CFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489830DD-6D20-419F-8271-EECF28597CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489830DD-6D20-419F-8271-EECF28597CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489830DD-6D20-419F-8271-EECF28597CFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

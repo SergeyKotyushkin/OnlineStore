@@ -1,4 +1,5 @@
-﻿@using System.Drawing
+﻿@using System.Collections.Specialized
+@using System.Drawing
 
 <!DOCTYPE html>
 
@@ -7,6 +8,10 @@
     <meta name="viewport" content="width=device-width"/>
     <link href="@Url.Content("~/Content/StyleSheets/MainLayout.css?" + DateTime.Now.Ticks)" rel="stylesheet" type="text/css"/>
     @RenderSection("StyleSheets")
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -16,20 +21,20 @@
             <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft">
                 <div>Language</div>
             </td>
-            @if ((bool) ViewBag.MoneyVisible)
+            @if ((bool)ViewBag.MoneyVisible)
             {
                 <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft dividerLeft">
                     <div>Money</div>
                 </td>
             }
             <td></td>
-            @if ((bool) ViewBag.ProfileVisible)
+            @if ((bool)ViewBag.ProfileVisible)
             {
                 <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight">
                     <div>Profile</div>
                 </td>
             }
-            @if ((bool) ViewBag.LogoutVisible)
+            @if ((bool)ViewBag.LogoutVisible)
             {
                 <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight dividerLeft">
                     <div>
@@ -51,10 +56,10 @@
     <div class="horizontalCenter">
         @if (ViewBag.Message != null)
         {
-            @Html.Label((string) ViewBag.Message.Text, new
-            {
-                style = string.Format("color: {0}", ColorTranslator.ToHtml((Color) ViewBag.Message.Color))
-            })
+            @Html.Label((string)ViewBag.Message.Text, new
+       {
+           style = string.Format("color: {0}", ColorTranslator.ToHtml((Color)ViewBag.Message.Color))
+       })
         }
     </div>
 </div>

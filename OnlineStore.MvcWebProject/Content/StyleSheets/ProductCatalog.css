@@ -1,1 +1,78 @@
-﻿
+﻿#productCatalogHeader {
+    text-align: center;
+    font-size: x-large;
+    margin: 10px;
+}
+
+#productCatalogTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid #006699;
+}
+
+.productCatalogTableTh {
+    background-color: #006699;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    border: 2px solid #006699;
+    border-right: 2px solid white;
+    padding: 5px 0;
+}
+
+.productCatalogTableThLast {
+    border: 2px solid #006699;
+}
+
+.productCatalogTableTd {
+    text-align: center;
+    border: 2px solid #006699;
+    padding: 5px 0;
+}
+
+.productCatalogTableIdColumn {
+     display: none;
+}
+
+.productCatalogTableOddRow {
+    background-color: white;
+}
+
+.productCatalogTableEvenRow {
+    background-color: #e0e0d6;
+}
+
+#productCatalogPager {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.productCatalogPagerLinks {
+    color: black;
+    margin: 3px;
+    padding: 5px;
+}
+
+.productCatalogPagerLinks:checked {
+    color: black;
+}
+
+.productCatalogPagerLinks:hover {
+    background-color: #66cdaa;
+    color: black;
+}
+
+.productCatalogPagerCurrentLink {
+    background-color: #006699;
+    color: white;
+}
+
+#productCatalogSearchContainer {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #a9a9a9;
+    border: 1px solid #808080;
+}

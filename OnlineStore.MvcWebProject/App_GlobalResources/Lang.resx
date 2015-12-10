@@ -141,4 +141,43 @@
   <data name="MainLayout_LogOut" xml:space="preserve">
     <value>Log Out</value>
   </data>
+  <data name="ProductCatalog_Header" xml:space="preserve">
+    <value>Choose products for youself!</value>
+  </data>
+  <data name="ProductCatalog_HeaderCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ProductCatalog_HeaderCount" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="ProductCatalog_HeaderName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ProductCatalog_HeaderPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="ProductCatalog_PagerFirstLink" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="ProductCatalog_PagerLastLink" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="ProductCatalog_PagerNextLink" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ProductCatalog_PagerPrevLink" xml:space="preserve">
+    <value>Prev</value>
+  </data>
+  <data name="ProductCatalog_SearchText" xml:space="preserve">
+    <value>Search in catalog</value>
+  </data>
+  <data name="ProductCatalog_ButtonSearch" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ProductCatalog_SearchCategory" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="ProductCatalog_SearchName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
 </root>
