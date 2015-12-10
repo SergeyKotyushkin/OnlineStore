@@ -87,11 +87,16 @@
   <ItemGroup>
     <Compile Include="Database\Contracts\IDbProductRepository.cs" />
     <Compile Include="Database\EfContexts\EfProductContext.cs" />
+    <Compile Include="Database\Models\Dto\ProductDto.cs" />
     <Compile Include="Database\Realizations\EfProductRepository.cs" />
     <Compile Include="Database\Models\Product.cs" />
+    <Compile Include="MappingDto\ProductDtoMapping.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="Models\Table.cs" />
+    <Compile Include="OrderRepository\Contracts\IOrderRepository.cs" />
+    <Compile Include="OrderRepository\OrderSessionRepository.cs" />
     <Compile Include="StorageRepository\Contracts\IStorageRepository.cs" />
     <Compile Include="StorageRepository\StorageSessionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

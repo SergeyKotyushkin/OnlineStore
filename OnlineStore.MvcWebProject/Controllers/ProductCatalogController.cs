@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using OnlineStore.BuisnessLogic.Database.Contracts;
-using OnlineStore.BuisnessLogic.Database.Models;
+using OnlineStore.BuisnessLogic.Database.Models.Dto;
+using OnlineStore.BuisnessLogic.MappingDto;
 using OnlineStore.BuisnessLogic.Models;
+using OnlineStore.BuisnessLogic.OrderRepository.Contracts;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers.Contracts;
 using OnlineStore.MvcWebProject.Models.ProductCatalog;
@@ -17,18 +21,22 @@ namespace OnlineStore.MvcWebProject.Controllers
     {
         private const int PageSize = 8;
         private const int VisiblePagesCount = 5;
+        private const string OrderStorageName = "CurrentOrder";
         private const string OldPageIndexName = "CurrentPageIndexPC";
 
-        private readonly ITableManager<Product> _tableManager;
+        private readonly ITableManager<ProductDto> _tableManager;
         private readonly IStorageRepository<HttpSessionStateBase> _storageRepository;
+        private readonly IOrderRepository<HttpSessionStateBase> _orderRepository;
         private readonly IDbProductRepository _dbProductRepository;
 
-        public ProductCatalogController(ITableManager<Product> tableManager,
-            IStorageRepository<HttpSessionStateBase> storageRepository, IDbProductRepository dbProductRepository)
+        public ProductCatalogController(ITableManager<ProductDto> tableManager,
+            IStorageRepository<HttpSessionStateBase> storageRepository, IDbProductRepository dbProductRepository,
+            IOrderRepository<HttpSessionStateBase> orderRepository)
         {
             _tableManager = tableManager;
             _storageRepository = storageRepository;
             _dbProductRepository = dbProductRepository;
+            _orderRepository = orderRepository;
         }
 
         [HttpGet]
@@ -45,18 +53,15 @@ namespace OnlineStore.MvcWebProject.Controllers
             return View(new ProductCatalogModel { TableData = table, Search = search });
         }
 
-        private Table<Product> GetTableData(string id)
+        private Table<ProductDto> GetTableData(string id)
         {
-            var products = _dbProductRepository.GetAll().ToList();
-            //new List<Product>();
-            //for (var i = 0; i < 10; i++)
-            //    products.Add(new Product {Id = i, Name = "Ball" + i, Category = "Sport" + i, Price = 500m + i});
+            var productsDto = GetProductDtoList();
 
-            var pagesCount = GetPagesCount(products);
+            var pagesCount = GetPagesCount(productsDto);
 
             var newPageIndex = GetNewPageIndex(id, pagesCount);
 
-            var data = _tableManager.GetPageData(products, newPageIndex, PageSize).ToArray();
+            var data = _tableManager.GetPageData(productsDto, newPageIndex, PageSize).ToArray();
             var pager = new Pager
             {
                 PageIndex = newPageIndex,
@@ -66,17 +71,48 @@ namespace OnlineStore.MvcWebProject.Controllers
                 Pages = _tableManager.GetPages(newPageIndex, pagesCount, VisiblePagesCount)
             };
 
-            return new Table<Product> {Data = data, Pager = pager};
+            return new Table<ProductDto> {Data = data, Pager = pager};
+        }
+        
+        public PartialViewResult PageChange(int pageindex)
+        {
+            var table = GetTableData(pageindex.ToString());
+
+            return PartialView("_productCatalogList", table);
         }
 
-        private static int GetPagesCount(IReadOnlyCollection<Product> products)
+        public string AddToOrder(int id)
         {
-           return (int) Math.Ceiling((double) products.Count/PageSize);
+            var count = _orderRepository.Add(Session, OrderStorageName, id);
+            return JsonConvert.SerializeObject(new {id, count});
+        }
+
+        public string RemoveFromOrder(int id)
+        {
+            var count = _orderRepository.Remove(Session, OrderStorageName, id);
+            return JsonConvert.SerializeObject(new { id, count });
+        }
+        
+        private List<ProductDto> GetProductDtoList()
+        {
+            var products = _dbProductRepository.GetAll().ToList();
+            var orders = _orderRepository.GetAll(Session, OrderStorageName);
+            var culture = CultureInfo.CurrentCulture;
+            return products.Select(p =>
+            {
+                var order = orders.FirstOrDefault(o => o.Id == p.Id);
+                return ProductDtoMapping.ToDto(p, order == null ? 0 : order.Count, culture);
+            }).ToList();
+        }
+
+        private static int GetPagesCount(IReadOnlyCollection<ProductDto> products)
+        {
+            return (int)Math.Ceiling((double)products.Count / PageSize);
         }
 
         private int GetNewPageIndex(string id, int pagesCount)
         {
-            var oldPageIndex = (int) (_storageRepository.Get(Session, OldPageIndexName) ?? 1);
+            var oldPageIndex = (int)(_storageRepository.Get(Session, OldPageIndexName) ?? 1);
             var newPageIndex = _tableManager.GetPageIndex(id, oldPageIndex, pagesCount);
             _storageRepository.Set(Session, OldPageIndexName, newPageIndex);
 

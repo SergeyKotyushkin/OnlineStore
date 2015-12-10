@@ -133,6 +133,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to +.
+        /// </summary>
+        internal static string ProductCatalog_ButtonAddToOrder {
+            get {
+                return ResourceManager.GetString("ProductCatalog_ButtonAddToOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -.
+        /// </summary>
+        internal static string ProductCatalog_ButtonRemoveFromOrder {
+            get {
+                return ResourceManager.GetString("ProductCatalog_ButtonRemoveFromOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         internal static string ProductCatalog_ButtonSearch {

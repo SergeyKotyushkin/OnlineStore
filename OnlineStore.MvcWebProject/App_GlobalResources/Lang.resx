@@ -180,4 +180,10 @@
   <data name="ProductCatalog_SearchName" xml:space="preserve">
     <value>Name:</value>
   </data>
+  <data name="ProductCatalog_ButtonAddToOrder" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="ProductCatalog_ButtonRemoveFromOrder" xml:space="preserve">
+    <value>-</value>
+  </data>
 </root>

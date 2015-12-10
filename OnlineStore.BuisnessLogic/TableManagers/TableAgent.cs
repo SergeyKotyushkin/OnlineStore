@@ -9,23 +9,30 @@ namespace OnlineStore.BuisnessLogic.TableManagers
     {
         public int GetPageIndex(string newIndex, int oldIndex, int pagesCount)
         {
+            var result = -1;
             switch (newIndex)
             {
                 case null:
-                    return 1;
+                    result = 1;
+                    break;
                 case "prev":
-                    return oldIndex > 1 ? oldIndex - 1 : 1;
+                    result = oldIndex > 1 ? oldIndex - 1 : 1;
+                    break;
                 case "next":
-                    return oldIndex < pagesCount ? oldIndex + 1 : pagesCount;
+                    result = oldIndex < pagesCount ? oldIndex + 1 : pagesCount;
+                    break;
                 default:
                     {
                         int i;
                         if (!int.TryParse(newIndex, out i)) return oldIndex;
 
                         if (i > 0 && i <= pagesCount) return i;
-                        return i < 1 ? 1 : pagesCount;
+                        result = i < 1 ? 1 : pagesCount;
+                        break;
                     }
             }
+
+            return result > 0 && result <= pagesCount ? result : 1;
         }
 
         public int[] GetPages(int newIndex, int pagesCount, int visiblePagesCount)

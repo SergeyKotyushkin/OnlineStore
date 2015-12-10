@@ -1,7 +1,10 @@
 ﻿using System.Web;
 using OnlineStore.BuisnessLogic.Database.Contracts;
 using OnlineStore.BuisnessLogic.Database.Models;
+using OnlineStore.BuisnessLogic.Database.Models.Dto;
 using OnlineStore.BuisnessLogic.Database.Realizations;
+using OnlineStore.BuisnessLogic.OrderRepository;
+using OnlineStore.BuisnessLogic.OrderRepository.Contracts;
 using OnlineStore.BuisnessLogic.StorageRepository;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers;
@@ -42,16 +45,16 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             //For<IGridViewBasketManager<HttpSessionState>>().Use<GridViewBasketAgent<HttpSessionState>>();
             //For<IGridViewProductManagementManager<HttpSessionState>>().Use<GridViewProductManagementAgent<HttpSessionState>>();
             //For<IGridViewProfileManager<HttpSessionState>>().Use<GridViewProfileAgent<HttpSessionState>>();
-            For<ITableManager<Product>>().Use<TableAgent<Product>>();
+            For<ITableManager<ProductDto>>().Use<TableAgent<ProductDto>>();
 
             //// Other
             //For<ILangSetter>().Use<LangSetter>().Singleton();
             //For<ICurrencyCultureService<HttpCookieCollection>>().Use<CurrencyCultureCookieService>();
             //For<IStorageService<HttpSessionState>>().Use<StorageSessionService>();
-            //For<IOrderRepository<HttpSessionState>>().Use<OrderSessionRepository>();
             //For<IImageService>().Use<ImageServiceAgent>();
             For<IUserGroup>().Use<UserGroup>();
             For<IStorageRepository<HttpSessionStateBase>>().Use<StorageSessionRepository>();
+            For<IOrderRepository<HttpSessionStateBase>>().Use<OrderSessionRepository>();
         }
     }
 }
