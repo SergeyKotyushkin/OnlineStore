@@ -186,4 +186,16 @@
   <data name="ProductCatalog_ButtonRemoveFromOrder" xml:space="preserve">
     <value>-</value>
   </data>
+  <data name="ProductCatalog_AllCategory" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="ProductCatalog_SearchNoResult" xml:space="preserve">
+    <value>No matching results</value>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>Online Store</value>
+  </data>
+  <data name="ProductCatalog_Title" xml:space="preserve">
+    <value>Product Catalog</value>
+  </data>
 </root>

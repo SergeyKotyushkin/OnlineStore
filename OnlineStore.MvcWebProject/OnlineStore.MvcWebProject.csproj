@@ -145,8 +145,8 @@
     </Compile>
     <Compile Include="Models\Index\Credentials.cs" />
     <Compile Include="Models\Index\IndexModel.cs" />
-    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\ProductCatalog\ProductCatalogModel.cs" />
+    <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

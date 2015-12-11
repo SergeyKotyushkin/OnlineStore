@@ -1,5 +1,5 @@
-﻿@using System.Collections.Specialized
-@using System.Drawing
+﻿@using System.Drawing
+@model OnlineStore.MvcWebProject.Models.ViewModelBase
 
 <!DOCTYPE html>
 
@@ -12,7 +12,10 @@
     {
         @RenderSection("Scripts")
     }
-    <title>@ViewBag.Title</title>
+    @if (Model != null)
+    {
+        <title>@Model.Settings.Title</title>
+    }
 </head>
 <body>
 <div id="mainLayoutTop" class="table">
@@ -21,29 +24,32 @@
             <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft">
                 <div>Language</div>
             </td>
-            @if ((bool)ViewBag.MoneyVisible)
+            @if (Model != null)
             {
-                <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft dividerLeft">
-                    <div>Money</div>
-                </td>
-            }
-            <td></td>
-            @if ((bool)ViewBag.ProfileVisible)
-            {
-                <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight">
-                    <div>Profile</div>
-                </td>
-            }
-            @if ((bool)ViewBag.LogoutVisible)
-            {
-                <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight dividerLeft">
-                    <div>
-                        @using (Html.BeginForm("LogOut", "MainLayout"))
-                        {
-                            <input type="submit" value="@Resources.Lang.MainLayout_LogOut"/>
-                        }
-                    </div>
-                </td>
+                if (Model.Settings.MoneyVisible)
+                {
+                    <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft dividerLeft">
+                        <div>Money</div>
+                    </td>
+                }
+                <td></td>
+                if (Model.Settings.ProfileVisible)
+                {
+                    <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight">
+                        <div>Profile</div>
+                    </td>
+                }
+                if (Model.Settings.LogoutVisible)
+                {
+                    <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight dividerLeft">
+                        <div>
+                            @using (Html.BeginForm("LogOut", "MainLayout"))
+                            {
+                                <input type="submit" value="@Resources.Lang.MainLayout_LogOut"/>
+                            }
+                        </div>
+                    </td>
+                }
             }
         </tr>
     </table>
@@ -54,12 +60,15 @@
 <div id="mainLayoutBottom">
     <hr/>
     <div class="horizontalCenter">
-        @if (ViewBag.Message != null)
+        @if (Model != null)
         {
-            @Html.Label((string)ViewBag.Message.Text, new
-       {
-           style = string.Format("color: {0}", ColorTranslator.ToHtml((Color)ViewBag.Message.Color))
-       })
+            if (Model.Message != null)
+            {
+                @Html.Label(Model.Message.Text, new
+                {
+                    style = string.Format("color: {0}", ColorTranslator.ToHtml(Model.Message.Color))
+                })
+            }
         }
     </div>
 </div>

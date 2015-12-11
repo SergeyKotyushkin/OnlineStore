@@ -5,10 +5,10 @@ namespace OnlineStore.BuisnessLogic.Models
 {
     public class Search
     {
-        public string Name { get; set; }
+        public string SearchName { get; set; }
+
+        public string SearchCategory { get; set; }
 
         public IEnumerable<SelectListItem> CategoryList { get; set; }
-
-        public int SelectedCategory { get; set; }
     }
 }

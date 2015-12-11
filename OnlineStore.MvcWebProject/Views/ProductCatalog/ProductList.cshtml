@@ -2,10 +2,6 @@
 @model OnlineStore.MvcWebProject.Models.ProductCatalog.ProductCatalogModel
 
 @{
-    ViewBag.Title = "ProductList";
-    ViewBag.MoneyVisible = true;
-    ViewBag.ProfileVisible = true;
-    ViewBag.LogoutVisible = true;
     Layout = "~/Views/Layouts/_MainLayout.cshtml";
 }
 
@@ -29,27 +25,28 @@
     @if (Model.TableData.Data != null && Model.TableData.Data.Length != 0)
     {
         @Html.Partial("_productCatalogList", Model.TableData)
-
-        <br/>
-        <br/>
-        <div id="productCatalogSearchContainer">
-            <input type="checkbox" id="IsSearch" onclick="onIsSearchChange()"/>
-            <span>@Lang.ProductCatalog_SearchText</span>
-            @using (Html.BeginForm())
-            {
-                <div id="productCatalogSearchPanel" style="display: none;">
-                    <br/>
-                    <span>@Lang.ProductCatalog_SearchName</span>
-                    @Html.TextBoxFor(x => x.Search.Name)
-                    <span>@Lang.ProductCatalog_SearchCategory</span>
-                    @Html.DropDownListFor(x => x.Search.SelectedCategory, Model.Search.CategoryList)
-                    <span>   </span>
-                    <input type="submit" value="@Lang.ProductCatalog_ButtonSearch"/>
-                    <br/>
-                    <br/>
-                </div>
-            }
-        </div>
+    }else
+    {
+        <div id="productCatalogSearchNoResult">@Lang.ProductCatalog_SearchNoResult</div>
     }
+    <br/>
+    <br/>
+    <div id="productCatalogSearchContainer">
+        <span>@Lang.ProductCatalog_SearchText</span>
+        @using (Html.BeginForm("ProductList", "ProductCatalog", FormMethod.Get))
+        {
+            <div id="productCatalogSearchPanel">
+                <br/>
+                <span>@Lang.ProductCatalog_SearchName</span>
+                @Html.TextBoxFor(x => x.Search.SearchName, new {Name = "name"})
+                <span>@Lang.ProductCatalog_SearchCategory</span>
+                @Html.DropDownListFor(x => x.Search.SearchCategory, Model.Search.CategoryList, new {Name = "category"})
+                <span>   </span>
+                <input type="submit" value="@Lang.ProductCatalog_ButtonSearch"/>
+                <br/>
+                <br/>
+            </div>
+        }
+    </div>
 </div>
 

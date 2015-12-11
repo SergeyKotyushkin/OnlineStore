@@ -52,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -91,6 +92,8 @@
     <Compile Include="Database\Realizations\EfProductRepository.cs" />
     <Compile Include="Database\Models\Product.cs" />
     <Compile Include="MappingDto\ProductDtoMapping.cs" />
+    <Compile Include="Models\MainLayoutSettings.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\Search.cs" />

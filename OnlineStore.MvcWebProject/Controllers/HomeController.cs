@@ -2,8 +2,8 @@
 using System.Web.Mvc;
 using System.Web.Security;
 using log4net;
+using OnlineStore.BuisnessLogic.Models;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
-using OnlineStore.MvcWebProject.Models;
 using OnlineStore.MvcWebProject.Models.Index;
 using Resources;
 
@@ -12,6 +12,8 @@ namespace OnlineStore.MvcWebProject.Controllers
     public class HomeController : Controller
     {
         private readonly Color _validateUserFail = Color.FromArgb(0xdc, 0x14, 0x3c);
+
+        private readonly MainLayoutSettings _mainLayoutSettings = new MainLayoutSettings {Title = Lang.Index_Title};
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(HomeController));
         private readonly IUserGroup _userGroup;
@@ -28,9 +30,9 @@ namespace OnlineStore.MvcWebProject.Controllers
         {
             var user = _userGroup.GetUser(true);
 
-            if (user == null) return View();
-
-            return RedirectFromIndexByRole(user.UserName);
+            return user == null
+                ? (ActionResult) View(new IndexModel {Settings = _mainLayoutSettings})
+                : RedirectFromIndexByRole(user.UserName);
         }
 
         [HttpPost]
@@ -50,6 +52,7 @@ namespace OnlineStore.MvcWebProject.Controllers
             }
 
             model.Message = new Message {Text = Lang.Index_ValidateUserFail, Color = _validateUserFail};
+            model.Settings = _mainLayoutSettings;
             return View(model);
         }
 
