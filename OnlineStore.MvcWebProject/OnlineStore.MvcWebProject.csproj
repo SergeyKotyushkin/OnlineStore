@@ -137,12 +137,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Lang.ru-RU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainLayoutController.cs" />
     <Compile Include="Controllers\ProductCatalogController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Basket\BasketModel.cs" />
     <Compile Include="Models\Index\Credentials.cs" />
     <Compile Include="Models\Index\IndexModel.cs" />
     <Compile Include="Models\ProductCatalog\ProductCatalogModel.cs" />
@@ -158,10 +165,21 @@
       <DependentUpon>aspnetdb.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\ProductDb.sdf" />
+    <Content Include="Content\Images\gbp.png" />
+    <Content Include="Content\Images\rub.png" />
+    <Content Include="Content\Images\usa.jpg" />
+    <Content Include="Content\Images\russia.jpg" />
+    <Content Include="Content\Images\usd.png" />
+    <Content Include="Content\StyleSheets\Basket.css" />
     <Content Include="Content\StyleSheets\Index.css" />
     <Content Include="Content\StyleSheets\MainLayout.css" />
     <Content Include="Content\StyleSheets\ProductCatalog.css" />
     <Content Include="Global.asax" />
+    <EmbeddedResource Include="App_GlobalResources\Lang.ru-RU.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.ru-RU.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
@@ -179,6 +197,8 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_productCatalogList.cshtml" />
+    <None Include="Views\Basket\AllOrders.cshtml" />
+    <Content Include="Views\Shared\_basketAllOrdersTable.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

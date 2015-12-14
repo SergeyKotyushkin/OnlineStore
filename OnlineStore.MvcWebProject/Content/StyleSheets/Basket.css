@@ -1,0 +1,54 @@
+﻿#basketHeader {
+    text-align: center;
+    font-size: x-large;
+    margin: 10px;
+}
+
+#basketTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid #006699;
+}
+
+.basketTableTh {
+    background-color: #006699;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    border: 2px solid #006699;
+    border-right: 2px solid white;
+    padding: 5px 0;
+}
+
+.basketTableThLast {
+    border: 2px solid #006699;
+}
+
+.basketTableTd {
+    text-align: center;
+    border: 2px solid #006699;
+    padding: 5px 0;
+}
+
+.basketTableIdColumn {
+     display: none;
+}
+
+.basketTableOddRow {
+    background-color: white;
+}
+
+.basketTableEvenRow {
+    background-color: #e0e0d6;
+}
+
+#basketTotal {
+    text-align: center;
+    font-size: large;
+}
+
+#basketButtonBuy {
+    text-align: center;
+}

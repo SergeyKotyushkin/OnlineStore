@@ -44,35 +44,10 @@
     background-color: #e0e0d6;
 }
 
-#productCatalogPager {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.productCatalogPagerLinks {
-    color: black;
-    margin: 3px;
-    padding: 5px;
-}
-
-.productCatalogPagerLinks:checked {
-    color: black;
-}
-
-.productCatalogPagerLinks:hover {
-    background-color: #66cdaa;
-    color: black;
-}
-
-.productCatalogPagerCurrentLink {
-    background-color: #006699;
-    color: white;
-}
-
 #productCatalogSearchContainer {
     text-align: center;
     width: 100%;
-    padding: 10px;
+    padding: 0 0 10px;
     background-color: #a9a9a9;
     border: 1px solid #808080;
 }
@@ -92,4 +67,13 @@
     text-align: center;
     font-size: larger;
     font-style: italic;
+}
+
+#productCatalogSearchTitle {
+    margin: 5px 0;
+    font-size: large;
+}
+
+#productCatalogBasketDiv {
+    text-align: center;
 }

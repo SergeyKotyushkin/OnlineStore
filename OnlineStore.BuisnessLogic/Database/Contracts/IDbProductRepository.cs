@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using OnlineStore.BuisnessLogic.Database.Models;
+﻿using OnlineStore.BuisnessLogic.Database.Models;
 
 namespace OnlineStore.BuisnessLogic.Database.Contracts
 {
     public interface IDbProductRepository
     {
-        IQueryable<Product> GetAll();
+        Product[] GetAll();
 
         bool AddOrUpdate(Product product);
 
@@ -13,8 +12,8 @@ namespace OnlineStore.BuisnessLogic.Database.Contracts
 
         Product GetById(int id);
 
-        IQueryable<Product> SearchByName(IQueryable<Product> products, string searchName);
+        Product[] SearchByName(Product[] products, string searchName);
 
-        IQueryable<Product> SearchByCategory(IQueryable<Product> products, string searchCategory);
+        Product[] SearchByCategory(Product[] products, string searchCategory);
     }
 }

@@ -156,16 +156,16 @@
   <data name="ProductCatalog_HeaderPrice" xml:space="preserve">
     <value>Price</value>
   </data>
-  <data name="ProductCatalog_PagerFirstLink" xml:space="preserve">
+  <data name="PagerFirstLink" xml:space="preserve">
     <value>First</value>
   </data>
-  <data name="ProductCatalog_PagerLastLink" xml:space="preserve">
+  <data name="PagerLastLink" xml:space="preserve">
     <value>Last</value>
   </data>
-  <data name="ProductCatalog_PagerNextLink" xml:space="preserve">
+  <data name="PagerNextLink" xml:space="preserve">
     <value>Next</value>
   </data>
-  <data name="ProductCatalog_PagerPrevLink" xml:space="preserve">
+  <data name="PagerPrevLink" xml:space="preserve">
     <value>Prev</value>
   </data>
   <data name="ProductCatalog_SearchText" xml:space="preserve">
@@ -197,5 +197,23 @@
   </data>
   <data name="ProductCatalog_Title" xml:space="preserve">
     <value>Product Catalog</value>
+  </data>
+  <data name="CurrencyInStorage" xml:space="preserve">
+    <value>CurrencyInStorage</value>
+  </data>
+  <data name="LanguageInStorage" xml:space="preserve">
+    <value>LanguageInStorage</value>
+  </data>
+  <data name="ProductCatalog_ButtonBasket" xml:space="preserve">
+    <value>To basket</value>
+  </data>
+  <data name="Basket_Header" xml:space="preserve">
+    <value>Your order</value>
+  </data>
+  <data name="Basket_Title" xml:space="preserve">
+    <value>Basket</value>
+  </data>
+  <data name="Basket_Total" xml:space="preserve">
+    <value>Total:</value>
   </data>
 </root>

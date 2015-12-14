@@ -9,5 +9,9 @@
         public bool ProfileVisible { get; set; }
 
         public bool LogoutVisible { get; set; }
+
+        public string SelectedLanguage { get; set; }
+
+        public string SelectedCurrency { get; set; }
     }
 }

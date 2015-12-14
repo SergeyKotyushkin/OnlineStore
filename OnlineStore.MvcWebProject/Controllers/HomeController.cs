@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Threading;
 using System.Web.Mvc;
 using System.Web.Security;
 using log4net;
@@ -13,11 +14,14 @@ namespace OnlineStore.MvcWebProject.Controllers
     {
         private readonly Color _validateUserFail = Color.FromArgb(0xdc, 0x14, 0x3c);
 
-        private readonly MainLayoutSettings _mainLayoutSettings = new MainLayoutSettings {Title = Lang.Index_Title};
+        private readonly MainLayoutSettings _mainLayoutSettings = new MainLayoutSettings
+        {
+            Title = Lang.Index_Title,
+            SelectedLanguage = Thread.CurrentThread.CurrentCulture.Name
+        };
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(HomeController));
         private readonly IUserGroup _userGroup;
-
 
         public HomeController(IUserGroup userGroup)
         {

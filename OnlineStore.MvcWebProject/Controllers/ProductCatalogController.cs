@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
 using OnlineStore.BuisnessLogic.Database.Models.Dto;
 using OnlineStore.BuisnessLogic.MappingDto;
@@ -22,24 +24,29 @@ namespace OnlineStore.MvcWebProject.Controllers
     {
         private const int PageSize = 8;
         private const int VisiblePagesCount = 5;
-        private const string OrderInStorage = "CurrentOrderPC";
+        private const string OrderInStorage = "CurrentOrder";
         private const string SearchNameInStorage = "SearchNamePC";
         private const string SearchCategoryInStorage = "SearchCategoryPC";
         private const string OldPageIndexName = "CurrentPageIndexPC";
 
         private readonly ITableManager<ProductDto> _tableManager;
-        private readonly IStorageRepository<HttpSessionStateBase> _storageRepository;
+        private readonly IStorageRepository<HttpSessionStateBase> _storageSessionRepository;
+        private readonly IStorageRepository<HttpCookieCollection> _storageCookieRepository;
         private readonly IOrderRepository<HttpSessionStateBase> _orderRepository;
         private readonly IDbProductRepository _dbProductRepository;
+        private readonly ICurrencyConverter _currencyConverter;
 
         public ProductCatalogController(ITableManager<ProductDto> tableManager,
-            IStorageRepository<HttpSessionStateBase> storageRepository, IDbProductRepository dbProductRepository,
-            IOrderRepository<HttpSessionStateBase> orderRepository)
+            IStorageRepository<HttpSessionStateBase> storageSessionRepository, IDbProductRepository dbProductRepository,
+            IOrderRepository<HttpSessionStateBase> orderRepository,
+            IStorageRepository<HttpCookieCollection> storageCookieRepository, ICurrencyConverter currencyConverter)
         {
             _tableManager = tableManager;
-            _storageRepository = storageRepository;
+            _storageSessionRepository = storageSessionRepository;
             _dbProductRepository = dbProductRepository;
             _orderRepository = orderRepository;
+            _storageCookieRepository = storageCookieRepository;
+            _currencyConverter = currencyConverter;
         }
 
         [HttpGet]
@@ -53,7 +60,7 @@ namespace OnlineStore.MvcWebProject.Controllers
 
             RefreshSearchParameters(ref name, ref category);
 
-            var id = (_storageRepository.Get(Session, OldPageIndexName) ?? 1).ToString();
+            var id = (_storageSessionRepository.Get(Session, OldPageIndexName) ?? 1).ToString();
             var categoryList = CreateCategoryList().ToList();
 
             var model = new ProductCatalogModel
@@ -71,7 +78,10 @@ namespace OnlineStore.MvcWebProject.Controllers
                     Title = Lang.ProductCatalog_Title,
                     MoneyVisible = true,
                     ProfileVisible = true,
-                    LogoutVisible = true
+                    LogoutVisible = true,
+                    SelectedLanguage = Thread.CurrentThread.CurrentUICulture.Name,
+                    SelectedCurrency = (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
+                                        Thread.CurrentThread.CurrentUICulture.Name).ToString()
                 }
             };
 
@@ -131,11 +141,18 @@ namespace OnlineStore.MvcWebProject.Controllers
             var products = _dbProductRepository.GetAll();
             if (!string.IsNullOrEmpty(name)) products = _dbProductRepository.SearchByName(products, name);
             if (!string.IsNullOrEmpty(category)) products = _dbProductRepository.SearchByCategory(products, category);
-            var productList = products.ToList();
 
             var orders = _orderRepository.GetAll(Session, OrderInStorage);
-            var culture = CultureInfo.CurrentCulture;
-            return productList.Select(p =>
+            var currencyCultureName =
+                (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
+                 Thread.CurrentThread.CurrentUICulture.Name).ToString();
+            var culture = CultureInfo.GetCultureInfo(currencyCultureName);
+
+            var rate = _currencyConverter.GetRate(CultureInfo.GetCultureInfo("ru-RU"), culture, DateTime.Now);
+            foreach (var p in products)
+                p.Price = _currencyConverter.ConvertByRate(p.Price, rate);
+            
+            return products.Select(p =>
             {
                 var order = orders.FirstOrDefault(o => o.Id == p.Id);
                 return ProductDtoMapping.ToDto(p, order == null ? 0 : order.Count, culture);
@@ -149,9 +166,9 @@ namespace OnlineStore.MvcWebProject.Controllers
 
         private int GetNewPageIndex(string id, int pagesCount)
         {
-            var oldPageIndex = (int)(_storageRepository.Get(Session, OldPageIndexName) ?? 1);
+            var oldPageIndex = (int)(_storageSessionRepository.Get(Session, OldPageIndexName) ?? 1);
             var newPageIndex = _tableManager.GetPageIndex(id, oldPageIndex, pagesCount);
-            _storageRepository.Set(Session, OldPageIndexName, newPageIndex);
+            _storageSessionRepository.Set(Session, OldPageIndexName, newPageIndex);
 
             return newPageIndex;
         }
@@ -166,24 +183,24 @@ namespace OnlineStore.MvcWebProject.Controllers
 
         private bool CheckSearchParametersIsFreshInStorage(string name, string category)
         {
-            var sName = (string) _storageRepository.Get(Session, SearchNameInStorage);
-            var sCategory = (string) _storageRepository.Get(Session, SearchCategoryInStorage);
+            var sName = (string) _storageSessionRepository.Get(Session, SearchNameInStorage);
+            var sCategory = (string) _storageSessionRepository.Get(Session, SearchCategoryInStorage);
 
             return name == sName && category == sCategory;
         }
 
         private void SaveSearchParametersInStorage(string name, string category)
         {
-            _storageRepository.Set(Session, SearchNameInStorage, name);
-            _storageRepository.Set(Session, SearchCategoryInStorage, category);
+            _storageSessionRepository.Set(Session, SearchNameInStorage, name);
+            _storageSessionRepository.Set(Session, SearchCategoryInStorage, category);
         }
         
         private void RefreshSearchParameters(ref string name, ref string category)
         {
             if (name == null)
             {
-                name = (string)_storageRepository.Get(Session, SearchNameInStorage);
-                category = (string)_storageRepository.Get(Session, SearchCategoryInStorage);
+                name = (string)_storageSessionRepository.Get(Session, SearchNameInStorage);
+                category = (string)_storageSessionRepository.Get(Session, SearchCategoryInStorage);
             }
             else if (!CheckSearchParametersIsFreshInStorage(name, category))
                 SaveSearchParametersInStorage(name, category);

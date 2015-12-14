@@ -1,0 +1,54 @@
+﻿@using OnlineStore.BuisnessLogic.Models.Dto
+@using Resources
+@model OnlineStore.BuisnessLogic.Models.Table<OrderItemDto>
+
+<div id="basketTablePartial">
+    <table id="basketTable">
+        <tr>
+            <th class="basketTableTh">Name</th>
+            <th class="basketTableTh">Price</th>
+            <th class="basketTableTh">Count</th>
+            <th class="basketTableTh basketTableThLast">Total</th>
+        </tr>
+
+        @{
+            var rowOdd = 0;
+            foreach (var order in Model.Data)
+            {
+                <tr @((rowOdd++)%2 == 1 ? "class=basketTableOddRow" : "class=basketTableEvenRow")>
+                    <td class="basketTableTd">@order.Name</td>
+                    <td class="basketTableTd">@order.Price</td>
+                    <td class="basketTableTd">@order.Count</td>
+                    <td class="basketTableTd">@order.Total</td>
+                </tr>
+            }
+        }
+    </table>
+    <br/>
+    @if (Model.Pager.PagesCount > 1)
+    {
+        var method = "PageChange";
+        var controller = "Basket";
+        var ajaxOptions = new AjaxOptions
+        {
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "basketTablePartial"
+        };
+        var htmlAttributesLinks = new {@class = "pagerLinks"};
+        var htmlAttributesCurrentLink = new {@class = "pagerLinks pagerCurrentLink"};
+
+        <div class="pager">
+            @Ajax.ActionLink(Lang.PagerFirstLink, method, controller, new {pageIndex = 1}, ajaxOptions, htmlAttributesLinks)
+            @Ajax.ActionLink(Lang.PagerPrevLink, method, controller, new {pageIndex = (Model.Pager.PageIndex - 1)}, ajaxOptions, htmlAttributesLinks)
+
+            @foreach (var page in Model.Pager.Pages)
+            {
+                @Ajax.ActionLink(page.ToString(), method, controller, new {pageIndex = page}, ajaxOptions, page == Model.Pager.PageIndex ? htmlAttributesCurrentLink : htmlAttributesLinks)
+            }
+
+            @Ajax.ActionLink(Lang.PagerNextLink, method, controller, new {pageIndex = (Model.Pager.PageIndex + 1)}, ajaxOptions, htmlAttributesLinks)
+            @Ajax.ActionLink(Lang.PagerLastLink, method, controller, new {pageIndex = Model.Pager.PagesCount}, ajaxOptions, htmlAttributesLinks)
+        </div>
+    }
+</div>

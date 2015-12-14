@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -86,21 +87,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Currency\Contracts\ICurrencyConverter.cs" />
+    <Compile Include="Currency\Contracts\ICurrencyCultureService.cs" />
+    <Compile Include="Currency\Contracts\ICurrencyService.cs" />
+    <Compile Include="Currency\Contracts\IRateService.cs" />
+    <Compile Include="Currency\CurrencyConverter.cs" />
+    <Compile Include="Currency\CurrencyCultureCookieService.cs" />
+    <Compile Include="Currency\CurrencyService.cs" />
+    <Compile Include="Currency\RateScheme.cs" />
+    <Compile Include="Currency\YahooRateService.cs" />
     <Compile Include="Database\Contracts\IDbProductRepository.cs" />
     <Compile Include="Database\EfContexts\EfProductContext.cs" />
     <Compile Include="Database\Models\Dto\ProductDto.cs" />
     <Compile Include="Database\Realizations\EfProductRepository.cs" />
     <Compile Include="Database\Models\Product.cs" />
+    <Compile Include="Lang\Contracts\ILangSetter.cs" />
+    <Compile Include="Lang\LangSetter.cs" />
+    <Compile Include="MappingDto\OrderItemDtoMapping.cs" />
     <Compile Include="MappingDto\ProductDtoMapping.cs" />
+    <Compile Include="Models\Dto\OrderItemDto.cs" />
     <Compile Include="Models\MainLayoutSettings.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderFromHistory.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\OrderToGrid.cs" />
     <Compile Include="Models\Pager.cs" />
+    <Compile Include="Models\ProductsOrder.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="OrderRepository\Contracts\IOrderRepository.cs" />
     <Compile Include="OrderRepository\OrderSessionRepository.cs" />
     <Compile Include="StorageRepository\Contracts\IStorageRepository.cs" />
+    <Compile Include="StorageRepository\StorageCoockieRepository.cs" />
     <Compile Include="StorageRepository\StorageSessionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructureMap\AllRegistry.cs" />

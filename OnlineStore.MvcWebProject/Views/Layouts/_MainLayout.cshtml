@@ -1,4 +1,5 @@
 ﻿@using System.Drawing
+@using Resources
 @model OnlineStore.MvcWebProject.Models.ViewModelBase
 
 <!DOCTYPE html>
@@ -7,7 +8,10 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <link href="@Url.Content("~/Content/StyleSheets/MainLayout.css?" + DateTime.Now.Ticks)" rel="stylesheet" type="text/css"/>
-    @RenderSection("StyleSheets")
+    @if (IsSectionDefined("StyleSheets"))
+    {
+        @RenderSection("StyleSheets")
+    }
     @if (IsSectionDefined("Scripts"))
     {
         @RenderSection("Scripts")
@@ -22,14 +26,29 @@
     <table style="width: 100%">
         <tr>
             <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft">
-                <div>Language</div>
+                @if (Model != null && !string.IsNullOrEmpty(Model.Settings.SelectedLanguage))
+                {
+                    var lang = Model.Settings.SelectedLanguage;
+                    <div>
+                        @Html.ActionLink("ru", "ChangeLanguage", "MainLayout", new {language = "ru-RU"}, new {@class = "mainLayoutLangImageButton" + (lang == "ru-RU" ? " selectedLang" : ""), style = "background-image: url(" + Url.Content("~/Content/Images/russia.jpg") + ")"})
+                        <span>  </span>
+                        @Html.ActionLink("en", "ChangeLanguage", "MainLayout", new {language = "en-US"}, new {@class = "mainLayoutLangImageButton" + (lang == "en-US" ? " selectedLang" : ""), style = "background-image: url(" + Url.Content("~/Content/Images/usa.jpg") + ")"})
+                    </div>
+                }
             </td>
             @if (Model != null)
             {
                 if (Model.Settings.MoneyVisible)
                 {
+                    var currency = Model.Settings.SelectedCurrency;
                     <td class="mainLayoutTopTableTd mainLayoutTopTableTdLeft dividerLeft">
-                        <div>Money</div>
+                        <div>
+                            @Html.ActionLink("rub", "ChangeCurrency", "MainLayout", new {currency = "ru-RU"}, new {@class = "mainLayoutMoneyImageButton" + (currency == "ru-RU" ? " selectedCurrency" : ""), style = "background-image: url(" + Url.Content("~/Content/Images/rub.png") + ")"})
+                            <span>  </span>
+                            @Html.ActionLink("usd", "ChangeCurrency", "MainLayout", new {currency = "en-US"}, new {@class = "mainLayoutMoneyImageButton" + (currency == "en-US" ? " selectedCurrency" : ""), style = "background-image: url(" + Url.Content("~/Content/Images/usd.png") + ")"})
+                            <span>  </span>
+                            @Html.ActionLink("gbp", "ChangeCurrency", "MainLayout", new {currency = "en-GB"}, new {@class = "mainLayoutMoneyImageButton" + (currency == "en-GB" ? " selectedCurrency" : ""), style = "background-image: url(" + Url.Content("~/Content/Images/gbp.png") + ")"})
+                        </div>
                     </td>
                 }
                 <td></td>
@@ -45,7 +64,7 @@
                         <div>
                             @using (Html.BeginForm("LogOut", "MainLayout"))
                             {
-                                <input type="submit" value="@Resources.Lang.MainLayout_LogOut"/>
+                                <input type="submit" value="@Lang.MainLayout_LogOut"/>
                             }
                         </div>
                     </td>

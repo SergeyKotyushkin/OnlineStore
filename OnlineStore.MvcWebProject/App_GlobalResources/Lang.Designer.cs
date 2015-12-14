@@ -61,6 +61,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, такую же, как Your order.
+        /// </summary>
+        internal static string Basket_Header {
+            get {
+                return ResourceManager.GetString("Basket_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Basket.
+        /// </summary>
+        internal static string Basket_Title {
+            get {
+                return ResourceManager.GetString("Basket_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Total:.
+        /// </summary>
+        internal static string Basket_Total {
+            get {
+                return ResourceManager.GetString("Basket_Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, такую же, как Login field is required.
         /// </summary>
         internal static string Credentials_LoginFieldIsRequired {
@@ -75,6 +102,15 @@ namespace Resources {
         internal static string Credentials_PasswordFieldIsRequired {
             get {
                 return ResourceManager.GetString("Credentials_PasswordFieldIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как CurrencyInStorage.
+        /// </summary>
+        internal static string CurrencyInStorage {
+            get {
+                return ResourceManager.GetString("CurrencyInStorage", resourceCulture);
             }
         }
         
@@ -133,11 +169,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, такую же, как LanguageInStorage.
+        /// </summary>
+        internal static string LanguageInStorage {
+            get {
+                return ResourceManager.GetString("LanguageInStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, такую же, как Log Out.
         /// </summary>
         internal static string MainLayout_LogOut {
             get {
                 return ResourceManager.GetString("MainLayout_LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как First.
+        /// </summary>
+        internal static string PagerFirstLink {
+            get {
+                return ResourceManager.GetString("PagerFirstLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Last.
+        /// </summary>
+        internal static string PagerLastLink {
+            get {
+                return ResourceManager.GetString("PagerLastLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Next.
+        /// </summary>
+        internal static string PagerNextLink {
+            get {
+                return ResourceManager.GetString("PagerNextLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Prev.
+        /// </summary>
+        internal static string PagerPrevLink {
+            get {
+                return ResourceManager.GetString("PagerPrevLink", resourceCulture);
             }
         }
         
@@ -156,6 +237,15 @@ namespace Resources {
         internal static string ProductCatalog_ButtonAddToOrder {
             get {
                 return ResourceManager.GetString("ProductCatalog_ButtonAddToOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как To basket.
+        /// </summary>
+        internal static string ProductCatalog_ButtonBasket {
+            get {
+                return ResourceManager.GetString("ProductCatalog_ButtonBasket", resourceCulture);
             }
         }
         
@@ -219,42 +309,6 @@ namespace Resources {
         internal static string ProductCatalog_HeaderPrice {
             get {
                 return ResourceManager.GetString("ProductCatalog_HeaderPrice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, такую же, как First.
-        /// </summary>
-        internal static string ProductCatalog_PagerFirstLink {
-            get {
-                return ResourceManager.GetString("ProductCatalog_PagerFirstLink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, такую же, как Last.
-        /// </summary>
-        internal static string ProductCatalog_PagerLastLink {
-            get {
-                return ResourceManager.GetString("ProductCatalog_PagerLastLink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, такую же, как Next.
-        /// </summary>
-        internal static string ProductCatalog_PagerNextLink {
-            get {
-                return ResourceManager.GetString("ProductCatalog_PagerNextLink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, такую же, как Prev.
-        /// </summary>
-        internal static string ProductCatalog_PagerPrevLink {
-            get {
-                return ResourceManager.GetString("ProductCatalog_PagerPrevLink", resourceCulture);
             }
         }
         
