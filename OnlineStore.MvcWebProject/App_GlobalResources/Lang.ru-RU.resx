@@ -222,4 +222,13 @@
   <data name="ProductCatalog_Title" xml:space="preserve">
     <value>Каталог товаров</value>
   </data>
+  <data name="Profile_Price" xml:space="preserve">
+    <value>стоимость</value>
+  </data>
+  <data name="Profile_Quantity" xml:space="preserve">
+    <value>количество</value>
+  </data>
+  <data name="Profile_Total" xml:space="preserve">
+    <value>всего</value>
+  </data>
 </root>

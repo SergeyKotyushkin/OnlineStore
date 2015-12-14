@@ -106,8 +106,6 @@
     <Compile Include="Database\Realizations\EfOrderHistoryRepository.cs" />
     <Compile Include="Database\Realizations\EfProductRepository.cs" />
     <Compile Include="Database\Models\Product.cs" />
-    <Compile Include="Lang\Contracts\ILangSetter.cs" />
-    <Compile Include="Lang\LangSetter.cs" />
     <Compile Include="Mail\Contracts\IMailSender.cs" />
     <Compile Include="Mail\Contracts\IMailService.cs" />
     <Compile Include="Mail\MailSender.cs" />

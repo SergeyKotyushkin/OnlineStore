@@ -6,6 +6,7 @@ namespace OnlineStore.BuisnessLogic.Mail.Contracts
 {
     public interface IMailService
     {
-        string GetBody(IEnumerable<OrderItemDto> orderItemsBody, IFormatProvider cultureCurrency);
+        string GetBody(IEnumerable<OrderItemDto> orderItemsBody, string ordersFormat, string bodyFormat,
+            IFormatProvider cultureCurrency);
     }
 }

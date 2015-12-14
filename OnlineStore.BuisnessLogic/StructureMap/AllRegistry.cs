@@ -4,8 +4,6 @@ using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
 using OnlineStore.BuisnessLogic.Database.Models.Dto;
 using OnlineStore.BuisnessLogic.Database.Realizations;
-using OnlineStore.BuisnessLogic.Lang;
-using OnlineStore.BuisnessLogic.Lang.Contracts;
 using OnlineStore.BuisnessLogic.Mail;
 using OnlineStore.BuisnessLogic.Mail.Contracts;
 using OnlineStore.BuisnessLogic.Models.Dto;
@@ -51,7 +49,6 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             For<ITableManager<OrderItemDto>>().Use<TableAgent<OrderItemDto>>();
 
             //// Other
-            For<ILangSetter>().Use<LangSetter>().Singleton();
             //For<IImageService>().Use<ImageServiceAgent>();
             For<IUserGroup>().Use<UserGroup>();
             For<IStorageRepository<HttpSessionStateBase>>().Use<StorageSessionRepository>();

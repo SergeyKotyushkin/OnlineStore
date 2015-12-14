@@ -228,4 +228,13 @@
   <data name="ProductCatalog_ProductsBought" xml:space="preserve">
     <value>Products were bought</value>
   </data>
+  <data name="Profile_Price" xml:space="preserve">
+    <value>price</value>
+  </data>
+  <data name="Profile_Quantity" xml:space="preserve">
+    <value>quantity</value>
+  </data>
+  <data name="Profile_Total" xml:space="preserve">
+    <value>total</value>
+  </data>
 </root>

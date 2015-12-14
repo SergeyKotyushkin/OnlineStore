@@ -42,14 +42,14 @@ namespace OnlineStore.BuisnessLogic.Mail
         }
 
         public void Create(string @from, string to, string subject, IEnumerable<OrderItemDto> orderItemsBody,
-            bool isBodyHtml, IFormatProvider cultureCurrency)
+            bool isBodyHtml, string ordersFormat, string bodyFormat, IFormatProvider cultureCurrency)
         {
             SuccessfulySend = false;
 
             _from = @from;
             _to = to;
             _subject = subject;
-            _body = _mailService.GetBody(orderItemsBody, cultureCurrency);
+            _body = _mailService.GetBody(orderItemsBody, ordersFormat, bodyFormat, cultureCurrency);
             _isBodyHtml = isBodyHtml;
         }
 

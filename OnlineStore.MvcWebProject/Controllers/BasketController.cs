@@ -10,7 +10,6 @@ using System.Web.Mvc;
 using log4net;
 using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
-using OnlineStore.BuisnessLogic.Lang.Contracts;
 using OnlineStore.BuisnessLogic.Mail.Contracts;
 using OnlineStore.BuisnessLogic.MappingDto;
 using OnlineStore.BuisnessLogic.Models;
@@ -43,14 +42,13 @@ namespace OnlineStore.MvcWebProject.Controllers
         private readonly ITableManager<OrderItemDto> _tableManager;
         private readonly IUserGroup _userGroup;
         private readonly IDbOrderHistoryRepository _dbOrderHistoryRepository;
-        private readonly ILangSetter _langSetter;
         private readonly IMailSender _mailSender;
 
         public BasketController(IStorageRepository<HttpCookieCollection> storageCookieRepository,
             IDbProductRepository dbProductRepository, IOrderRepository<HttpSessionStateBase> orderRepository,
             ICurrencyConverter currencyConverter, IStorageRepository<HttpSessionStateBase> storageSessionRepository,
             ITableManager<OrderItemDto> tableManager, IUserGroup userGroup,
-            IDbOrderHistoryRepository dbOrderHistoryRepository, ILangSetter langSetter, IMailSender mailSender)
+            IDbOrderHistoryRepository dbOrderHistoryRepository, IMailSender mailSender)
         {
             _storageCookieRepository = storageCookieRepository;
             _dbProductRepository = dbProductRepository;
@@ -60,7 +58,6 @@ namespace OnlineStore.MvcWebProject.Controllers
             _tableManager = tableManager;
             _userGroup = userGroup;
             _dbOrderHistoryRepository = dbOrderHistoryRepository;
-            _langSetter = langSetter;
             _mailSender = mailSender;
         }
 
@@ -213,14 +210,15 @@ namespace OnlineStore.MvcWebProject.Controllers
         private void SendMailMessage(string userEmail, IEnumerable<OrderItemDto> orderItemList)
         {
             var @from = ((SmtpSection)ConfigurationManager.GetSection(SmtpSectionPath)).From;
-            var mailMessageSubject = _langSetter.Set("Basket_MailMessageSubject");
+            var mailMessageSubject = Lang.Basket_MailMessageSubject;
 
             var currencyCultureName =
                 (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
                  Thread.CurrentThread.CurrentUICulture.Name).ToString();
             var cultureCurrency = CultureInfo.GetCultureInfo(currencyCultureName);
 
-            _mailSender.Create(@from, userEmail, mailMessageSubject, orderItemList, true, cultureCurrency);
+            _mailSender.Create(@from, userEmail, mailMessageSubject, orderItemList, true, Lang.Basket_MailOrderList,
+                Lang.Basket_MailMessage, cultureCurrency);
             _mailSender.Send();
         }
     }

@@ -392,5 +392,32 @@ namespace Resources {
                 return ResourceManager.GetString("ProductCatalog_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to price.
+        /// </summary>
+        internal static string Profile_Price {
+            get {
+                return ResourceManager.GetString("Profile_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to quantity.
+        /// </summary>
+        internal static string Profile_Quantity {
+            get {
+                return ResourceManager.GetString("Profile_Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to total.
+        /// </summary>
+        internal static string Profile_Total {
+            get {
+                return ResourceManager.GetString("Profile_Total", resourceCulture);
+            }
+        }
     }
 }

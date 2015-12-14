@@ -9,7 +9,7 @@ namespace OnlineStore.BuisnessLogic.Mail.Contracts
         void Send();
 
         void Create(string @from, string to, string subject, IEnumerable<OrderItemDto> orderItemsBody, bool isBodyHtml,
-            IFormatProvider cultureCurrency);
+            string ordersFormat, string bodyFormat, IFormatProvider cultureCurrency);
 
         bool CheckIsMessageCreated();
     }
