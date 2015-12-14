@@ -164,6 +164,7 @@
     <Content Include="App_Data\aspnetdb_log.ldf">
       <DependentUpon>aspnetdb.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\PersonDb.sdf" />
     <Content Include="App_Data\ProductDb.sdf" />
     <Content Include="Content\Images\gbp.png" />
     <Content Include="Content\Images\rub.png" />

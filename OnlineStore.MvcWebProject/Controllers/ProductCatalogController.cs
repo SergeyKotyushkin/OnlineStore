@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -28,6 +29,9 @@ namespace OnlineStore.MvcWebProject.Controllers
         private const string SearchNameInStorage = "SearchNamePC";
         private const string SearchCategoryInStorage = "SearchCategoryPC";
         private const string OldPageIndexName = "CurrentPageIndexPC";
+        private const string BoughtInStorage = "Bought";
+
+        private readonly Color _successColor = Color.DarkGreen;
 
         private readonly ITableManager<ProductDto> _tableManager;
         private readonly IStorageRepository<HttpSessionStateBase> _storageSessionRepository;
@@ -82,12 +86,13 @@ namespace OnlineStore.MvcWebProject.Controllers
                     SelectedLanguage = Thread.CurrentThread.CurrentUICulture.Name,
                     SelectedCurrency = (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
                                         Thread.CurrentThread.CurrentUICulture.Name).ToString()
-                }
+                },
+                Message = MessageIfBought()
             };
 
             return View(model);
         }
-        
+
         public PartialViewResult PageChange(int pageindex)
         {
             var name = Request.QueryString["name"];
@@ -210,6 +215,15 @@ namespace OnlineStore.MvcWebProject.Controllers
             }
             else if (!CheckSearchParametersIsFreshInStorage(name, category))
                 SaveSearchParametersInStorage(name, category);
+        }
+
+        private Message MessageIfBought()
+        {
+            if (Session[BoughtInStorage] == null) 
+                return null;
+
+            Session[BoughtInStorage] = null;
+            return new Message { Text = Lang.ProductCatalog_ProductsBought, Color = _successColor };
         }
     }
 }

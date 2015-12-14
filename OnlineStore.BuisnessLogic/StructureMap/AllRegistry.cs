@@ -4,6 +4,10 @@ using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
 using OnlineStore.BuisnessLogic.Database.Models.Dto;
 using OnlineStore.BuisnessLogic.Database.Realizations;
+using OnlineStore.BuisnessLogic.Lang;
+using OnlineStore.BuisnessLogic.Lang.Contracts;
+using OnlineStore.BuisnessLogic.Mail;
+using OnlineStore.BuisnessLogic.Mail.Contracts;
 using OnlineStore.BuisnessLogic.Models.Dto;
 using OnlineStore.BuisnessLogic.OrderRepository;
 using OnlineStore.BuisnessLogic.OrderRepository.Contracts;
@@ -34,26 +38,20 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             For<IRateService>().Use<YahooRateService>().Singleton();
 
             //// Mail
-            //For<IMailSender>().Use<MailSender>().AlwaysUnique();
-            //For<IMailService>().Use<MailService>().Singleton();
+            For<IMailSender>().Use<MailSender>().AlwaysUnique();
+            For<IMailService>().Use<MailService>().Singleton();
 
             //// Repository
             //For<IEfPersonRepository>().Use<EfPersonRepository>().Singleton();
             For<IDbProductRepository>().Use<EfProductRepository>().Singleton();
-            //For<IEfOrderHistoryRepository>().Use<EfOrderHistoryRepository>().Singleton();
+            For<IDbOrderHistoryRepository>().Use<EfOrderHistoryRepository>().Singleton();
 
             //// GridViews
-            //For<IGridViewProductCatalogManager<HttpSessionState>>().Use<GridViewProductCatalogAgent<HttpSessionState>>();
-            //For<IGridViewBasketManager<HttpSessionState>>().Use<GridViewBasketAgent<HttpSessionState>>();
-            //For<IGridViewProductManagementManager<HttpSessionState>>().Use<GridViewProductManagementAgent<HttpSessionState>>();
-            //For<IGridViewProfileManager<HttpSessionState>>().Use<GridViewProfileAgent<HttpSessionState>>();
             For<ITableManager<ProductDto>>().Use<TableAgent<ProductDto>>();
             For<ITableManager<OrderItemDto>>().Use<TableAgent<OrderItemDto>>();
 
             //// Other
-            //For<ILangSetter>().Use<LangSetter>().Singleton();
-            //For<ICurrencyCultureService<HttpCookieCollection>>().Use<CurrencyCultureCookieService>();
-            //For<IStorageService<HttpSessionState>>().Use<StorageSessionService>();
+            For<ILangSetter>().Use<LangSetter>().Singleton();
             //For<IImageService>().Use<ImageServiceAgent>();
             For<IUserGroup>().Use<UserGroup>();
             For<IStorageRepository<HttpSessionStateBase>>().Use<StorageSessionRepository>();

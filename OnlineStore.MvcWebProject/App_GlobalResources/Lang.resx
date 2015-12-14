@@ -216,4 +216,16 @@
   <data name="Basket_Total" xml:space="preserve">
     <value>Total:</value>
   </data>
+  <data name="Basket_MailOrderList" xml:space="preserve">
+    <value>&lt;li&gt;&lt;b&gt;{0}&lt;/b&gt; [quantity: {1}; price: {2}]&lt;/li&gt;</value>
+  </data>
+  <data name="Basket_MailMessage" xml:space="preserve">
+    <value>&lt;p&gt;Thank You for shopping in &lt;b&gt;"Online Store"&lt;/b&gt;.&lt;br/&gt;Today ({0}) You have bought:&lt;br/&gt;{1}Total price is: &lt;b&gt;{2}&lt;/b&gt;.&lt;br/&gt;Hope to see You soon!&lt;/p&gt;</value>
+  </data>
+  <data name="Basket_MailMessageSubject" xml:space="preserve">
+    <value>Online Store Alert!</value>
+  </data>
+  <data name="ProductCatalog_ProductsBought" xml:space="preserve">
+    <value>Products were bought</value>
+  </data>
 </root>
