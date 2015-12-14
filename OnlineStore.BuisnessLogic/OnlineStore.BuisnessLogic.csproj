@@ -105,6 +105,7 @@
     <Compile Include="Lang\LangSetter.cs" />
     <Compile Include="MappingDto\OrderItemDtoMapping.cs" />
     <Compile Include="MappingDto\ProductDtoMapping.cs" />
+    <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Dto\OrderItemDto.cs" />
     <Compile Include="Models\MainLayoutSettings.cs" />
     <Compile Include="Models\Message.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\OrderToGrid.cs" />
     <Compile Include="Models\Pager.cs" />
+    <Compile Include="Models\PagerSettings.cs" />
     <Compile Include="Models\ProductsOrder.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="Models\Table.cs" />

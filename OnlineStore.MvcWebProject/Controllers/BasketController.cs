@@ -47,20 +47,10 @@ namespace OnlineStore.MvcWebProject.Controllers
 
         public ActionResult AllOrders(string id)
         {
-            var tableData = GetTableData(id);
-
-            var currencyCultureName =
-                (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
-                 Thread.CurrentThread.CurrentUICulture.Name).ToString();
-            var culture = CultureInfo.GetCultureInfo(currencyCultureName);
-            var total =
-                tableData.Data.Sum(o => o.Count*decimal.Parse(o.Price, NumberStyles.Currency, culture))
-                    .ToString("C", culture);
-
             var model = new BasketModel
             {
                 TableData = GetTableData(id),
-                Total = Lang.Basket_Total + " " + total,
+                Total = GetTotal(),
                 Settings = new MainLayoutSettings
                 {
                     Title = Lang.Basket_Title,
@@ -69,7 +59,8 @@ namespace OnlineStore.MvcWebProject.Controllers
                     LogoutVisible = true,
                     SelectedLanguage = Thread.CurrentThread.CurrentCulture.Name,
                     SelectedCurrency = (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
-                                        Thread.CurrentThread.CurrentUICulture.Name).ToString()
+                                        Thread.CurrentThread.CurrentUICulture.Name).ToString(),
+                    RouteBack = new Route {Action = "ProductList", Controller = "ProductCatalog"}
                 }
             };
 
@@ -99,7 +90,13 @@ namespace OnlineStore.MvcWebProject.Controllers
                 PagesCount = pagesCount,
                 PageSize = PageSize,
                 PagerVisible = true,
-                Pages = _tableManager.GetPages(newPageIndex, pagesCount, VisiblePagesCount)
+                Pages = _tableManager.GetPages(newPageIndex, pagesCount, VisiblePagesCount),
+                PagerSettings =
+                    new PagerSettings
+                    {
+                        PageChangeRoute = new Route{Action = "PageChange", Controller = "Basket"},
+                        UpdateTargetId = "basketTablePartial"
+                    }
             };
 
             return new Table<OrderItemDto> { Data = data, Pager = pager };
@@ -128,6 +125,24 @@ namespace OnlineStore.MvcWebProject.Controllers
             }).ToArray();
 
             return orderItemArray.Select(ot => OrderItemDtoMapping.ToDto(ot, culture)).ToList();
+        }
+
+        private string GetTotal()
+        {
+            var products = _dbProductRepository.GetAll();
+            var orders = _orderRepository.GetAll(Session, OrderInStorage);
+
+            var currencyCultureName =
+                (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
+                 Thread.CurrentThread.CurrentUICulture.Name).ToString();
+            var culture = CultureInfo.GetCultureInfo(currencyCultureName);
+            var rate = _currencyConverter.GetRate(new CultureInfo("ru-Ru"), culture, DateTime.Now);
+
+            var total =
+                products.Join(orders, p => p.Id, q => q.Id,
+                    (p, q) => _currencyConverter.ConvertByRate(p.Price*q.Count, rate)).Sum();
+
+            return Lang.Basket_Total + " " + total.ToString("C", culture);
         }
 
         private static int GetPagesCount(IReadOnlyCollection<OrderItemDto> products)

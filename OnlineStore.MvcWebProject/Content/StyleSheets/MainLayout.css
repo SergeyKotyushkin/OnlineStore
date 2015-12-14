@@ -125,3 +125,20 @@
     background-color: #006699;
     color: white;
 }
+
+#mainLayoutButtonBackDiv {
+    position: fixed;
+    top: 40px;
+    right: 5px;
+}
+
+#mainLayoutButtonBack {
+    color: #b22222;
+    border: 1px solid #b22222;
+    font-weight: bold;
+}
+
+#mainLayoutButtonBack:hover {
+    color: white;
+    background-color: #b22222;
+}

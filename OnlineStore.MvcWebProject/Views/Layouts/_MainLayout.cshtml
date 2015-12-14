@@ -76,6 +76,15 @@
 <div id="mainLayoutRenderBody">
     @RenderBody()
 </div>
+@if (Model != null && Model.Settings.RouteBack != null)
+{
+    <div id="mainLayoutButtonBackDiv">
+        @using (Html.BeginForm(Model.Settings.RouteBack.Action, Model.Settings.RouteBack.Controller, FormMethod.Get))
+        {
+            <input type="submit" value="back" id="mainLayoutButtonBack"/>
+        }
+    </div>
+}
 <div id="mainLayoutBottom">
     <hr/>
     <div class="horizontalCenter">

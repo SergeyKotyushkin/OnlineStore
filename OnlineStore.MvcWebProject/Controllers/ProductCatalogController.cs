@@ -129,7 +129,13 @@ namespace OnlineStore.MvcWebProject.Controllers
                 PagesCount = pagesCount,
                 PageSize = PageSize,
                 PagerVisible = true,
-                Pages = _tableManager.GetPages(newPageIndex, pagesCount, VisiblePagesCount)
+                Pages = _tableManager.GetPages(newPageIndex, pagesCount, VisiblePagesCount),
+                PagerSettings =
+                    new PagerSettings
+                    {
+                        PageChangeRoute = new Route { Action = "PageChange", Controller = "ProductCatalog" },
+                        UpdateTargetId = "productCatalogTablePartial"
+                    }
             };
 
             return new Table<ProductDto> {Data = data, Pager = pager};

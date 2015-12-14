@@ -11,5 +11,7 @@
         public bool PagerVisible { get; set; }
 
         public int[] Pages { get; set; }
+
+        public PagerSettings PagerSettings { get; set; }
     }
 }

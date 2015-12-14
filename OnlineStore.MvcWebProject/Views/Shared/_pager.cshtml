@@ -1,0 +1,32 @@
+﻿@using Resources
+@model OnlineStore.BuisnessLogic.Models.Pager
+
+@if (Model.PagesCount > 1)
+{
+    var action = Model.PagerSettings.PageChangeRoute.Action;
+    var controller = Model.PagerSettings.PageChangeRoute.Controller;
+    var ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = Model.PagerSettings.UpdateTargetId
+    };
+    var htmlAttributesLinks = new {@class = "pagerLinks"};
+    var htmlAttributesCurrentLink = new {@class = "pagerLinks pagerCurrentLink"};
+
+    <div class=
+         "pager">
+        @Ajax.ActionLink(Lang.PagerFirstLink, action, controller, new {pageIndex = 1}, ajaxOptions, htmlAttributesLinks)
+        @Ajax.ActionLink(Lang.PagerPrevLink, action, controller, new {pageIndex = (Model.PageIndex - 1)}, ajaxOptions, htmlAttributesLinks)
+
+        @foreach (var
+            page in
+            Model.Pages)
+        {
+            @Ajax.ActionLink(page.ToString(), action, controller, new {pageIndex = page}, ajaxOptions, page == Model.PageIndex ? htmlAttributesCurrentLink : htmlAttributesLinks)
+        }
+
+        @Ajax.ActionLink(Lang.PagerNextLink, action, controller, new {pageIndex = (Model.PageIndex + 1)}, ajaxOptions, htmlAttributesLinks)
+        @Ajax.ActionLink(Lang.PagerLastLink, action, controller, new {pageIndex = Model.PagesCount}, ajaxOptions, htmlAttributesLinks)
+    </div>
+}
