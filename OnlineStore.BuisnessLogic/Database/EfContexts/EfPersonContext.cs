@@ -10,7 +10,7 @@ namespace OnlineStore.BuisnessLogic.Database.EfContexts
         {
         }
 
-        //public DbSet<Person> PersonTable { get; set; }
+        public DbSet<Person> PersonTable { get; set; }
         public DbSet<OrderHistory> OrdersHistoryTable { get; set; }
     }
 }

@@ -2,6 +2,13 @@
 @using Resources
 @model OnlineStore.MvcWebProject.Models.ViewModelBase
 
+@{
+    if (Model != null)
+    {
+        Culture = UICulture = Model.Settings.SelectedLanguage;
+    }
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -52,10 +59,12 @@
                     </td>
                 }
                 <td></td>
-                if (Model.Settings.ProfileVisible)
+                if (!string.IsNullOrEmpty(Model.Settings.LinkProfileText))
                 {
                     <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight">
-                        <div>Profile</div>
+                        <div>
+                            @Html.ActionLink(Model.Settings.LinkProfileText, "UserInfo", "Profile")
+                        </div>
                     </td>
                 }
                 if (Model.Settings.LogoutVisible)
@@ -94,7 +103,8 @@
             {
                 @Html.Label(Model.Message.Text, new
                 {
-                    style = string.Format("color: {0}", ColorTranslator.ToHtml(Model.Message.Color))
+                    style = string.Format("color: {0}", ColorTranslator.ToHtml(Model.Message.Color)),
+                    id = "mainLayoutMessageLabel"
                 })
             }
         }

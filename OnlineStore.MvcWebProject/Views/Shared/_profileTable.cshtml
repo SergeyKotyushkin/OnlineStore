@@ -1,0 +1,31 @@
+﻿@using OnlineStore.BuisnessLogic.Models.Dto
+@using Resources
+@model OnlineStore.BuisnessLogic.Models.Table<OrderHistoryItemDto>
+
+<div id="profileTablePartial">
+    <table id="profileTable">
+        <tr>
+            <th class="profileTableTh">@Lang.Profile_HeaderNumber</th>
+            <th class="profileTableTh">@Lang.Profile_HeaderDate</th>
+            <th class="profileTableTh">@Lang.Profile_HeaderEmail</th>
+            <th class="profileTableTh">@Lang.Profile_HeaderOrder</th>
+            <th class="profileTableTh profileTableThLast">@Lang.Profile_HeaderTotal</th>
+        </tr>
+
+        @{
+            var rowOdd = 0;
+            foreach (var historyItem in Model.Data)
+            {
+                <tr @((rowOdd++)%2 == 1 ? "class=profileTableOddRow" : "class=profileTableEvenRow")>
+                    <td class="profileTableTd">@historyItem.Number</td>
+                    <td class="profileTableTd">@historyItem.Date</td>
+                    <td class="profileTableTd">@historyItem.Email</td>
+                    <td class="profileTableTd">@Html.Raw(historyItem.Order)</td>
+                    <td class="profileTableTd">@Html.Raw(historyItem.Total)</td>
+                </tr>
+            }
+        }
+    </table>
+    <br/>
+    @Html.Partial("_pager", Model.Pager)
+</div>

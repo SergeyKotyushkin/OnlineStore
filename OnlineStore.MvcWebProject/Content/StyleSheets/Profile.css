@@ -1,0 +1,106 @@
+﻿#profileHeader {
+    font-size: xx-large;
+    margin: 10px;
+}
+
+#profileImageContainer {
+    background-color: grey;
+    border: 2px solid #4b0082;
+    margin-left: 5px;
+}
+
+#profileLoaderForImage, #profileImageContainer {
+    width: 200px;
+    height: 200px;
+}
+
+#profileButtonImageChange {
+    margin-left: 5px;
+}
+
+#profilePerson {
+    margin: 10px;
+    background-color: #d3d3d3;
+    border: 2px double #4b0082;
+    padding: 10px;
+    float: left;
+}
+
+#profileImageUploadContainer {
+    float: left;
+    text-align: center;
+}
+
+#profilePersonDataContainer, #profilePasswordContainer {
+    font-size: large;
+    font-weight: bold;
+    float: left;
+    text-align: center;
+    padding: 20px;
+}
+
+#profilePasswordContainer {
+    margin: 10px;
+    background-color: #d3d3d3;
+    border: 2px double #4b0082;
+    padding: 30px 20px 10px;
+}
+
+#profileSettings {
+    float: left;
+}
+
+#profileHistory {
+    clear: both;
+    text-align: center;
+}
+
+#profileHistoryHeader {
+    font-size: x-large;
+}
+
+#profileHistoryTable {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#profileTable {
+    margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+    border: 2px solid #006699;
+}
+
+.profileTableTh {
+    background-color: #006699;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    border: 2px solid #006699;
+    border-right: 2px solid white;
+    padding: 5px 0;
+}
+
+.profileTableThLast {
+    border: 2px solid #006699;
+}
+
+.profileTableTd {
+    text-align: center;
+    border: 2px solid #006699;
+    padding: 5px;
+}
+
+.profileTableOddRow {
+    background-color: white;
+}
+
+.profileTableEvenRow {
+    background-color: #e0e0d6;
+}
+
+#profileSearchNoResult {
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+}

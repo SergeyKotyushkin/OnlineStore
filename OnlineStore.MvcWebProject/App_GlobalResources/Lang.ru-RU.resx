@@ -159,6 +159,9 @@
   <data name="Index_ValidateUserFail" xml:space="preserve">
     <value>Неверные пользовательские данные</value>
   </data>
+  <data name="MainLayout_LinkProfileText" xml:space="preserve">
+    <value>Привет, {0}!</value>
+  </data>
   <data name="MainLayout_LogOut" xml:space="preserve">
     <value>Выход</value>
   </data>
@@ -222,11 +225,68 @@
   <data name="ProductCatalog_Title" xml:space="preserve">
     <value>Каталог товаров</value>
   </data>
+  <data name="Profile_ButtonChangePassword" xml:space="preserve">
+    <value>Изменить пароль</value>
+  </data>
+  <data name="Profile_ButtonChangeProfile" xml:space="preserve">
+    <value>Изменить профиль</value>
+  </data>
+  <data name="Profile_ButtonChooseImage" xml:space="preserve">
+    <value>Выбрать изображение</value>
+  </data>
+  <data name="Profile_EmptyHistory" xml:space="preserve">
+    <value>История пуста</value>
+  </data>
+  <data name="Profile_FirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Profile_HeaderDate" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="Profile_HeaderEmail" xml:space="preserve">
+    <value>Почта</value>
+  </data>
+  <data name="Profile_HeaderHistory" xml:space="preserve">
+    <value>История заказов</value>
+  </data>
+  <data name="Profile_HeaderNumber" xml:space="preserve">
+    <value>№</value>
+  </data>
+  <data name="Profile_HeaderOrder" xml:space="preserve">
+    <value>Заказ</value>
+  </data>
+  <data name="Profile_HeaderTotal" xml:space="preserve">
+    <value>Итого</value>
+  </data>
+  <data name="Profile_NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="Profile_OldPassword" xml:space="preserve">
+    <value>Старый пароль</value>
+  </data>
+  <data name="Profile_PasswordChangedFail" xml:space="preserve">
+    <value>Пароль не изменен</value>
+  </data>
+  <data name="Profile_PasswordChangedSuccessfully" xml:space="preserve">
+    <value>Пароль успешно изменен</value>
+  </data>
   <data name="Profile_Price" xml:space="preserve">
     <value>стоимость</value>
   </data>
+  <data name="Profile_ProfileChangedSuccessfully" xml:space="preserve">
+    <value>Профиль успешно изменен</value>
+  </data>
   <data name="Profile_Quantity" xml:space="preserve">
     <value>количество</value>
+  </data>
+  <data name="Profile_RepeatPassword" xml:space="preserve">
+    <value>Повторить пароль</value>
+  </data>
+  <data name="Profile_SecondName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="Profile_Title" xml:space="preserve">
+    <value>Профиль</value>
   </data>
   <data name="Profile_Total" xml:space="preserve">
     <value>всего</value>

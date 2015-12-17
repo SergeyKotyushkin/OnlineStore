@@ -237,4 +237,64 @@
   <data name="Profile_Total" xml:space="preserve">
     <value>total</value>
   </data>
+  <data name="MainLayout_LinkProfileText" xml:space="preserve">
+    <value>Good day, {0}!</value>
+  </data>
+  <data name="Profile_Title" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Profile_ButtonChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="Profile_ButtonChangeProfile" xml:space="preserve">
+    <value>Change profile</value>
+  </data>
+  <data name="Profile_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="Profile_HeaderDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Profile_HeaderEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Profile_HeaderHistory" xml:space="preserve">
+    <value>Orders history</value>
+  </data>
+  <data name="Profile_HeaderNumber" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="Profile_HeaderOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Profile_HeaderTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Profile_NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="Profile_OldPassword" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="Profile_RepeatPassword" xml:space="preserve">
+    <value>Repeat password</value>
+  </data>
+  <data name="Profile_SecondName" xml:space="preserve">
+    <value>Second name</value>
+  </data>
+  <data name="Profile_EmptyHistory" xml:space="preserve">
+    <value>Empty history</value>
+  </data>
+  <data name="Profile_PasswordChangedFail" xml:space="preserve">
+    <value>Password exchange fail</value>
+  </data>
+  <data name="Profile_PasswordChangedSuccessfully" xml:space="preserve">
+    <value>Password has changed successfully</value>
+  </data>
+  <data name="Profile_ProfileChangedSuccessfully" xml:space="preserve">
+    <value>Profile has changed successfully</value>
+  </data>
+  <data name="Profile_ButtonChooseImage" xml:space="preserve">
+    <value>Choose image</value>
+  </data>
 </root>

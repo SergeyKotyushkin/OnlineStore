@@ -15,9 +15,9 @@ namespace OnlineStore.BuisnessLogic.Database.Realizations
     {
         private readonly EfPersonContext _context = new EfPersonContext();
 
-        public IQueryable<OrderHistory> GetAll
+        public IQueryable<OrderHistory> GetAll()
         {
-            get { return _context.OrdersHistoryTable; }
+           return _context.OrdersHistoryTable;
         }
 
         public bool Add(OrderHistory orderHistory)

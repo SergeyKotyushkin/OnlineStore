@@ -71,7 +71,7 @@ namespace OnlineStore.MvcWebProject.Controllers
                 {
                     Title = Lang.Basket_Title,
                     MoneyVisible = true,
-                    ProfileVisible = true,
+                    LinkProfileText = string.Format(Lang.MainLayout_LinkProfileText, _userGroup.GetUser().UserName),
                     LogoutVisible = true,
                     SelectedLanguage = Thread.CurrentThread.CurrentCulture.Name,
                     SelectedCurrency = (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
@@ -114,7 +114,7 @@ namespace OnlineStore.MvcWebProject.Controllers
         {
             var orderItemDtos = GetOrderItemsList();
 
-            var pagesCount = GetPagesCount(orderItemDtos);
+            var pagesCount = GetPagesCount(orderItemDtos.Count);
 
             var newPageIndex = GetNewPageIndex(id, pagesCount);
 
@@ -180,9 +180,9 @@ namespace OnlineStore.MvcWebProject.Controllers
             return Lang.Basket_Total + " " + total.ToString("C", culture);
         }
 
-        private static int GetPagesCount(IReadOnlyCollection<OrderItemDto> products)
+        private static int GetPagesCount(int itemsCount)
         {
-            return (int)Math.Ceiling((double)products.Count / PageSize);
+            return (int)Math.Ceiling((double)itemsCount / PageSize);
         }
 
         private int GetNewPageIndex(string id, int pagesCount)

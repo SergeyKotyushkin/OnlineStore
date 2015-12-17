@@ -8,7 +8,7 @@ namespace OnlineStore.BuisnessLogic.Database.Contracts
 {
     public interface IDbOrderHistoryRepository
     {
-        IQueryable<OrderHistory> GetAll { get; }
+        IQueryable<OrderHistory> GetAll();
 
         bool Add(OrderHistory orderHistory);
 

@@ -52,3 +52,9 @@
 #basketButtonBuy {
     text-align: center;
 }
+
+#basketSearchNoResult {
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+}

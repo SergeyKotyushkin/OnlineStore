@@ -6,7 +6,7 @@
 
         public bool MoneyVisible { get; set; }
 
-        public bool ProfileVisible { get; set; }
+        public string LinkProfileText { get; set; }
 
         public bool LogoutVisible { get; set; }
 

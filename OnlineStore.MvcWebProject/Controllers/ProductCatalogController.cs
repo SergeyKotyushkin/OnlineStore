@@ -15,6 +15,7 @@ using OnlineStore.BuisnessLogic.Models;
 using OnlineStore.BuisnessLogic.OrderRepository.Contracts;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers.Contracts;
+using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.Models.ProductCatalog;
 using Resources;
 
@@ -39,11 +40,13 @@ namespace OnlineStore.MvcWebProject.Controllers
         private readonly IOrderRepository<HttpSessionStateBase> _orderRepository;
         private readonly IDbProductRepository _dbProductRepository;
         private readonly ICurrencyConverter _currencyConverter;
+        private readonly IUserGroup _userGroup;
 
         public ProductCatalogController(ITableManager<ProductDto> tableManager,
             IStorageRepository<HttpSessionStateBase> storageSessionRepository, IDbProductRepository dbProductRepository,
             IOrderRepository<HttpSessionStateBase> orderRepository,
-            IStorageRepository<HttpCookieCollection> storageCookieRepository, ICurrencyConverter currencyConverter)
+            IStorageRepository<HttpCookieCollection> storageCookieRepository, ICurrencyConverter currencyConverter,
+            IUserGroup userGroup)
         {
             _tableManager = tableManager;
             _storageSessionRepository = storageSessionRepository;
@@ -51,6 +54,7 @@ namespace OnlineStore.MvcWebProject.Controllers
             _orderRepository = orderRepository;
             _storageCookieRepository = storageCookieRepository;
             _currencyConverter = currencyConverter;
+            _userGroup = userGroup;
         }
 
         [HttpGet]
@@ -81,7 +85,7 @@ namespace OnlineStore.MvcWebProject.Controllers
                 {
                     Title = Lang.ProductCatalog_Title,
                     MoneyVisible = true,
-                    ProfileVisible = true,
+                    LinkProfileText = string.Format(Lang.MainLayout_LinkProfileText, _userGroup.GetUser().UserName),
                     LogoutVisible = true,
                     SelectedLanguage = Thread.CurrentThread.CurrentUICulture.Name,
                     SelectedCurrency = (_storageCookieRepository.Get(Request.Cookies, Lang.CurrencyInStorage) ??
@@ -145,7 +149,6 @@ namespace OnlineStore.MvcWebProject.Controllers
 
             return new Table<ProductDto> {Data = data, Pager = pager};
         }
-
 
         private List<ProductDto> GetProductDtoList(string name = null, string category = null)
         {

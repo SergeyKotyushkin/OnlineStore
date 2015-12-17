@@ -205,6 +205,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Good day, {0}!.
+        /// </summary>
+        internal static string MainLayout_LinkProfileText {
+            get {
+                return ResourceManager.GetString("MainLayout_LinkProfileText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log Out.
         /// </summary>
         internal static string MainLayout_LogOut {
@@ -394,6 +403,141 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        internal static string Profile_ButtonChangePassword {
+            get {
+                return ResourceManager.GetString("Profile_ButtonChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change profile.
+        /// </summary>
+        internal static string Profile_ButtonChangeProfile {
+            get {
+                return ResourceManager.GetString("Profile_ButtonChangeProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose image.
+        /// </summary>
+        internal static string Profile_ButtonChooseImage {
+            get {
+                return ResourceManager.GetString("Profile_ButtonChooseImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty history.
+        /// </summary>
+        internal static string Profile_EmptyHistory {
+            get {
+                return ResourceManager.GetString("Profile_EmptyHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name.
+        /// </summary>
+        internal static string Profile_FirstName {
+            get {
+                return ResourceManager.GetString("Profile_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string Profile_HeaderDate {
+            get {
+                return ResourceManager.GetString("Profile_HeaderDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Profile_HeaderEmail {
+            get {
+                return ResourceManager.GetString("Profile_HeaderEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders history.
+        /// </summary>
+        internal static string Profile_HeaderHistory {
+            get {
+                return ResourceManager.GetString("Profile_HeaderHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #.
+        /// </summary>
+        internal static string Profile_HeaderNumber {
+            get {
+                return ResourceManager.GetString("Profile_HeaderNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        internal static string Profile_HeaderOrder {
+            get {
+                return ResourceManager.GetString("Profile_HeaderOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string Profile_HeaderTotal {
+            get {
+                return ResourceManager.GetString("Profile_HeaderTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New password.
+        /// </summary>
+        internal static string Profile_NewPassword {
+            get {
+                return ResourceManager.GetString("Profile_NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old password.
+        /// </summary>
+        internal static string Profile_OldPassword {
+            get {
+                return ResourceManager.GetString("Profile_OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password exchange fail.
+        /// </summary>
+        internal static string Profile_PasswordChangedFail {
+            get {
+                return ResourceManager.GetString("Profile_PasswordChangedFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password has changed successfully.
+        /// </summary>
+        internal static string Profile_PasswordChangedSuccessfully {
+            get {
+                return ResourceManager.GetString("Profile_PasswordChangedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to price.
         /// </summary>
         internal static string Profile_Price {
@@ -403,11 +547,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profile has changed successfully.
+        /// </summary>
+        internal static string Profile_ProfileChangedSuccessfully {
+            get {
+                return ResourceManager.GetString("Profile_ProfileChangedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to quantity.
         /// </summary>
         internal static string Profile_Quantity {
             get {
                 return ResourceManager.GetString("Profile_Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat password.
+        /// </summary>
+        internal static string Profile_RepeatPassword {
+            get {
+                return ResourceManager.GetString("Profile_RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Second name.
+        /// </summary>
+        internal static string Profile_SecondName {
+            get {
+                return ResourceManager.GetString("Profile_SecondName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        internal static string Profile_Title {
+            get {
+                return ResourceManager.GetString("Profile_Title", resourceCulture);
             }
         }
         

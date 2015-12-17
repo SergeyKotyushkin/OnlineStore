@@ -142,10 +142,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.ru-RU.resx</DependentUpon>
     </Compile>
+    <Content Include="App_Data\PersonDb.sdf" />
+    <Content Include="Content\Images\loader.gif" />
+    <Content Include="Content\Images\noProfileImage.png" />
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainLayoutController.cs" />
     <Compile Include="Controllers\ProductCatalogController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,6 +157,7 @@
     <Compile Include="Models\Index\Credentials.cs" />
     <Compile Include="Models\Index\IndexModel.cs" />
     <Compile Include="Models\ProductCatalog\ProductCatalogModel.cs" />
+    <Compile Include="Models\Profile\ProfileModel.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -164,7 +169,6 @@
     <Content Include="App_Data\aspnetdb_log.ldf">
       <DependentUpon>aspnetdb.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\PersonDb.sdf" />
     <Content Include="App_Data\ProductDb.sdf" />
     <Content Include="Content\Images\gbp.png" />
     <Content Include="Content\Images\rub.png" />
@@ -175,6 +179,7 @@
     <Content Include="Content\StyleSheets\Index.css" />
     <Content Include="Content\StyleSheets\MainLayout.css" />
     <Content Include="Content\StyleSheets\ProductCatalog.css" />
+    <Content Include="Content\StyleSheets\Profile.css" />
     <Content Include="Global.asax" />
     <EmbeddedResource Include="App_GlobalResources\Lang.ru-RU.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -187,6 +192,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\ProductCatalog\ProductList.js" />
+    <Content Include="Scripts\Profile\Profile.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -201,6 +207,8 @@
     <None Include="Views\Basket\AllOrders.cshtml" />
     <Content Include="Views\Shared\_basketAllOrdersTable.cshtml" />
     <Content Include="Views\Shared\_pager.cshtml" />
+    <Content Include="Views\Shared\_profileTable.cshtml" />
+    <Content Include="Views\Profile\UserInfo.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -250,6 +258,7 @@
   <ItemGroup>
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

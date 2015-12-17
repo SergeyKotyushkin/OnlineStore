@@ -4,6 +4,10 @@ using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
 using OnlineStore.BuisnessLogic.Database.Models.Dto;
 using OnlineStore.BuisnessLogic.Database.Realizations;
+using OnlineStore.BuisnessLogic.ImageService;
+using OnlineStore.BuisnessLogic.ImageService.Contracts;
+using OnlineStore.BuisnessLogic.JsonSerialize;
+using OnlineStore.BuisnessLogic.JsonSerialize.Contracts;
 using OnlineStore.BuisnessLogic.Mail;
 using OnlineStore.BuisnessLogic.Mail.Contracts;
 using OnlineStore.BuisnessLogic.Models.Dto;
@@ -40,20 +44,22 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             For<IMailService>().Use<MailService>().Singleton();
 
             //// Repository
-            //For<IEfPersonRepository>().Use<EfPersonRepository>().Singleton();
+            For<IDbPersonRepository>().Use<EfPersonRepository>().Singleton();
             For<IDbProductRepository>().Use<EfProductRepository>().Singleton();
             For<IDbOrderHistoryRepository>().Use<EfOrderHistoryRepository>().Singleton();
 
             //// GridViews
             For<ITableManager<ProductDto>>().Use<TableAgent<ProductDto>>();
             For<ITableManager<OrderItemDto>>().Use<TableAgent<OrderItemDto>>();
+            For<ITableManager<OrderHistoryItemDto>>().Use<TableAgent<OrderHistoryItemDto>>();
 
             //// Other
-            //For<IImageService>().Use<ImageServiceAgent>();
+            For<IImageService>().Use<ImageServiceAgent>();
             For<IUserGroup>().Use<UserGroup>();
             For<IStorageRepository<HttpSessionStateBase>>().Use<StorageSessionRepository>();
             For<IStorageRepository<HttpCookieCollection>>().Use<StorageCoockieRepository>();
             For<IOrderRepository<HttpSessionStateBase>>().Use<OrderSessionRepository>();
+            For<IJsonSerializer>().Use<JsonSerializer>();
         }
     }
 }
