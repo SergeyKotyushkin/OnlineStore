@@ -35,6 +35,9 @@
                 @Html.ValidationMessage("Credentials.Password", new {@class = "validationMessage"})
             </div>
             <br/>
+            @Html.ActionLink("Not registered yet?", "Index", "Registration")
+            <br/>
+            <br/>
             <input type="submit" value="@Lang.Index_ButtonSubmit"/>
         }
     </div>

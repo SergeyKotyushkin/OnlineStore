@@ -42,5 +42,16 @@ namespace OnlineStore.BuisnessLogic.UserGruop
         {
             return Roles.IsUserInRole(userName, "Admin");
         }
+
+        public bool CreateUser(string login, string password, string email, string question, string answer)
+        {
+            MembershipCreateStatus status;
+            Membership.CreateUser(login, password, email, question, answer, true, out status);
+
+            if (status != MembershipCreateStatus.Success) return false;
+
+            Roles.AddUserToRole(login, "User");
+            return true;
+        }
     }
 }

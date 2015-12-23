@@ -132,10 +132,10 @@
   <data name="Index_ValidateUserFail" xml:space="preserve">
     <value>Validate user fail</value>
   </data>
-  <data name="Credentials_LoginFieldIsRequired" xml:space="preserve">
+  <data name="LoginFieldIsRequired" xml:space="preserve">
     <value>Login field is required</value>
   </data>
-  <data name="Credentials_PasswordFieldIsRequired" xml:space="preserve">
+  <data name="PasswordFieldIsRequired" xml:space="preserve">
     <value>Password field is required</value>
   </data>
   <data name="MainLayout_LogOut" xml:space="preserve">
@@ -324,6 +324,18 @@
   <data name="Basket_ButtonBuy" xml:space="preserve">
     <value>Buy</value>
   </data>
+  <data name="AnswerFieldIsRequired" xml:space="preserve">
+    <value>Answer field is required</value>
+  </data>
+  <data name="EmailFieldIsRequired" xml:space="preserve">
+    <value>Email field is required</value>
+  </data>
+  <data name="EmailRegexError" xml:space="preserve">
+    <value>Not valid email</value>
+  </data>
+  <data name="LoginRegexError" xml:space="preserve">
+    <value>Login must have only letters, numbers and underscopes. First symbol must be letter. Length must be more than 5 symbols.</value>
+  </data>
   <data name="MainLayout_ButtonBack" xml:space="preserve">
     <value>Back</value>
   </data>
@@ -353,5 +365,41 @@
   </data>
   <data name="Management_Header" xml:space="preserve">
     <value>Catalog management</value>
+  </data>
+  <data name="PasswordRegexError" xml:space="preserve">
+    <value>Password must have letters, numbers and symbols: _,!,@,#,$,%,^,&amp;amp;,*. First symbol must be letter. Length must be more than 5 symbols.</value>
+  </data>
+  <data name="QuestionFieldIsRequired" xml:space="preserve">
+    <value>Question field is required</value>
+  </data>
+  <data name="Registration_Answer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="Registration_ButtonSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Registration_CreateUserError" xml:space="preserve">
+    <value>User creation fail</value>
+  </data>
+  <data name="Registration_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Registration_Header" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="Registration_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Registration_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Registration_PasswordRepeat" xml:space="preserve">
+    <value>Repeat password</value>
+  </data>
+  <data name="Registration_Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Registration_Title" xml:space="preserve">
+    <value>Registration</value>
   </data>
 </root>

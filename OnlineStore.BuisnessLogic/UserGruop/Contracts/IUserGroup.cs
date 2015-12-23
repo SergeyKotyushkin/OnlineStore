@@ -14,5 +14,7 @@ namespace OnlineStore.BuisnessLogic.UserGruop.Contracts
         void SetRoleForUser(string userName, string roleName);
 
         bool CheckIsUserIsAdmin(string userName);
+
+        bool CreateUser(string login, string password, string email, string question, string answer);
     }
 }

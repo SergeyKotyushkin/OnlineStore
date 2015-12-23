@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Answer field is required.
+        /// </summary>
+        internal static string AnswerFieldIsRequired {
+            get {
+                return ResourceManager.GetString("AnswerFieldIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Buy.
         /// </summary>
         internal static string Basket_ButtonBuy {
@@ -250,20 +259,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login field is required.
+        ///   Looks up a localized string similar to Email field is required.
         /// </summary>
-        internal static string Credentials_LoginFieldIsRequired {
+        internal static string EmailFieldIsRequired {
             get {
-                return ResourceManager.GetString("Credentials_LoginFieldIsRequired", resourceCulture);
+                return ResourceManager.GetString("EmailFieldIsRequired", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password field is required.
+        ///   Looks up a localized string similar to Not valid email.
         /// </summary>
-        internal static string Credentials_PasswordFieldIsRequired {
+        internal static string EmailRegexError {
             get {
-                return ResourceManager.GetString("Credentials_PasswordFieldIsRequired", resourceCulture);
+                return ResourceManager.GetString("EmailRegexError", resourceCulture);
             }
         }
         
@@ -327,6 +336,24 @@ namespace Resources {
         internal static string LanguageInStorage {
             get {
                 return ResourceManager.GetString("LanguageInStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login field is required.
+        /// </summary>
+        internal static string LoginFieldIsRequired {
+            get {
+                return ResourceManager.GetString("LoginFieldIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login must have only letters, numbers and underscopes. First symbol must be letter. Length must be more than 5 symbols..
+        /// </summary>
+        internal static string LoginRegexError {
+            get {
+                return ResourceManager.GetString("LoginRegexError", resourceCulture);
             }
         }
         
@@ -543,6 +570,24 @@ namespace Resources {
         internal static string PagerPrevLink {
             get {
                 return ResourceManager.GetString("PagerPrevLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password field is required.
+        /// </summary>
+        internal static string PasswordFieldIsRequired {
+            get {
+                return ResourceManager.GetString("PasswordFieldIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must have letters, numbers and symbols: _,!,@,#,$,%,^,&amp;amp;,*. First symbol must be letter. Length must be more than 5 symbols..
+        /// </summary>
+        internal static string PasswordRegexError {
+            get {
+                return ResourceManager.GetString("PasswordRegexError", resourceCulture);
             }
         }
         
@@ -768,6 +813,105 @@ namespace Resources {
         internal static string Profile_Total {
             get {
                 return ResourceManager.GetString("Profile_Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question field is required.
+        /// </summary>
+        internal static string QuestionFieldIsRequired {
+            get {
+                return ResourceManager.GetString("QuestionFieldIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Answer.
+        /// </summary>
+        internal static string Registration_Answer {
+            get {
+                return ResourceManager.GetString("Registration_Answer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        internal static string Registration_ButtonSubmit {
+            get {
+                return ResourceManager.GetString("Registration_ButtonSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User creation fail.
+        /// </summary>
+        internal static string Registration_CreateUserError {
+            get {
+                return ResourceManager.GetString("Registration_CreateUserError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Registration_Email {
+            get {
+                return ResourceManager.GetString("Registration_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration.
+        /// </summary>
+        internal static string Registration_Header {
+            get {
+                return ResourceManager.GetString("Registration_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string Registration_Login {
+            get {
+                return ResourceManager.GetString("Registration_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string Registration_Password {
+            get {
+                return ResourceManager.GetString("Registration_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat password.
+        /// </summary>
+        internal static string Registration_PasswordRepeat {
+            get {
+                return ResourceManager.GetString("Registration_PasswordRepeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question.
+        /// </summary>
+        internal static string Registration_Question {
+            get {
+                return ResourceManager.GetString("Registration_Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration.
+        /// </summary>
+        internal static string Registration_Title {
+            get {
+                return ResourceManager.GetString("Registration_Title", resourceCulture);
             }
         }
     }

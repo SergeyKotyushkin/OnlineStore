@@ -43,7 +43,10 @@ namespace OnlineStore.MvcWebProject.Controllers
         public ActionResult Index(IndexModel model)
         {
             if (!ModelState.IsValid)
-                return View();
+            {
+                model.Settings = _mainLayoutSettings;
+                return View(model);
+            }
 
             ModelState.Clear();
             if (_userGroup.ValidateUser(model.Credentials.Login, model.Credentials.Password))

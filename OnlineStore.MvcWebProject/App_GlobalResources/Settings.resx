@@ -144,6 +144,9 @@
   <data name="Management_OldPageIndexName" xml:space="preserve">
     <value>CurrentPageIndexManagement</value>
   </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>NewUser</value>
+  </data>
   <data name="OrderInStorage" xml:space="preserve">
     <value>CurrentOrder</value>
   </data>

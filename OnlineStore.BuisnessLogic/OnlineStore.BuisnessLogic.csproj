@@ -124,7 +124,6 @@
     <Compile Include="MappingDtoExtensions\ProductManagementDtoMapping.cs" />
     <Compile Include="Models\Dto\ProductManagementDto.cs" />
     <Compile Include="Models\EditingResults.cs" />
-    <Compile Include="Models\Password.cs" />
     <Compile Include="Models\ProductOrder.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Dto\OrderItemDto.cs" />

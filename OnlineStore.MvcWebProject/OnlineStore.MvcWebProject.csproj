@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,7 +161,10 @@
     <Compile Include="Models\Index\IndexModel.cs" />
     <Compile Include="Models\ManagementModel.cs" />
     <Compile Include="Models\Catalog\CatalogModel.cs" />
+    <Compile Include="Models\Password.cs" />
     <Compile Include="Models\Profile\ProfileModel.cs" />
+    <Compile Include="Models\RegistrationData.cs" />
+    <Compile Include="Models\Registration\RegistrationModel.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="App_GlobalResources\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -188,6 +192,7 @@
     <Content Include="Content\StyleSheets\Management.css" />
     <Content Include="Content\StyleSheets\Catalog.css" />
     <Content Include="Content\StyleSheets\Profile.css" />
+    <Content Include="Content\StyleSheets\Registration.css" />
     <Content Include="Global.asax" />
     <EmbeddedResource Include="App_GlobalResources\Lang.ru-RU.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -224,6 +229,7 @@
     <Content Include="Views\Profile\Info.cshtml" />
     <None Include="Views\Management\Index.cshtml" />
     <Content Include="Views\Shared\_managementTable.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

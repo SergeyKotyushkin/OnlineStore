@@ -135,10 +135,10 @@
   <data name="Basket_Total" xml:space="preserve">
     <value>Итого:</value>
   </data>
-  <data name="Credentials_LoginFieldIsRequired" xml:space="preserve">
+  <data name="LoginFieldIsRequired" xml:space="preserve">
     <value>Необходимо ввести логин</value>
   </data>
-  <data name="Credentials_PasswordFieldIsRequired" xml:space="preserve">
+  <data name="PasswordFieldIsRequired" xml:space="preserve">
     <value>Необходимо ввести пароль</value>
   </data>
   <data name="Index_ButtonSubmit" xml:space="preserve">
@@ -312,6 +312,18 @@
   <data name="Basket_ButtonBuy" xml:space="preserve">
     <value>Купить</value>
   </data>
+  <data name="AnswerFieldIsRequired" xml:space="preserve">
+    <value>Необходимо ввести ответ</value>
+  </data>
+  <data name="EmailFieldIsRequired" xml:space="preserve">
+    <value>Необходимо ввести почту</value>
+  </data>
+  <data name="EmailRegexError" xml:space="preserve">
+    <value>Почтовый адрес неверный</value>
+  </data>
+  <data name="LoginRegexError" xml:space="preserve">
+    <value>Имя должно состоять только из букв, цифр и символа '_'. Первый символ - буква. Длина не менее 6 символов.</value>
+  </data>
   <data name="MainLayout_ButtonBack" xml:space="preserve">
     <value>Назад</value>
   </data>
@@ -338,5 +350,41 @@
   </data>
   <data name="Management_Header" xml:space="preserve">
     <value>Управление каталогом товаров</value>
+  </data>
+  <data name="PasswordRegexError" xml:space="preserve">
+    <value>Пароль должен состоять из букв, цифр и символов: _,!,@,#,$,%,^,&amp;amp;,*. Первый символ - буква. Длина не менее 6 символов.</value>
+  </data>
+  <data name="QuestionFieldIsRequired" xml:space="preserve">
+    <value>Необходимо ввести вопрос</value>
+  </data>
+  <data name="Registration_Answer" xml:space="preserve">
+    <value>Ответ</value>
+  </data>
+  <data name="Registration_ButtonSubmit" xml:space="preserve">
+    <value>Подтвердить</value>
+  </data>
+  <data name="Registration_CreateUserError" xml:space="preserve">
+    <value>Новый пользователь не создан</value>
+  </data>
+  <data name="Registration_Email" xml:space="preserve">
+    <value>Почта</value>
+  </data>
+  <data name="Registration_Header" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Registration_Login" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="Registration_Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Registration_PasswordRepeat" xml:space="preserve">
+    <value>Повторить пароль</value>
+  </data>
+  <data name="Registration_Question" xml:space="preserve">
+    <value>Вопрос</value>
+  </data>
+  <data name="Registration_Title" xml:space="preserve">
+    <value>Регистрация</value>
   </data>
 </root>

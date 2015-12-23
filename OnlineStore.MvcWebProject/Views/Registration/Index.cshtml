@@ -1,0 +1,60 @@
+﻿@using Resources
+@model OnlineStore.MvcWebProject.Models.Registration.RegistrationModel
+
+@{
+    Layout = "~/Views/Layouts/_MainLayout.cshtml";
+}
+
+@section StyleSheets
+{
+    <link rel="Stylesheet" href="@Href("~/Content/StyleSheets/Registration.css")"/>
+}
+
+<br/>
+<div id="registrationHeader">
+    <span>@Lang.Registration_Header</span>
+</div>
+
+@using (Html.BeginForm("Index", "Registration", FormMethod.Post))
+{
+    <div id="registrationContainer">
+        <span>@Lang.Registration_Login</span>
+        <br/>
+        @Html.EditorFor(p => Model.RegistrationData.Login)
+        <br/>
+        @Html.ValidationMessage("RegistrationData.Login", new {@class = "validationMessage"})
+        <br/>
+        <span>@Lang.Registration_Password</span>
+        <br/>
+        @Html.PasswordFor(p => Model.RegistrationData.Password)
+        <br/>
+        @Html.ValidationMessage("RegistrationData.Password", new {@class = "validationMessage"})
+        <br/>
+        <span>@Lang.Registration_PasswordRepeat</span>
+        <br/>
+        @Html.PasswordFor(p => Model.RegistrationData.Password)
+        <br/>
+        @Html.ValidationMessage("RegistrationData.Password", new {@class = "validationMessage"})
+        <br/>
+        <span>@Lang.Registration_Email</span>
+        <br/>
+        @Html.EditorFor(p => Model.RegistrationData.Email)
+        <br/>
+        @Html.ValidationMessage("RegistrationData.Email", new {@class = "validationMessage"})
+        <br/>
+        <span>@Lang.Registration_Question</span>
+        <br/>
+        @Html.EditorFor(p => Model.RegistrationData.Question)
+        <br/>
+        @Html.ValidationMessage("RegistrationData.Question", new {@class = "validationMessage"})
+        <br/>
+        <span>@Lang.Registration_Answer</span>
+        <br/>
+        @Html.EditorFor(p => Model.RegistrationData.Answer)
+        <br/>
+        @Html.ValidationMessage("RegistrationData.Answer", new {@class = "validationMessage"})
+        <br/>
+        <br/>
+        <input type="submit" value="@Lang.Registration_ButtonSubmit"/>
+    </div>
+}
