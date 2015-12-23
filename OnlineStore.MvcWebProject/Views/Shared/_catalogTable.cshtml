@@ -1,0 +1,39 @@
+﻿@using OnlineStore.BuisnessLogic.Database.Models.Dto
+@using Resources
+@model OnlineStore.BuisnessLogic.Models.Table<ProductDto>
+
+<div id="catalogTablePartial">
+    <table id="catalogTable">
+        <tr>
+            <th class="tableTh"></th>
+            <th class="tableTh">@Lang.Catalog_HeaderCount</th>
+            <th class="tableTh"></th>
+            <th class="tableTh catalogTableIdColumn">ID</th>
+            <th class="tableTh">@Lang.Catalog_HeaderName</th>
+            <th class="tableTh">@Lang.Catalog_HeaderCategory</th>
+            <th class="tableTh tableThLast">@Lang.Catalog_HeaderPrice</th>
+        </tr>
+
+        @{
+            var rowOdd = 0;
+            foreach (var product in Model.Data)
+            {
+                <tr @((rowOdd++)%2 == 1 ? "class=tableOddRow" : "class=tableEvenRow")>
+                    <td class="tableTd">
+                        @Ajax.ActionLink(Lang.Catalog_ButtonAddToOrder, "AddToOrder", "Catalog", new {id=@product.Id}, new AjaxOptions{OnSuccess = "onEditToOrderSuccess"}, new {@class="buttonStyle"})
+                    </td>
+                    <td class="tableTd" id="count@(product.Id)">@product.OrderCount</td>
+                    <td class="tableTd">
+                        @Ajax.ActionLink(Lang.Catalog_ButtonRemoveFromOrder, "RemoveFromOrder", "Catalog", new {id=@product.Id}, new AjaxOptions{OnSuccess = "onEditToOrderSuccess"}, new {@class="buttonStyle"})
+                    </td>
+                    <td class="tableTd catalogTableIdColumn" id="id@(rowOdd)">@product.Id</td>
+                    <td class="tableTd">@product.Name</td>
+                    <td class="tableTd">@product.Category</td>
+                    <td class="tableTd">@product.Price</td>
+                </tr>
+            }
+        }
+    </table>
+    <br/>
+    @Html.Partial("_pager", Model.Pager)
+</div>

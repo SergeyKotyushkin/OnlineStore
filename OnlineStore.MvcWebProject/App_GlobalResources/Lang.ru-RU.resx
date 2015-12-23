@@ -165,6 +165,21 @@
   <data name="MainLayout_LogOut" xml:space="preserve">
     <value>Выход</value>
   </data>
+  <data name="Management_AddFail" xml:space="preserve">
+    <value>Ошибка при добавлении</value>
+  </data>
+  <data name="Management_AddSuccess" xml:space="preserve">
+    <value>Товар добавлен</value>
+  </data>
+  <data name="Management_AddValidFail" xml:space="preserve">
+    <value>Ошибка в заполненых полях</value>
+  </data>
+  <data name="Management_DeleteFail" xml:space="preserve">
+    <value>Товар не удалён</value>
+  </data>
+  <data name="Management_DeleteSuccess" xml:space="preserve">
+    <value>Товар удалён</value>
+  </data>
   <data name="PagerFirstLink" xml:space="preserve">
     <value>Первая</value>
   </data>
@@ -180,46 +195,46 @@
   <data name="ProductCatalog_AllCategory" xml:space="preserve">
     <value>Все</value>
   </data>
-  <data name="ProductCatalog_ButtonAddToOrder" xml:space="preserve">
+  <data name="Catalog_ButtonAddToOrder" xml:space="preserve">
     <value>+</value>
   </data>
-  <data name="ProductCatalog_ButtonBasket" xml:space="preserve">
+  <data name="Catalog_ButtonBasket" xml:space="preserve">
     <value>Перейти в корзину</value>
   </data>
-  <data name="ProductCatalog_ButtonRemoveFromOrder" xml:space="preserve">
+  <data name="Catalog_ButtonRemoveFromOrder" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="ProductCatalog_ButtonSearch" xml:space="preserve">
+  <data name="Catalog_ButtonSearch" xml:space="preserve">
     <value>Искать</value>
   </data>
-  <data name="ProductCatalog_Header" xml:space="preserve">
+  <data name="Catalog_Header" xml:space="preserve">
     <value>Выберите то что Вам нужно</value>
   </data>
-  <data name="ProductCatalog_HeaderCategory" xml:space="preserve">
+  <data name="Catalog_HeaderCategory" xml:space="preserve">
     <value>Категория</value>
   </data>
-  <data name="ProductCatalog_HeaderCount" xml:space="preserve">
+  <data name="Catalog_HeaderCount" xml:space="preserve">
     <value>Количество</value>
   </data>
-  <data name="ProductCatalog_HeaderName" xml:space="preserve">
+  <data name="Catalog_HeaderName" xml:space="preserve">
     <value>Наименование</value>
   </data>
-  <data name="ProductCatalog_HeaderPrice" xml:space="preserve">
+  <data name="Catalog_HeaderPrice" xml:space="preserve">
     <value>Цена</value>
   </data>
   <data name="ProductCatalog_ProductsBought" xml:space="preserve">
     <value>Продукты куплены</value>
   </data>
-  <data name="ProductCatalog_SearchCategory" xml:space="preserve">
+  <data name="Catalog_SearchCategory" xml:space="preserve">
     <value>Категория:</value>
   </data>
-  <data name="ProductCatalog_SearchName" xml:space="preserve">
+  <data name="Catalog_SearchName" xml:space="preserve">
     <value>Наименования:</value>
   </data>
-  <data name="ProductCatalog_SearchNoResult" xml:space="preserve">
+  <data name="Catalog_SearchNoResult" xml:space="preserve">
     <value>Совпадений не найдено</value>
   </data>
-  <data name="ProductCatalog_SearchText" xml:space="preserve">
+  <data name="Catalog_SearchText" xml:space="preserve">
     <value>Поиск по каталогу</value>
   </data>
   <data name="ProductCatalog_Title" xml:space="preserve">
@@ -290,5 +305,38 @@
   </data>
   <data name="Profile_Total" xml:space="preserve">
     <value>всего</value>
+  </data>
+  <data name="Basket_EmptyOrder" xml:space="preserve">
+    <value>Пустой заказ</value>
+  </data>
+  <data name="Basket_ButtonBuy" xml:space="preserve">
+    <value>Купить</value>
+  </data>
+  <data name="MainLayout_ButtonBack" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Management_ButtonAdd" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="Management_ButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Management_ButtonDelete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Management_ButtonEdit" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
+  <data name="Management_EditFail" xml:space="preserve">
+    <value>Товар не изменён</value>
+  </data>
+  <data name="Management_EditSuccess" xml:space="preserve">
+    <value>Товар изменён</value>
+  </data>
+  <data name="Management_EditValidFail" xml:space="preserve">
+    <value>Товар не изменён</value>
+  </data>
+  <data name="Management_Header" xml:space="preserve">
+    <value>Управление каталогом товаров</value>
   </data>
 </root>

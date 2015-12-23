@@ -7,7 +7,6 @@
     var controller = Model.PagerSettings.PageChangeRoute.Controller;
     var ajaxOptions = new AjaxOptions
     {
-        HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = Model.PagerSettings.UpdateTargetId
     };
@@ -19,9 +18,7 @@
         @Ajax.ActionLink(Lang.PagerFirstLink, action, controller, new {pageIndex = 1}, ajaxOptions, htmlAttributesLinks)
         @Ajax.ActionLink(Lang.PagerPrevLink, action, controller, new {pageIndex = (Model.PageIndex - 1)}, ajaxOptions, htmlAttributesLinks)
 
-        @foreach (var
-            page in
-            Model.Pages)
+        @foreach (var page in Model.Pages)
         {
             @Ajax.ActionLink(page.ToString(), action, controller, new {pageIndex = page}, ajaxOptions, page == Model.PageIndex ? htmlAttributesCurrentLink : htmlAttributesLinks)
         }

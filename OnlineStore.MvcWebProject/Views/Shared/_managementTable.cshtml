@@ -1,0 +1,62 @@
+﻿@using OnlineStore.BuisnessLogic.Models.Dto
+@using Resources
+@model OnlineStore.BuisnessLogic.Models.Table<ProductManagementDto>
+
+<div id="managementTablePartial">
+    <table id="managementTable">
+        <tr>
+            <th class="tableTh"></th>
+            <th class="tableTh"></th>
+            <th class="tableTh">ID</th>
+            <th class="tableTh">@Lang.Management_HeaderName</th>
+            <th class="tableTh">@Lang.Management_HeaderCategory</th>
+            <th class="tableTh tableThLast">@Lang.Management_HeaderPrice</th>
+        </tr>
+
+        @{
+            var rowOdd = 0;
+            foreach (var product in Model.Data)
+            {
+                <tr @((rowOdd++)%2 == 1 ? "class=tableOddRow" : "class=tableEvenRow")>
+                    <td class="tableTd managementDeleteButtons">
+                        @Ajax.ActionLink(Lang.Management_ButtonDelete, "Delete", "Management", new {id = @product.Id}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "onDeleteSuccess"}, new {@class = "buttonStyle"})
+                        <input type="button" class="buttonStyle editAfter" value="@Lang.Management_ButtonCancel" onclick="editAfterClick(this, false)" style="display: none"/>
+                    </td>
+                    <td class="tableTd managementEditButtons">
+                        <input type="button" name="@product.Id" class="buttonStyle" value="@Lang.Management_ButtonEdit" onclick="startEdit(this)"/>
+                        <input type="button" name="@product.Id" class="buttonStyle editAfter" value="@Lang.Management_ButtonEditOk" onclick="editAfterClick(this, true)" style="display: none"/>
+                    </td>
+                    <td class="tableTd">@product.Id</td>
+                    <td class="tableTd">@product.Name</td>
+                    <td class="tableTd">@product.Category</td>
+                    <td class="tableTd">@product.Price</td>
+                </tr>
+            }
+            
+        }
+
+        @*@using (Ajax.BeginForm("Add", "Management", null, new AjaxOptions {OnSuccess = "onAddSuccess"}, new {@class = "buttonStyle"}))
+        {
+            *@<tr>
+
+                <td class="tableTh"></td>
+                <td class="tableTh">
+                    <input type="button" id="addButton" class="buttonStyle" value="@Lang.Management_ButtonAdd" onclick="addClick(this)"/>
+                </td>
+                <td class="tableTh"></td>
+                <td class="tableTh">
+                    <input type="text" name="addName" class="managementAddInputs"/>
+                </td>
+                <td class="tableTh">
+                    <input type="text" name="addCategory" class="managementAddInputs"/>
+                </td>
+                <td class="tableTh tableThLast">
+                    <input type="text" name="addPrice" class="managementAddInputs"/>
+                </td>
+
+            </tr>
+        @*}*@
+    </table>
+    <br/>
+    @Html.Partial("_pager", Model.Pager)
+</div>

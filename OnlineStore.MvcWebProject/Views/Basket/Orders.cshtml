@@ -1,0 +1,47 @@
+﻿@using Resources
+@model OnlineStore.MvcWebProject.Models.Basket.BasketModel
+
+@{
+    Layout = "~/Views/Layouts/_MainLayout.cshtml";
+}
+
+@section StyleSheets
+{
+    <link rel="Stylesheet" href="@Href("~/Content/StyleSheets/Basket.css")"/>
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+}
+
+<br/>
+<div id="basketHeader">
+    <span>@Lang.Basket_Header</span>
+</div>
+
+<div id="basketTableContainer">
+    @if (Model.TableData.Data != null && Model.TableData.Data.Length != 0)
+    {
+        @Html.Partial("_basketTable", Model.TableData)
+    }
+    else
+    {
+        <div id="basketSearchNoResult">@Lang.Basket_EmptyOrder</div>
+    }
+    <br/>
+</div>
+@if (Model.TableData.Data != null && Model.TableData.Data.Length != 0)
+{
+    <div id="basketTotal">@Model.Total</div>
+    <br/>
+    <br/>
+    <div id="basketButtonBuy">
+        @using (Html.BeginForm("Buy", "Basket"))
+        {
+            <input type="submit" value="@Lang.Basket_ButtonBuy"/>
+        }
+    </div>
+    <br/>
+}

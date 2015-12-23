@@ -7,7 +7,7 @@ namespace OnlineStore.BuisnessLogic.StorageRepository
     {
         public void Set(HttpCookieCollection repository, string name, object value)
         {
-            repository.Set(new HttpCookie(name, (string)value));
+            repository.Set(new HttpCookie(name, value.ToString()));
         }
 
         public void Remove(HttpCookieCollection repository, string name)

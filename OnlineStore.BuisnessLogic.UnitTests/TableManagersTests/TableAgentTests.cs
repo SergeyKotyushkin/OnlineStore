@@ -11,7 +11,7 @@ namespace OnlineStore.BuisnessLogic.UnitTests.TableManagersTests
         {
             var expected = new[] {1, 1, 2, 3, 4, 4};
 
-            var agent = new TableAgent<object>();
+            var agent = new TableAgent<object, object>(null);
             var actual = new[]
             {
                 agent.GetPageIndex("0", 2, 4), agent.GetPageIndex("1", 2, 4), agent.GetPageIndex("2", 2, 4),
@@ -28,7 +28,7 @@ namespace OnlineStore.BuisnessLogic.UnitTests.TableManagersTests
         {
             var expected = new[] {1, 1, 2, 3};
 
-            var agent = new TableAgent<object>();
+            var agent = new TableAgent<object, object>(null);
             var actual = new[]
             {
                 agent.GetPageIndex("prev", 1, 4), agent.GetPageIndex("prev", 2, 4), agent.GetPageIndex("prev", 3, 4),
@@ -45,7 +45,7 @@ namespace OnlineStore.BuisnessLogic.UnitTests.TableManagersTests
         {
             var expected = new[] {2, 3, 4, 4};
 
-            var agent = new TableAgent<object>();
+            var agent = new TableAgent<object, object>(null);
             var actual = new[]
             {
                 agent.GetPageIndex("next", 1, 4), agent.GetPageIndex("next", 2, 4), agent.GetPageIndex("next", 3, 4),
@@ -62,7 +62,7 @@ namespace OnlineStore.BuisnessLogic.UnitTests.TableManagersTests
         {
             const int expected = 1;
 
-            var agent = new TableAgent<object>();
+            var agent = new TableAgent<object, object>(null);
             var actuals = new[]
             {
                 agent.GetPageIndex(null, 1, 4), agent.GetPageIndex(null, 2, 4), agent.GetPageIndex(null, 3, 4),
@@ -78,7 +78,7 @@ namespace OnlineStore.BuisnessLogic.UnitTests.TableManagersTests
         {
             var expected = new[] {1, 2, 3, 4};
 
-            var agent = new TableAgent<object>();
+            var agent = new TableAgent<object, object>(null);
             var actual = new[]
             {
                 agent.GetPageIndex("a a", 1, 4), agent.GetPageIndex("a a", 2, 4), agent.GetPageIndex("a a", 3, 4),
@@ -93,7 +93,7 @@ namespace OnlineStore.BuisnessLogic.UnitTests.TableManagersTests
         [TestMethod]
         public void GetPages_CheckNotNumberPages_ReturnExpectedPagesIndexies()
         {
-            var agent = new TableAgent<object>();
+            var agent = new TableAgent<object, object>(null);
 
             var expected = new[]
             {

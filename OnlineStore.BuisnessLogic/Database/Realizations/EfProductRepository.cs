@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using OnlineStore.BuisnessLogic.Database.Contracts;
 using OnlineStore.BuisnessLogic.Database.EfContexts;
@@ -9,41 +8,45 @@ namespace OnlineStore.BuisnessLogic.Database.Realizations
 {
     public class EfProductRepository : IDbProductRepository
     {
-        private readonly EfProductContext _context;
-
-        public EfProductRepository(EfProductContext context)
-        {
-            _context = context;
-        }
-
         public Product[] GetAll()
         {
-            var all = _context.ProductTable.OrderBy(p => p.Id).Select(p => p);
-            var list = new List<Product>();
-            foreach (var p in all)
-                list.Add(new Product{Id=p.Id, Name = p.Name, Category = p.Category, Price = p.Price});
-
-            return list.ToArray();
+            using (var context = new EfProductContext())
+            {
+                return context.ProductTable.OrderBy(p => p.Id).ToArray();
+            }
         }
 
         public bool AddOrUpdate(Product product)
         {
-            _context.ProductTable.AddOrUpdate(product);
-            return _context.SaveChanges() > 0;
+            using (var context = new EfProductContext())
+            {
+                context.ProductTable.AddOrUpdate(product);
+                return context.SaveChanges() > 0;
+            }
+            
         }
 
         public bool RemoveById(int id)
         {
-            var entity = _context.ProductTable.Find(id);
-            if (entity == null) return false;
-            _context.ProductTable.Remove(entity);
-            _context.SaveChanges();
-            return true;
+            using (var context = new EfProductContext())
+            {
+                var entity = context.ProductTable.Find(id);
+                if (entity == null)
+                    return false;
+
+                context.ProductTable.Remove(entity);
+                context.SaveChanges();
+                return true;
+            }
+            
         }
 
         public Product GetById(int id)
         {
-            return _context.ProductTable.Find(id);
+            using (var context = new EfProductContext())
+            {
+                return context.ProductTable.Find(id);
+            }
         }
 
         public Product[] SearchByName(Product[] products, string searchName)

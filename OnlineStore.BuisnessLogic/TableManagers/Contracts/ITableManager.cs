@@ -2,20 +2,16 @@
 
 namespace OnlineStore.BuisnessLogic.TableManagers.Contracts
 {
-    public interface ITableManager<TData>
+    public interface ITableManager<TData, in TRepository>
     {
-        //void SetCultureForPriceColumns(GridView table, CultureInfo cultureTo, bool performConvert, params int[] columnsIndexes);
+        int GetPagesCount(int count, int pageSize);
 
-        //void SavePageIndex(TV repository, string name, int index);
-
-        //int RestorePageIndex(TV repository, string name);
-
-        //bool CheckIsPageIndexNeedToRefresh(TV repository, string name, GridView table);
+        int GetNewPageIndex(TRepository repository, string nameInStorage, string newIndex, int pagesCount);
 
         int GetPageIndex(string newIndex, int oldIndex, int pagesCount);
 
         int[] GetPages(int newIndex, int pagesCount, int visiblePagesCount);
 
-        List<TData> GetPageData(List<TData> data, int pageIndex, int pageSize);
+        TData[] GetPageData(List<TData> data, int pageIndex, int pageSize);
     }
 }

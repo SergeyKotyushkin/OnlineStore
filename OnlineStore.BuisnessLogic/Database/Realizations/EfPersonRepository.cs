@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using OnlineStore.BuisnessLogic.Database.Contracts;
 using OnlineStore.BuisnessLogic.Database.EfContexts;
@@ -8,17 +9,29 @@ namespace OnlineStore.BuisnessLogic.Database.Realizations
 {
     public class EfPersonRepository : IDbPersonRepository
     {
-        private readonly EfPersonContext _context = new EfPersonContext();
-        
-        public IQueryable<Person> GetAll()
+        public List<Person> GetAll()
         {
-            return _context.PersonTable;
+            using (var context = new EfPersonContext())
+            {
+                return context.PersonTable.ToList();
+            }
         }
-        
+
+        public Person GetByName(string name)
+        {
+            using (var context = new EfPersonContext())
+            {
+                return context.PersonTable.Find(name);
+            }
+        }
+
         public bool AddOrUpdate(Person person)
         {
-            _context.PersonTable.AddOrUpdate(person);
-            return _context.SaveChanges() > 0;
+            using (var context = new EfPersonContext())
+            {
+                context.PersonTable.AddOrUpdate(person);
+                return context.SaveChanges() > 0;
+            }
         }
     }
 }

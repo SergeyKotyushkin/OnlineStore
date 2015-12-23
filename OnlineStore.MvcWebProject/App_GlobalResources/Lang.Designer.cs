@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buy.
+        /// </summary>
+        internal static string Basket_ButtonBuy {
+            get {
+                return ResourceManager.GetString("Basket_ButtonBuy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order is empty.
+        /// </summary>
+        internal static string Basket_EmptyOrder {
+            get {
+                return ResourceManager.GetString("Basket_EmptyOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your order.
         /// </summary>
         internal static string Basket_Header {
@@ -115,6 +133,123 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to +.
+        /// </summary>
+        internal static string Catalog_ButtonAddToOrder {
+            get {
+                return ResourceManager.GetString("Catalog_ButtonAddToOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To basket.
+        /// </summary>
+        internal static string Catalog_ButtonBasket {
+            get {
+                return ResourceManager.GetString("Catalog_ButtonBasket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -.
+        /// </summary>
+        internal static string Catalog_ButtonRemoveFromOrder {
+            get {
+                return ResourceManager.GetString("Catalog_ButtonRemoveFromOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string Catalog_ButtonSearch {
+            get {
+                return ResourceManager.GetString("Catalog_ButtonSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose products for youself!.
+        /// </summary>
+        internal static string Catalog_Header {
+            get {
+                return ResourceManager.GetString("Catalog_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        internal static string Catalog_HeaderCategory {
+            get {
+                return ResourceManager.GetString("Catalog_HeaderCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Count.
+        /// </summary>
+        internal static string Catalog_HeaderCount {
+            get {
+                return ResourceManager.GetString("Catalog_HeaderCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Catalog_HeaderName {
+            get {
+                return ResourceManager.GetString("Catalog_HeaderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        internal static string Catalog_HeaderPrice {
+            get {
+                return ResourceManager.GetString("Catalog_HeaderPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category:.
+        /// </summary>
+        internal static string Catalog_SearchCategory {
+            get {
+                return ResourceManager.GetString("Catalog_SearchCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        internal static string Catalog_SearchName {
+            get {
+                return ResourceManager.GetString("Catalog_SearchName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No matching results.
+        /// </summary>
+        internal static string Catalog_SearchNoResult {
+            get {
+                return ResourceManager.GetString("Catalog_SearchNoResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search in catalog.
+        /// </summary>
+        internal static string Catalog_SearchText {
+            get {
+                return ResourceManager.GetString("Catalog_SearchText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login field is required.
         /// </summary>
         internal static string Credentials_LoginFieldIsRequired {
@@ -129,15 +264,6 @@ namespace Resources {
         internal static string Credentials_PasswordFieldIsRequired {
             get {
                 return ResourceManager.GetString("Credentials_PasswordFieldIsRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to CurrencyInStorage.
-        /// </summary>
-        internal static string CurrencyInStorage {
-            get {
-                return ResourceManager.GetString("CurrencyInStorage", resourceCulture);
             }
         }
         
@@ -205,6 +331,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        internal static string MainLayout_ButtonBack {
+            get {
+                return ResourceManager.GetString("MainLayout_ButtonBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Good day, {0}!.
         /// </summary>
         internal static string MainLayout_LinkProfileText {
@@ -219,6 +354,159 @@ namespace Resources {
         internal static string MainLayout_LogOut {
             get {
                 return ResourceManager.GetString("MainLayout_LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It was error during adding product.
+        /// </summary>
+        internal static string Management_AddFail {
+            get {
+                return ResourceManager.GetString("Management_AddFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product was added.
+        /// </summary>
+        internal static string Management_AddSuccess {
+            get {
+                return ResourceManager.GetString("Management_AddSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not valid data.
+        /// </summary>
+        internal static string Management_AddValidFail {
+            get {
+                return ResourceManager.GetString("Management_AddValidFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string Management_ButtonAdd {
+            get {
+                return ResourceManager.GetString("Management_ButtonAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Management_ButtonCancel {
+            get {
+                return ResourceManager.GetString("Management_ButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string Management_ButtonDelete {
+            get {
+                return ResourceManager.GetString("Management_ButtonDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string Management_ButtonEdit {
+            get {
+                return ResourceManager.GetString("Management_ButtonEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Management_ButtonEditOk {
+            get {
+                return ResourceManager.GetString("Management_ButtonEditOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product wasn&apos;t removed.
+        /// </summary>
+        internal static string Management_DeleteFail {
+            get {
+                return ResourceManager.GetString("Management_DeleteFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product was removed.
+        /// </summary>
+        internal static string Management_DeleteSuccess {
+            get {
+                return ResourceManager.GetString("Management_DeleteSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product wasn&apos;t edited.
+        /// </summary>
+        internal static string Management_EditFail {
+            get {
+                return ResourceManager.GetString("Management_EditFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product was edited.
+        /// </summary>
+        internal static string Management_EditSuccess {
+            get {
+                return ResourceManager.GetString("Management_EditSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product wasn&apos;t edited.
+        /// </summary>
+        internal static string Management_EditValidFail {
+            get {
+                return ResourceManager.GetString("Management_EditValidFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Catalog management.
+        /// </summary>
+        internal static string Management_Header {
+            get {
+                return ResourceManager.GetString("Management_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        internal static string Management_HeaderCategory {
+            get {
+                return ResourceManager.GetString("Management_HeaderCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Management_HeaderName {
+            get {
+                return ResourceManager.GetString("Management_HeaderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        internal static string Management_HeaderPrice {
+            get {
+                return ResourceManager.GetString("Management_HeaderPrice", resourceCulture);
             }
         }
         
@@ -268,128 +556,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to +.
-        /// </summary>
-        internal static string ProductCatalog_ButtonAddToOrder {
-            get {
-                return ResourceManager.GetString("ProductCatalog_ButtonAddToOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to To basket.
-        /// </summary>
-        internal static string ProductCatalog_ButtonBasket {
-            get {
-                return ResourceManager.GetString("ProductCatalog_ButtonBasket", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to -.
-        /// </summary>
-        internal static string ProductCatalog_ButtonRemoveFromOrder {
-            get {
-                return ResourceManager.GetString("ProductCatalog_ButtonRemoveFromOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Search.
-        /// </summary>
-        internal static string ProductCatalog_ButtonSearch {
-            get {
-                return ResourceManager.GetString("ProductCatalog_ButtonSearch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose products for youself!.
-        /// </summary>
-        internal static string ProductCatalog_Header {
-            get {
-                return ResourceManager.GetString("ProductCatalog_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Category.
-        /// </summary>
-        internal static string ProductCatalog_HeaderCategory {
-            get {
-                return ResourceManager.GetString("ProductCatalog_HeaderCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Count.
-        /// </summary>
-        internal static string ProductCatalog_HeaderCount {
-            get {
-                return ResourceManager.GetString("ProductCatalog_HeaderCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name.
-        /// </summary>
-        internal static string ProductCatalog_HeaderName {
-            get {
-                return ResourceManager.GetString("ProductCatalog_HeaderName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Price.
-        /// </summary>
-        internal static string ProductCatalog_HeaderPrice {
-            get {
-                return ResourceManager.GetString("ProductCatalog_HeaderPrice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Products were bought.
         /// </summary>
         internal static string ProductCatalog_ProductsBought {
             get {
                 return ResourceManager.GetString("ProductCatalog_ProductsBought", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Category:.
-        /// </summary>
-        internal static string ProductCatalog_SearchCategory {
-            get {
-                return ResourceManager.GetString("ProductCatalog_SearchCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name:.
-        /// </summary>
-        internal static string ProductCatalog_SearchName {
-            get {
-                return ResourceManager.GetString("ProductCatalog_SearchName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No matching results.
-        /// </summary>
-        internal static string ProductCatalog_SearchNoResult {
-            get {
-                return ResourceManager.GetString("ProductCatalog_SearchNoResult", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Search in catalog.
-        /// </summary>
-        internal static string ProductCatalog_SearchText {
-            get {
-                return ResourceManager.GetString("ProductCatalog_SearchText", resourceCulture);
             }
         }
         

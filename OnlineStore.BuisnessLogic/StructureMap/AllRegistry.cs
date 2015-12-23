@@ -2,6 +2,7 @@
 using OnlineStore.BuisnessLogic.Currency;
 using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
+using OnlineStore.BuisnessLogic.Database.Models;
 using OnlineStore.BuisnessLogic.Database.Models.Dto;
 using OnlineStore.BuisnessLogic.Database.Realizations;
 using OnlineStore.BuisnessLogic.ImageService;
@@ -13,6 +14,8 @@ using OnlineStore.BuisnessLogic.Mail.Contracts;
 using OnlineStore.BuisnessLogic.Models.Dto;
 using OnlineStore.BuisnessLogic.OrderRepository;
 using OnlineStore.BuisnessLogic.OrderRepository.Contracts;
+using OnlineStore.BuisnessLogic.Searching;
+using OnlineStore.BuisnessLogic.Searching.Contracts;
 using OnlineStore.BuisnessLogic.StorageRepository;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers;
@@ -35,13 +38,13 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             });
 
             // Currency
-            For<ICurrencyConverter>().Use<CurrencyConverter>().Singleton();
-            For<ICurrencyService>().Use<CurrencyService>().Singleton();
             For<IRateService>().Use<YahooRateService>().Singleton();
+            For<ICurrencyService>().Use<CurrencyService>().Singleton();
+            For<ICurrencyConverter>().Use<CurrencyConverter>().Singleton();
 
             //// Mail
-            For<IMailSender>().Use<MailSender>().AlwaysUnique();
             For<IMailService>().Use<MailService>().Singleton();
+            For<IMailSender>().Use<MailSender>().AlwaysUnique();
 
             //// Repository
             For<IDbPersonRepository>().Use<EfPersonRepository>().Singleton();
@@ -49,17 +52,20 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             For<IDbOrderHistoryRepository>().Use<EfOrderHistoryRepository>().Singleton();
 
             //// GridViews
-            For<ITableManager<ProductDto>>().Use<TableAgent<ProductDto>>();
-            For<ITableManager<OrderItemDto>>().Use<TableAgent<OrderItemDto>>();
-            For<ITableManager<OrderHistoryItemDto>>().Use<TableAgent<OrderHistoryItemDto>>();
+            For<ITableManagement>().Use<TableManagement>();
+            For<ITableManager<ProductDto, HttpSessionStateBase>>().Use<TableAgent<ProductDto, HttpSessionStateBase>>();
+            For<ITableManager<OrderItemDto, HttpSessionStateBase>>().Use<TableAgent<OrderItemDto, HttpSessionStateBase>>();
+            For<ITableManager<OrderHistoryItemDto, HttpSessionStateBase>>().Use<TableAgent<OrderHistoryItemDto, HttpSessionStateBase>>();
+            For<ITableManager<ProductManagementDto, HttpSessionStateBase>>().Use<TableAgent<ProductManagementDto, HttpSessionStateBase>>();
 
             //// Other
-            For<IImageService>().Use<ImageServiceAgent>();
             For<IUserGroup>().Use<UserGroup>();
+            For<IJsonSerializer>().Use<JsonSerializer>();
+            For<IImageService>().Use<ImageServiceAgent>();
+            For<ISearching<Product>>().Use<SimpleSearching>();
+            For<IOrderRepository<HttpSessionStateBase>>().Use<OrderSessionRepository>();
             For<IStorageRepository<HttpSessionStateBase>>().Use<StorageSessionRepository>();
             For<IStorageRepository<HttpCookieCollection>>().Use<StorageCoockieRepository>();
-            For<IOrderRepository<HttpSessionStateBase>>().Use<OrderSessionRepository>();
-            For<IJsonSerializer>().Use<JsonSerializer>();
         }
     }
 }

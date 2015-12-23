@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using log4net;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
-using Resources;
+using OnlineStore.MvcWebProject.App_GlobalResources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
@@ -45,7 +45,7 @@ namespace OnlineStore.MvcWebProject.Controllers
 
         public ActionResult ChangeCurrency(string currency)
         {
-            _storageCookieRepository.Set(Response.Cookies, Lang.CurrencyInStorage, currency);
+            _storageCookieRepository.Set(Response.Cookies, Settings.CurrencyInStorage, currency);
             return RedirectBackByUrlReferrer(new {});
         }
 
@@ -56,8 +56,10 @@ namespace OnlineStore.MvcWebProject.Controllers
                 return RedirectToAction("Index", "Home", routeValues);
 
             var urlSegments = Request.UrlReferrer.Segments;
-            var action = urlSegments[3];
-            var controller = urlSegments[2].Substring(0, urlSegments[2].Length - 1);
+            var action = Request.UrlReferrer.Segments.Length == 3 ? "Index" : urlSegments[3];
+            var controller = Request.UrlReferrer.Segments.Length == 3
+                ? urlSegments[2]
+                : urlSegments[2].Substring(0, urlSegments[2].Length - 1);
 
             return RedirectToAction(action, controller, routeValues);
         }

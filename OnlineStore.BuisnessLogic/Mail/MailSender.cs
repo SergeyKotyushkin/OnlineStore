@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Mail;
 using OnlineStore.BuisnessLogic.Mail.Contracts;
-using OnlineStore.BuisnessLogic.Models.Dto;
+using OnlineStore.BuisnessLogic.Models;
 
 namespace OnlineStore.BuisnessLogic.Mail
 {
@@ -41,7 +41,7 @@ namespace OnlineStore.BuisnessLogic.Mail
             }
         }
 
-        public void Create(string @from, string to, string subject, IEnumerable<OrderItemDto> orderItemsBody,
+        public void Create(string @from, string to, string subject, IEnumerable<OrderItem> orderItemsBody,
             bool isBodyHtml, string ordersFormat, string bodyFormat, IFormatProvider cultureCurrency)
         {
             SuccessfulySend = false;

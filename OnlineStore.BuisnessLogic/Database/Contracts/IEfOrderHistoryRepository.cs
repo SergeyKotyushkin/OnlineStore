@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using OnlineStore.BuisnessLogic.Database.Models;
-using OnlineStore.BuisnessLogic.Models.Dto;
+using OnlineStore.BuisnessLogic.Models;
 
 namespace OnlineStore.BuisnessLogic.Database.Contracts
 {
     public interface IDbOrderHistoryRepository
     {
-        IQueryable<OrderHistory> GetAll();
+        List<OrderHistory> GetAll();
 
         bool Add(OrderHistory orderHistory);
 
-        bool Add(IEnumerable<OrderItemDto> orderItems, string userName, string userEmail, CultureInfo culture);
+        bool Add(IEnumerable<OrderItem> orderItems, string userName, string userEmail, CultureInfo culture);
     }
 }

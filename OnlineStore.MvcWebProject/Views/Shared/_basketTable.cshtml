@@ -1,0 +1,28 @@
+﻿@using OnlineStore.BuisnessLogic.Models.Dto
+@model OnlineStore.BuisnessLogic.Models.Table<OrderItemDto>
+
+<div id="basketTablePartial">
+    <table id="basketTable">
+        <tr>
+            <th class="tableTh">Name</th>
+            <th class="tableTh">Price</th>
+            <th class="tableTh">Count</th>
+            <th class="tableTh tableThLast">Total</th>
+        </tr>
+
+        @{
+            var rowOdd = 0;
+            foreach (var order in Model.Data)
+            {
+                <tr @((rowOdd++)%2 == 1 ? "class=tableOddRow" : "class=tableEvenRow")>
+                    <td class="tableTd">@order.Name</td>
+                    <td class="tableTd">@order.Price</td>
+                    <td class="tableTd">@order.Count</td>
+                    <td class="tableTd">@order.Total</td>
+                </tr>
+            }
+        }
+    </table>
+    <br/>
+    @Html.Partial("_pager", Model.Pager)
+</div>

@@ -141,19 +141,19 @@
   <data name="MainLayout_LogOut" xml:space="preserve">
     <value>Log Out</value>
   </data>
-  <data name="ProductCatalog_Header" xml:space="preserve">
+  <data name="Catalog_Header" xml:space="preserve">
     <value>Choose products for youself!</value>
   </data>
-  <data name="ProductCatalog_HeaderCategory" xml:space="preserve">
+  <data name="Catalog_HeaderCategory" xml:space="preserve">
     <value>Category</value>
   </data>
-  <data name="ProductCatalog_HeaderCount" xml:space="preserve">
+  <data name="Catalog_HeaderCount" xml:space="preserve">
     <value>Count</value>
   </data>
-  <data name="ProductCatalog_HeaderName" xml:space="preserve">
+  <data name="Catalog_HeaderName" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="ProductCatalog_HeaderPrice" xml:space="preserve">
+  <data name="Catalog_HeaderPrice" xml:space="preserve">
     <value>Price</value>
   </data>
   <data name="PagerFirstLink" xml:space="preserve">
@@ -168,28 +168,28 @@
   <data name="PagerPrevLink" xml:space="preserve">
     <value>Prev</value>
   </data>
-  <data name="ProductCatalog_SearchText" xml:space="preserve">
+  <data name="Catalog_SearchText" xml:space="preserve">
     <value>Search in catalog</value>
   </data>
-  <data name="ProductCatalog_ButtonSearch" xml:space="preserve">
+  <data name="Catalog_ButtonSearch" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="ProductCatalog_SearchCategory" xml:space="preserve">
+  <data name="Catalog_SearchCategory" xml:space="preserve">
     <value>Category:</value>
   </data>
-  <data name="ProductCatalog_SearchName" xml:space="preserve">
+  <data name="Catalog_SearchName" xml:space="preserve">
     <value>Name:</value>
   </data>
-  <data name="ProductCatalog_ButtonAddToOrder" xml:space="preserve">
+  <data name="Catalog_ButtonAddToOrder" xml:space="preserve">
     <value>+</value>
   </data>
-  <data name="ProductCatalog_ButtonRemoveFromOrder" xml:space="preserve">
+  <data name="Catalog_ButtonRemoveFromOrder" xml:space="preserve">
     <value>-</value>
   </data>
   <data name="ProductCatalog_AllCategory" xml:space="preserve">
     <value>All</value>
   </data>
-  <data name="ProductCatalog_SearchNoResult" xml:space="preserve">
+  <data name="Catalog_SearchNoResult" xml:space="preserve">
     <value>No matching results</value>
   </data>
   <data name="Index_Title" xml:space="preserve">
@@ -198,13 +198,10 @@
   <data name="ProductCatalog_Title" xml:space="preserve">
     <value>Product Catalog</value>
   </data>
-  <data name="CurrencyInStorage" xml:space="preserve">
-    <value>CurrencyInStorage</value>
-  </data>
   <data name="LanguageInStorage" xml:space="preserve">
     <value>LanguageInStorage</value>
   </data>
-  <data name="ProductCatalog_ButtonBasket" xml:space="preserve">
+  <data name="Catalog_ButtonBasket" xml:space="preserve">
     <value>To basket</value>
   </data>
   <data name="Basket_Header" xml:space="preserve">
@@ -296,5 +293,65 @@
   </data>
   <data name="Profile_ButtonChooseImage" xml:space="preserve">
     <value>Choose image</value>
+  </data>
+  <data name="Management_HeaderCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Management_HeaderName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Management_HeaderPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Management_AddFail" xml:space="preserve">
+    <value>It was error during adding product</value>
+  </data>
+  <data name="Management_AddSuccess" xml:space="preserve">
+    <value>Product was added</value>
+  </data>
+  <data name="Management_AddValidFail" xml:space="preserve">
+    <value>Not valid data</value>
+  </data>
+  <data name="Management_DeleteFail" xml:space="preserve">
+    <value>Product wasn't removed</value>
+  </data>
+  <data name="Management_DeleteSuccess" xml:space="preserve">
+    <value>Product was removed</value>
+  </data>
+  <data name="Basket_EmptyOrder" xml:space="preserve">
+    <value>Order is empty</value>
+  </data>
+  <data name="Basket_ButtonBuy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="MainLayout_ButtonBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Management_ButtonAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Management_ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Management_ButtonDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Management_ButtonEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Management_ButtonEditOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Management_EditFail" xml:space="preserve">
+    <value>Product wasn't edited</value>
+  </data>
+  <data name="Management_EditSuccess" xml:space="preserve">
+    <value>Product was edited</value>
+  </data>
+  <data name="Management_EditValidFail" xml:space="preserve">
+    <value>Product wasn't edited</value>
+  </data>
+  <data name="Management_Header" xml:space="preserve">
+    <value>Catalog management</value>
   </data>
 </root>

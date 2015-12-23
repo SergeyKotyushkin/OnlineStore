@@ -1,0 +1,23 @@
+﻿#managementHeader {
+    text-align: center;
+    font-size: x-large;
+    margin: 10px;
+}
+
+#managementTable {
+    margin: 0 auto;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid #006699;
+}
+
+a[disabled] {
+    color: grey;
+    cursor: context-menu;
+    pointer-events: none;
+}
+
+.managementEditInputs, .managementAddInputs {
+    margin: 0 auto;
+    width: 70%;
+}

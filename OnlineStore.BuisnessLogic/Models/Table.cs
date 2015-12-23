@@ -4,6 +4,6 @@
     {
         public TData[] Data { get; set; }
 
-        public Pager Pager;
+        public Pager Pager { get; set; }
     }
 }

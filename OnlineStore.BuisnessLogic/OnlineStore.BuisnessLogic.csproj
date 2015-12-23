@@ -118,9 +118,12 @@
     <Compile Include="Mail\Contracts\IMailService.cs" />
     <Compile Include="Mail\MailSender.cs" />
     <Compile Include="Mail\MailService.cs" />
-    <Compile Include="MappingDto\OrderHistoryItemDtoMapping.cs" />
-    <Compile Include="MappingDto\OrderItemDtoMapping.cs" />
-    <Compile Include="MappingDto\ProductDtoMapping.cs" />
+    <Compile Include="MappingDtoExtensions\OrderHistoryItemDtoMapping.cs" />
+    <Compile Include="MappingDtoExtensions\OrderItemDtoMapping.cs" />
+    <Compile Include="MappingDtoExtensions\ProductDtoMapping.cs" />
+    <Compile Include="MappingDtoExtensions\ProductManagementDtoMapping.cs" />
+    <Compile Include="Models\Dto\ProductManagementDto.cs" />
+    <Compile Include="Models\EditingResults.cs" />
     <Compile Include="Models\Password.cs" />
     <Compile Include="Models\ProductOrder.cs" />
     <Compile Include="Models\Route.cs" />
@@ -137,6 +140,8 @@
     <Compile Include="Models\Table.cs" />
     <Compile Include="OrderRepository\Contracts\IOrderRepository.cs" />
     <Compile Include="OrderRepository\OrderSessionRepository.cs" />
+    <Compile Include="Searching\Contracts\ISearching.cs" />
+    <Compile Include="Searching\SimpleSearching.cs" />
     <Compile Include="StorageRepository\Contracts\IStorageRepository.cs" />
     <Compile Include="StorageRepository\StorageCoockieRepository.cs" />
     <Compile Include="StorageRepository\StorageSessionRepository.cs" />
@@ -145,8 +150,10 @@
     <Compile Include="StructureMap\StructureMapControllerActivator.cs" />
     <Compile Include="StructureMap\StructureMapDependencyResolver.cs" />
     <Compile Include="StructureMap\StructureMapFactory.cs" />
+    <Compile Include="TableManagers\Contracts\ITableManagement.cs" />
     <Compile Include="TableManagers\Contracts\ITableManager.cs" />
     <Compile Include="TableManagers\TableAgent.cs" />
+    <Compile Include="TableManagers\TableManagement.cs" />
     <Compile Include="UserGruop\Contracts\IUserGroup.cs" />
     <Compile Include="UserGruop\UserGroup.cs" />
   </ItemGroup>

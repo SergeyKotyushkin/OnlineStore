@@ -1,15 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using OnlineStore.BuisnessLogic.Models;
+using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers.Contracts;
 
 namespace OnlineStore.BuisnessLogic.TableManagers
 {
-    public class TableAgent<TData> : ITableManager<TData>
+    public class TableAgent<TData, TRepository> : ITableManager<TData, TRepository>
     {
+        private readonly IStorageRepository<TRepository> _storageRepository;
+
+        public TableAgent(IStorageRepository<TRepository> storageRepository)
+        {
+            _storageRepository = storageRepository;
+        }
+
+        public int GetPagesCount(int count, int pageSize)
+        {
+            return (int)Math.Ceiling((double)count / pageSize);
+        }
+
+        public int GetNewPageIndex(TRepository repository, string nameInStorage, string newIndex, int pagesCount)
+        {
+            var oldPageIndex = (int) (_storageRepository.Get(repository, nameInStorage) ?? 1);
+            var newPageIndex = GetPageIndex(newIndex, oldPageIndex, pagesCount);
+            _storageRepository.Set(repository, nameInStorage, newPageIndex);
+
+            return newPageIndex;
+        }
+
         public int GetPageIndex(string newIndex, int oldIndex, int pagesCount)
         {
-            var result = -1;
+            int result;
             switch (newIndex)
             {
                 case null:
@@ -53,10 +74,10 @@ namespace OnlineStore.BuisnessLogic.TableManagers
             return indexies.ToArray();
         }
 
-        public List<TData> GetPageData(List<TData> data, int pageIndex, int pageSize)
+        public TData[] GetPageData(List<TData> data, int pageIndex, int pageSize)
         {
             var start = (pageIndex - 1) * pageSize;
-            return data.GetRange(start, data.Count - start > pageSize ? pageSize : data.Count - start);
+            return data.GetRange(start, data.Count - start > pageSize ? pageSize : data.Count - start).ToArray();
         }
     }
 }

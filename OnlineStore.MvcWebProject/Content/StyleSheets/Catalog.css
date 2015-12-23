@@ -1,0 +1,41 @@
+﻿#catalogHeader {
+    text-align: center;
+    font-size: x-large;
+    margin: 10px;
+}
+
+#catalogTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid #006699;
+}
+
+.catalogTableIdColumn {
+     display: none;
+}
+
+
+#catalogSearchContainer {
+    text-align: center;
+    width: 100%;
+    padding: 0 0 10px;
+    background-color: #a9a9a9;
+    border: 1px solid #808080;
+}
+
+#catalogSearchNoResult {
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+}
+
+#catalogSearchTitle {
+    margin: 5px 0;
+    font-size: large;
+}
+
+#catalogBasketDiv {
+    text-align: center;
+}

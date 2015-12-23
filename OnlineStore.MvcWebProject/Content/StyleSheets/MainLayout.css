@@ -142,3 +142,79 @@
     color: white;
     background-color: #b22222;
 }
+
+.tableTh {
+    background-color: #006699;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    border: 2px solid #006699;
+    border-right: 2px solid white;
+    padding: 5px 0;
+    width: 30px;
+    text-align: center;
+}
+
+.tableThLast {
+    border: 2px solid #006699;
+}
+
+.tableTd {
+    text-align: center;
+    border: 2px solid #006699;
+    padding: 5px 0;
+}
+
+.tableOddRow {
+    background-color: white;
+}
+
+.tableEvenRow {
+    background-color: #e0e0d6;
+}
+
+.buttonStyle {
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #111111;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
+.buttonStyle:hover {
+  background-color: #126790;
+  color: white;
+}
+
+.buttonStyle:disabled {
+    background-color: #333333;
+    color: white;
+}
+
+#buttonSignOut {
+    color: darkblue;
+    border: 1px solid darkblue;
+    margin: 5px
+}
+
+#buttonSignOut:hover {
+    color: white;
+    background-color: darkblue;
+    border: 1px solid white;
+}
+
+#hlUser {
+    color: white;
+    font-weight: bold;
+}
+
+#hlUser:hover {
+    color: darkblue;
+    border: 1px solid darkblue;
+    background-color: white;
+    font-weight: bold;
+    vertical-align: middle;
+}

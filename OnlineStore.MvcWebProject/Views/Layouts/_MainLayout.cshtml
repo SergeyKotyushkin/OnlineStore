@@ -63,7 +63,7 @@
                 {
                     <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight">
                         <div>
-                            @Html.ActionLink(Model.Settings.LinkProfileText, "UserInfo", "Profile")
+                            @Html.ActionLink(Model.Settings.LinkProfileText, "Info", "Profile", new {}, new {id="hlUser"})
                         </div>
                     </td>
                 }
@@ -73,7 +73,7 @@
                         <div>
                             @using (Html.BeginForm("LogOut", "MainLayout"))
                             {
-                                <input type="submit" value="@Lang.MainLayout_LogOut"/>
+                                <input type="submit" id="buttonSignOut" value="@Lang.MainLayout_LogOut"/>
                             }
                         </div>
                     </td>
@@ -85,12 +85,12 @@
 <div id="mainLayoutRenderBody">
     @RenderBody()
 </div>
-@if (Model != null && Model.Settings.RouteBack != null)
+@if (Model != null && Model.Settings.BackVisible)
 {
     <div id="mainLayoutButtonBackDiv">
-        @using (Html.BeginForm(Model.Settings.RouteBack.Action, Model.Settings.RouteBack.Controller, FormMethod.Get))
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
         {
-            <input type="submit" value="back" id="mainLayoutButtonBack"/>
+            <input type="submit" value="@Lang.MainLayout_ButtonBack" id="mainLayoutButtonBack"/>
         }
     </div>
 }

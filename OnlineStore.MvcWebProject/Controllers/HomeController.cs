@@ -12,7 +12,7 @@ namespace OnlineStore.MvcWebProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly Color _validateUserFail = Color.FromArgb(0xdc, 0x14, 0x3c);
+        private readonly Color _validateUserFail = Color.Firebrick;
 
         private readonly MainLayoutSettings _mainLayoutSettings = new MainLayoutSettings
         {
@@ -64,8 +64,8 @@ namespace OnlineStore.MvcWebProject.Controllers
         private RedirectToRouteResult RedirectFromIndexByRole(string userName)
         {
             return _userGroup.CheckIsUserIsAdmin(userName)
-                ? RedirectToAction("ProductList", "ProductCatalog")
-                : RedirectToAction("ProductList", "ProductCatalog");
+                ? RedirectToAction("Index", "Management")
+                : RedirectToAction("Products", "Catalog");
         }
     }
 }

@@ -10,10 +10,10 @@
 
         public bool LogoutVisible { get; set; }
 
+        public bool BackVisible { get; set; }
+
         public string SelectedLanguage { get; set; }
 
         public string SelectedCurrency { get; set; }
-
-        public Route RouteBack { get; set; }
     }
 }

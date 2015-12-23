@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using OnlineStore.BuisnessLogic.Models.Dto;
+using OnlineStore.BuisnessLogic.Models;
 
 namespace OnlineStore.BuisnessLogic.Mail.Contracts
 {
     public interface IMailService
     {
-        string GetBody(IEnumerable<OrderItemDto> orderItemsBody, string ordersFormat, string bodyFormat,
+        string GetBody(IEnumerable<OrderItem> orderItemsBody, string ordersFormat, string bodyFormat,
             IFormatProvider cultureCurrency);
     }
 }
