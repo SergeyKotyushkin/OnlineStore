@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Basket_Header" xml:space="preserve">
-    <value>Ваши заказы</value>
+    <value>Ваш заказ</value>
   </data>
   <data name="Basket_MailMessage" xml:space="preserve">
     <value>&lt;p&gt;Спасибо за совершенные покупки в нашем &lt;b&gt;"Online Store"&lt;/b&gt;.&lt;br/&gt;Сегодня ({0}) Вы приобрели:&lt;br/&gt;{1}Итого: &lt;b&gt;{2}&lt;/b&gt;.&lt;br/&gt;Надеемся, что Вам понравился наш магазин. Ждём Вас снова!&lt;/p&gt;</value>

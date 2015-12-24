@@ -5,11 +5,13 @@ using log4net;
 using OnlineStore.BuisnessLogic.Models;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.App_GlobalResources;
+using OnlineStore.MvcWebProject.Attributes;
 using OnlineStore.MvcWebProject.Models.Registration;
 using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [OnlyForAnonymous]
     public class RegistrationController : Controller
     {
         private readonly Color _failColor = Color.Firebrick;

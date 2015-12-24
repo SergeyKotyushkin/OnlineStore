@@ -19,11 +19,13 @@ using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers.Contracts;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.App_GlobalResources;
+using OnlineStore.MvcWebProject.Attributes;
 using OnlineStore.MvcWebProject.Models.Basket;
 using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [OnlyForRole("User")]
     public class BasketController : Controller
     {
         private const int PageSize = 8;

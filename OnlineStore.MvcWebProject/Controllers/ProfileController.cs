@@ -19,11 +19,13 @@ using OnlineStore.BuisnessLogic.Models.Dto;
 using OnlineStore.BuisnessLogic.TableManagers.Contracts;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.App_GlobalResources;
+using OnlineStore.MvcWebProject.Attributes;
 using OnlineStore.MvcWebProject.Models.Profile;
 using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [OnlyForAuthenticated]
     public class ProfileController : Controller
     {
         public const int PageSize = 3;

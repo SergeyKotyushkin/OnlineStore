@@ -146,6 +146,9 @@
     <Content Include="App_Data\ProductDb.sdf" />
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Images\noProfileImage.png" />
+    <Compile Include="Attributes\OnlyForAnonymousAttribute.cs" />
+    <Compile Include="Attributes\OnlyForAuthenticatedAttribute.cs" />
+    <Compile Include="Attributes\OnlyForRoleAttribute.cs" />
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainLayoutController.cs" />

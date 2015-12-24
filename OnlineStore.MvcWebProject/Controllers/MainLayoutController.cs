@@ -6,6 +6,7 @@ using log4net;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.App_GlobalResources;
+using OnlineStore.MvcWebProject.Attributes;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
@@ -23,7 +24,7 @@ namespace OnlineStore.MvcWebProject.Controllers
             _storageCookieRepository = storageCookieRepository;
         }
 
-        [Authorize]
+        [OnlyForAuthenticated]
         public ActionResult LogOut()
         {
             var user = _userGroup.GetUser();

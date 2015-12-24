@@ -19,12 +19,13 @@ using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers.Contracts;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.App_GlobalResources;
+using OnlineStore.MvcWebProject.Attributes;
 using OnlineStore.MvcWebProject.Models.Catalog;
 using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
-    [Authorize(Roles = "User")]
+    [OnlyForRole("User")]
     public class CatalogController : Controller
     {
         private const int PageSize = 8;
