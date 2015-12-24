@@ -1,0 +1,23 @@
+﻿@using Resources
+@model string
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+        <br/>
+        <form action="/">
+            <input type="submit" value="@Lang.Errors_ButtonClearError"/>
+        </form>
+    </div>
+</body>
+</html>

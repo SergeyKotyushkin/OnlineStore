@@ -5,8 +5,8 @@ using log4net;
 using OnlineStore.BuisnessLogic.Models;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.App_GlobalResources;
-using OnlineStore.MvcWebProject.Attributes;
 using OnlineStore.MvcWebProject.Models.Registration;
+using OnlineStore.MvcWebProject.Utils.Attributes;
 using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
@@ -26,7 +26,7 @@ namespace OnlineStore.MvcWebProject.Controllers
         private static readonly ILog Log = LogManager.GetLogger(typeof(BasketController));
 
         private readonly IUserGroup _userGroup;
-
+        
         public RegistrationController(IUserGroup userGroup)
         {
             _userGroup = userGroup;

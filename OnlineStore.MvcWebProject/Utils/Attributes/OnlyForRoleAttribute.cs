@@ -3,7 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace OnlineStore.MvcWebProject.Attributes
+namespace OnlineStore.MvcWebProject.Utils.Attributes
 {
     public class OnlyForRoleAttribute : AuthorizeAttribute
     {

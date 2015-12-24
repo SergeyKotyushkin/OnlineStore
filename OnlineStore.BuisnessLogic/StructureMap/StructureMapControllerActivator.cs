@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Configuration;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -21,6 +23,10 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             var language =
                 (requestContext.RouteData.Values["language"] ?? Thread.CurrentThread.CurrentUICulture.Name)
                     .ToString();
+
+            var allowedLanguages = ConfigurationManager.AppSettings["Languages"].Split(',');
+            if (!allowedLanguages.Contains(language))
+                language = allowedLanguages[0];
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(language);
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(language);

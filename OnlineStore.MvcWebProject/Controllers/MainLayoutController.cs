@@ -1,18 +1,15 @@
-﻿using System.Linq;
-using System.Threading;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using log4net;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
 using OnlineStore.MvcWebProject.App_GlobalResources;
-using OnlineStore.MvcWebProject.Attributes;
+using OnlineStore.MvcWebProject.Utils.Attributes;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
     public class MainLayoutController : Controller
     {
-        private readonly string[] _languages = { "ru-RU", "en-US" };
         private static readonly ILog Log = LogManager.GetLogger(typeof(HomeController));
         private readonly IUserGroup _userGroup;
         private readonly IStorageRepository<HttpCookieCollection> _storageCookieRepository;
@@ -38,9 +35,6 @@ namespace OnlineStore.MvcWebProject.Controllers
 
         public ActionResult ChangeLanguage(string language)
         {
-            if (!_languages.Contains(language))
-                language = Thread.CurrentThread.CurrentUICulture.Name;
-
             return RedirectBackByUrlReferrer(new {language});
         }
 

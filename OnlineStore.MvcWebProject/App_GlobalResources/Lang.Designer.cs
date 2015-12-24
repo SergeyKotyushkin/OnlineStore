@@ -277,6 +277,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to home.
+        /// </summary>
+        internal static string Errors_ButtonClearError {
+            get {
+                return ResourceManager.GetString("Errors_ButtonClearError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         internal static string Index_ButtonSubmit {

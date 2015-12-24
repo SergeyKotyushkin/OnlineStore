@@ -15,6 +15,11 @@ namespace OnlineStore.MvcWebProject
                 defaults: new { language = "en-US", controller = "Home", action = "Index", id = UrlParameter.Optional },
                 constraints: new { language = "[a-z]{2}[-][A-Z]{2}" }
             );
+
+            routes.MapRoute(
+                "Catchall", 
+                "{*anything}", 
+                new {controller = "Error", action = "NotFound"});
         }
     }
 }

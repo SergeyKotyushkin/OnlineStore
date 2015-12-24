@@ -387,4 +387,7 @@
   <data name="Registration_Title" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="Errors_ButtonClearError" xml:space="preserve">
+    <value>Вернуться на начальную страницу</value>
+  </data>
 </root>
