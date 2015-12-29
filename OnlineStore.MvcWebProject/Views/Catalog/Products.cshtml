@@ -22,36 +22,40 @@
 </div>
 
 <div id="catalogTableContainer">
-    @if (Model.TableData.Data != null && Model.TableData.Data.Length != 0)
+    @if (Model.TableData != null && Model.TableData.Data != null && Model.TableData.Data.Length != 0)
     {
         @Html.Partial("_catalogTable", Model.TableData)
+
+        if (Model.Search != null)
+        {
+            <br/>
+            <br/>
+            <div id="catalogSearchContainer">
+                <div id="catalogSearchTitle">@Lang.Catalog_SearchText</div>
+                @using (Html.BeginForm("Products", "Catalog", FormMethod.Get))
+                {
+                    <div id="catalogSearchPanel">
+                        <span>@Lang.Catalog_SearchName</span>
+                        @Html.TextBoxFor(x => x.Search.SearchName, new {Name = "name"})
+                        <span>@Lang.Catalog_SearchCategory</span>
+                        @Html.DropDownListFor(x => x.Search.SearchCategory, Model.Search.Categories, new {Name = "category"})
+                        <span>   </span>
+                        <input type="submit" value="@Lang.Catalog_ButtonSearch"/>
+                    </div>
+                }
+            </div>
+            <br/>
+            <div id="catalogBasketDiv">
+                @using (Html.BeginForm("Orders", "Basket"))
+                {
+                    <input type="submit" value="@Lang.Catalog_ButtonBasket"/>
+                }
+            </div>
+        }
     }
     else
     {
         <div id="catalogSearchNoResult">@Lang.Catalog_SearchNoResult</div>
     }
-    <br/>
-    <br/>
-    <div id="catalogSearchContainer">
-        <div id="catalogSearchTitle">@Lang.Catalog_SearchText</div>
-        @using (Html.BeginForm("Products", "Catalog", FormMethod.Get))
-        {
-            <div id="catalogSearchPanel">
-                <span>@Lang.Catalog_SearchName</span>
-                @Html.TextBoxFor(x => x.Search.SearchName, new {Name = "name"})
-                <span>@Lang.Catalog_SearchCategory</span>
-                @Html.DropDownListFor(x => x.Search.SearchCategory, Model.Search.CategoryList, new {Name = "category"})
-                <span>   </span>
-                <input type="submit" value="@Lang.Catalog_ButtonSearch"/>
-            </div>
-        }
-    </div>
-    <br/>
-    <div id="catalogBasketDiv">
-        @using (Html.BeginForm("Orders", "Basket"))
-        {
-            <input type="submit" value="@Lang.Catalog_ButtonBasket"/>
-        }
-    </div>
 </div>
 

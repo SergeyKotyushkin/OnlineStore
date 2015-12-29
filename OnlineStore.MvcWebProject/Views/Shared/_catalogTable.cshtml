@@ -20,11 +20,11 @@
             {
                 <tr @((rowOdd++)%2 == 1 ? "class=tableOddRow" : "class=tableEvenRow")>
                     <td class="tableTd">
-                        @Ajax.ActionLink(Lang.Catalog_ButtonAddToOrder, "AddToOrder", "Catalog", new {id=@product.Id}, new AjaxOptions{OnSuccess = "onEditToOrderSuccess"}, new {@class="buttonStyle"})
+                        @Ajax.ActionLink(Lang.Catalog_ButtonAddToOrder, "AddToOrder", "Catalog", new {id = @product.Id}, new AjaxOptions {OnSuccess = "onEditToOrderSuccess", OnFailure = "onAjaxFailture", OnBegin = "onEditOrderBegin"}, new {@class = "buttonStyle"})
                     </td>
                     <td class="tableTd" id="count@(product.Id)">@product.OrderCount</td>
                     <td class="tableTd">
-                        @Ajax.ActionLink(Lang.Catalog_ButtonRemoveFromOrder, "RemoveFromOrder", "Catalog", new {id=@product.Id}, new AjaxOptions{OnSuccess = "onEditToOrderSuccess"}, new {@class="buttonStyle"})
+                        @Ajax.ActionLink(Lang.Catalog_ButtonRemoveFromOrder, "RemoveFromOrder", "Catalog", new {id = @product.Id}, new AjaxOptions {OnSuccess = "onEditToOrderSuccess", OnFailure = "onAjaxFailture", OnBegin = "onEditOrderBegin"}, new {@class = "buttonStyle"})
                     </td>
                     <td class="tableTd catalogTableIdColumn" id="id@(rowOdd)">@product.Id</td>
                     <td class="tableTd">@product.Name</td>

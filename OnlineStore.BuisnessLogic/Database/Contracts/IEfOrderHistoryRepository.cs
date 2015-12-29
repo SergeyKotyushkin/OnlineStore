@@ -7,7 +7,9 @@ namespace OnlineStore.BuisnessLogic.Database.Contracts
 {
     public interface IDbOrderHistoryRepository
     {
-        List<OrderHistory> GetAll();
+        OrderHistory[] GetRange(int from, int size, string userName);
+
+        int GetCount();
 
         bool Add(OrderHistory orderHistory);
 

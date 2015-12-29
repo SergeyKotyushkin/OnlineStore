@@ -1,0 +1,1886 @@
+[2015-12-25 12:46:25,835][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][0], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=tk5oJcE7SsGrJdRoHeJszQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@140e721] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 12:46:25,836][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][3], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=5oQ9snF1SEePSQQlI4fNPQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@140e721] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 12:46:25,836][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][1], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=TWEbwXZURcSeC1pFcwVWmw]: Failed to execute [org.elasticsearch.action.search.SearchRequest@140e721] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 12:46:25,836][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][2], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=7frTfcsBSAqnppG3GzGwVQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@140e721] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 12:46:25,835][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][4], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=-oMZLngDSxemiO-hoBOhyg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@140e721]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 12:46:40,136][DEBUG][action.search.type       ] [Henry Peter Gyrich] All shards failed for phase: [query]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 12:46:40,138][INFO ][rest.suppressed          ] /database/products/_search Params: {q={}, pretty=true, index=database, type=products}
+Failed to execute phase [query], all shards failed; shardFailures {[xUkPeXsUTgOS0zj8zFBLLg][database][0]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][1]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][2]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][3]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][4]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction.onFirstPhaseResult(TransportSearchTypeAction.java:228)
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction$1.onFailure(TransportSearchTypeAction.java:174)
+	at org.elasticsearch.action.ActionListenerResponseHandler.handleException(ActionListenerResponseHandler.java:46)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.processException(TransportService.java:821)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.sendResponse(TransportService.java:799)
+	at org.elasticsearch.transport.TransportService$4.onFailure(TransportService.java:361)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	... 3 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 13:14:40,500][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][2], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=7frTfcsBSAqnppG3GzGwVQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@54c3ab] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 13:14:40,502][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][0], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=tk5oJcE7SsGrJdRoHeJszQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@54c3ab] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 13:14:40,502][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][3], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=5oQ9snF1SEePSQQlI4fNPQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@54c3ab] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 13:14:40,502][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][4], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=-oMZLngDSxemiO-hoBOhyg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@54c3ab]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 13:14:40,516][DEBUG][action.search.type       ] [Henry Peter Gyrich] All shards failed for phase: [query]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 13:14:40,501][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][1], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=TWEbwXZURcSeC1pFcwVWmw]: Failed to execute [org.elasticsearch.action.search.SearchRequest@54c3ab] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 13:14:40,517][INFO ][rest.suppressed          ] /database/products/_search Params: {q={}, pretty=true, index=database, type=products}
+Failed to execute phase [query], all shards failed; shardFailures {[xUkPeXsUTgOS0zj8zFBLLg][database][0]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][1]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][2]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][3]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][4]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"{}","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; }
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction.onFirstPhaseResult(TransportSearchTypeAction.java:228)
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction$1.onFailure(TransportSearchTypeAction.java:174)
+	at org.elasticsearch.action.ActionListenerResponseHandler.handleException(ActionListenerResponseHandler.java:46)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.processException(TransportService.java:821)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.sendResponse(TransportService.java:799)
+	at org.elasticsearch.transport.TransportService$4.onFailure(TransportService.java:361)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[Failed to parse query [{}]]; nested: ParseException[Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:243)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:652)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	... 3 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '{}': Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 16 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "}" "} "" at line 1, column 1.
+Was expecting one of:
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:374)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:171)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:118)
+	... 18 more
+[2015-12-25 14:09:17,845][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][0], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=tk5oJcE7SsGrJdRoHeJszQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@137600e] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:17,847][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][3], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=5oQ9snF1SEePSQQlI4fNPQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@137600e]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:17,874][DEBUG][action.search.type       ] [Henry Peter Gyrich] All shards failed for phase: [query]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:17,876][INFO ][rest.suppressed          ] /database/products/_search Params: {index=database, type=products}
+Failed to execute phase [query], all shards failed; shardFailures {[xUkPeXsUTgOS0zj8zFBLLg][database][0]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][1]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][2]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][3]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][4]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction.onFirstPhaseResult(TransportSearchTypeAction.java:228)
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction$1.onFailure(TransportSearchTypeAction.java:174)
+	at org.elasticsearch.action.ActionListenerResponseHandler.handleException(ActionListenerResponseHandler.java:46)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.processException(TransportService.java:821)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.sendResponse(TransportService.java:799)
+	at org.elasticsearch.transport.TransportService$4.onFailure(TransportService.java:361)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	... 3 more
+[2015-12-25 14:09:17,847][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][2], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=7frTfcsBSAqnppG3GzGwVQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@137600e] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:17,847][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][4], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=-oMZLngDSxemiO-hoBOhyg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@137600e] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:17,846][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][1], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=TWEbwXZURcSeC1pFcwVWmw]: Failed to execute [org.elasticsearch.action.search.SearchRequest@137600e] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:27,975][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][1], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=TWEbwXZURcSeC1pFcwVWmw]: Failed to execute [org.elasticsearch.action.search.SearchRequest@17c442] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:27,977][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][4], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=-oMZLngDSxemiO-hoBOhyg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@17c442]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:27,979][DEBUG][action.search.type       ] [Henry Peter Gyrich] All shards failed for phase: [query]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:27,977][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][0], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=tk5oJcE7SsGrJdRoHeJszQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@17c442] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:27,976][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][2], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=7frTfcsBSAqnppG3GzGwVQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@17c442] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:27,976][DEBUG][action.search.type       ] [Henry Peter Gyrich] [database][3], node[xUkPeXsUTgOS0zj8zFBLLg], [P], v[2], s[STARTED], a[id=5oQ9snF1SEePSQQlI4fNPQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@17c442] lastShard [true]
+RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+Caused by: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:848)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	... 10 more
+[2015-12-25 14:09:27,981][INFO ][rest.suppressed          ] /database/products/_search Params: {index=database, type=products}
+Failed to execute phase [query], all shards failed; shardFailures {[xUkPeXsUTgOS0zj8zFBLLg][database][0]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][1]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][2]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][3]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }{[xUkPeXsUTgOS0zj8zFBLLg][database][4]: RemoteTransportException[[Henry Peter Gyrich][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{
+  "query": {
+    "match": {
+      "name": {
+        "query": "a",
+        "analyzer": "custom"
+      }
+    }
+  }
+}]]; nested: QueryParsingException[[match] analyzer [custom] not found]; }
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction.onFirstPhaseResult(TransportSearchTypeAction.java:228)
+	at org.elasticsearch.action.search.type.TransportSearchTypeAction$BaseAsyncAction$1.onFailure(TransportSearchTypeAction.java:174)
+	at org.elasticsearch.action.ActionListenerResponseHandler.handleException(ActionListenerResponseHandler.java:46)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.processException(TransportService.java:821)
+	at org.elasticsearch.transport.TransportService$DirectResponseChannel.sendResponse(TransportService.java:799)
+	at org.elasticsearch.transport.TransportService$4.onFailure(TransportService.java:361)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: [database] QueryParsingException[[match] analyzer [custom] not found]
+	at org.elasticsearch.index.query.MatchQueryParser.parse(MatchQueryParser.java:101)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:257)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:303)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:206)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:201)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:831)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:651)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:617)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:350)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	... 3 more
+[2015-12-25 17:45:16,409][INFO ][bootstrap                ] running graceful exit on windows
+[2015-12-25 17:45:16,447][INFO ][node                     ] [Henry Peter Gyrich] stopping ...
+[2015-12-25 17:45:17,019][INFO ][node                     ] [Henry Peter Gyrich] stopped
+[2015-12-25 17:45:17,022][INFO ][node                     ] [Henry Peter Gyrich] closing ...
+[2015-12-25 17:45:17,240][INFO ][node                     ] [Henry Peter Gyrich] closed
+[2015-12-25 20:29:40,894][WARN ][bootstrap                ] jvm uses the client vm, make sure to run `java` with the server vm for best performance by adding `-server` to the command line
+[2015-12-25 20:29:40,925][WARN ][bootstrap                ] unable to install syscall filter: syscall filtering not supported for OS: 'Windows 7'
+[2015-12-25 20:29:41,159][INFO ][node                     ] [U-Man] version[2.1.0], pid[3208], build[72cd1f1/2015-11-18T22:40:03Z]
+[2015-12-25 20:29:41,159][INFO ][node                     ] [U-Man] initializing ...
+[2015-12-25 20:29:41,222][INFO ][plugins                  ] [U-Man] loaded [], sites []
+[2015-12-25 20:29:41,237][INFO ][env                      ] [U-Man] using [1] data paths, mounts [[(D:)]], net usable_space [169.8gb], net total_space [415.6gb], spins? [unknown], types [NTFS]
+[2015-12-25 20:29:43,686][INFO ][node                     ] [U-Man] initialized
+[2015-12-25 20:29:43,686][INFO ][node                     ] [U-Man] starting ...
+[2015-12-25 20:29:43,983][INFO ][transport                ] [U-Man] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2015-12-25 20:29:43,983][INFO ][discovery                ] [U-Man] elasticsearch/cnHLeq8QRG-B_O2sZ9h7hg
+[2015-12-25 20:29:48,070][INFO ][cluster.service          ] [U-Man] new_master {U-Man}{cnHLeq8QRG-B_O2sZ9h7hg}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2015-12-25 20:29:48,210][INFO ][gateway                  ] [U-Man] recovered [1] indices into cluster_state
+[2015-12-25 20:29:48,320][INFO ][http                     ] [U-Man] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2015-12-25 20:29:48,320][INFO ][node                     ] [U-Man] started
+[2015-12-25 20:29:48,663][WARN ][index.translog           ] [U-Man] [database][0] failed to delete temp file D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\0\translog\translog-7368892689044186572.tlog
+java.nio.file.NoSuchFileException: D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\0\translog\translog-7368892689044186572.tlog
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.delete(Unknown Source)
+	at java.nio.file.Files.delete(Unknown Source)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:324)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:166)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:209)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:152)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1408)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1403)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:906)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:883)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:245)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 20:29:48,663][WARN ][index.translog           ] [U-Man] [database][2] failed to delete temp file D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\2\translog\translog-8761470214858416550.tlog
+java.nio.file.NoSuchFileException: D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\2\translog\translog-8761470214858416550.tlog
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.delete(Unknown Source)
+	at java.nio.file.Files.delete(Unknown Source)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:324)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:166)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:209)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:152)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1408)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1403)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:906)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:883)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:245)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 20:29:48,663][WARN ][index.translog           ] [U-Man] [database][3] failed to delete temp file D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\3\translog\translog-399909846610090982.tlog
+java.nio.file.NoSuchFileException: D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\3\translog\translog-399909846610090982.tlog
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.delete(Unknown Source)
+	at java.nio.file.Files.delete(Unknown Source)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:324)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:166)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:209)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:152)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1408)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1403)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:906)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:883)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:245)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 20:29:48,710][WARN ][index.translog           ] [U-Man] [database][4] failed to delete temp file D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\4\translog\translog-4392632951201486737.tlog
+java.nio.file.NoSuchFileException: D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\4\translog\translog-4392632951201486737.tlog
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.delete(Unknown Source)
+	at java.nio.file.Files.delete(Unknown Source)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:324)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:166)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:209)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:152)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1408)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1403)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:906)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:883)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:245)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 20:29:48,756][WARN ][index.translog           ] [U-Man] [database][1] failed to delete temp file D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\1\translog\translog-3036630290429031402.tlog
+java.nio.file.NoSuchFileException: D:\Projects\Visual Studio\OnlineStore\elasticsearch-2.1.0\data\elasticsearch\nodes\0\indices\database\1\translog\translog-3036630290429031402.tlog
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.delete(Unknown Source)
+	at java.nio.file.Files.delete(Unknown Source)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:324)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:166)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:209)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:152)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1408)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1403)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:906)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:883)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:245)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 21:47:52,749][WARN ][http.netty               ] [U-Man] Caught exception while handling client http traffic, closing connection [id: 0xeb18e2a8, /0:0:0:0:0:0:0:1:1351 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 22:04:52,624][WARN ][http.netty               ] [U-Man] Caught exception while handling client http traffic, closing connection [id: 0x5f47b811, /0:0:0:0:0:0:0:1:1527 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 22:05:32,097][WARN ][http.netty               ] [U-Man] Caught exception while handling client http traffic, closing connection [id: 0xc60ab761, /0:0:0:0:0:0:0:1:1538 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 22:09:59,053][WARN ][http.netty               ] [U-Man] Caught exception while handling client http traffic, closing connection [id: 0x4bad418f, /0:0:0:0:0:0:0:1:1589 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 22:13:04,324][WARN ][http.netty               ] [U-Man] Caught exception while handling client http traffic, closing connection [id: 0x30338621, /0:0:0:0:0:0:0:1:1600 => /0:0:0:0:0:0:0:1:9200]
+java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[2015-12-25 22:55:56,508][INFO ][bootstrap                ] running graceful exit on windows
+[2015-12-25 22:55:56,508][INFO ][node                     ] [U-Man] stopping ...
+[2015-12-25 22:55:56,757][INFO ][node                     ] [U-Man] stopped
+[2015-12-25 22:55:56,773][INFO ][node                     ] [U-Man] closing ...
+[2015-12-25 22:55:56,820][INFO ][node                     ] [U-Man] closed

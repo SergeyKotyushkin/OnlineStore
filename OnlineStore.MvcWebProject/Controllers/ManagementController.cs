@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -10,6 +9,7 @@ using log4net;
 using Newtonsoft.Json;
 using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
+using OnlineStore.BuisnessLogic.ElasticRepository.Contracts;
 using OnlineStore.BuisnessLogic.MappingDtoExtensions;
 using OnlineStore.BuisnessLogic.Models;
 using OnlineStore.BuisnessLogic.Models.Dto;
@@ -23,6 +23,7 @@ using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [MyHandleError]
     [OnlyForRole("Admin")]
     public class ManagementController : Controller
     {
@@ -40,7 +41,7 @@ namespace OnlineStore.MvcWebProject.Controllers
             UpdateTargetId = "managementTablePartial"
         };
 
-        private static readonly ILog Log = LogManager.GetLogger(typeof(HomeController));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(ManagementController));
 
         private readonly IStorageRepository<HttpSessionStateBase> _storageSessionRepository;
         private readonly IStorageRepository<HttpCookieCollection> _storageCookieRepository;
@@ -49,11 +50,13 @@ namespace OnlineStore.MvcWebProject.Controllers
         private readonly ICurrencyConverter _currencyConverter;
         private readonly ITableManager<ProductManagementDto, HttpSessionStateBase> _tableManager;
         private readonly ITableManagement _tableManagement;
+        private readonly IElasticRepository _elasticRepository;
 
         public ManagementController(IStorageRepository<HttpSessionStateBase> storageSessionRepository,
             IStorageRepository<HttpCookieCollection> storageCookieRepository, IUserGroup userGroup,
             IDbProductRepository dbProductRepository, ICurrencyConverter currencyConverter,
-            ITableManager<ProductManagementDto, HttpSessionStateBase> tableManager, ITableManagement tableManagement)
+            ITableManager<ProductManagementDto, HttpSessionStateBase> tableManager, ITableManagement tableManagement,
+            IElasticRepository elasticRepository)
         {
             _storageSessionRepository = storageSessionRepository;
             _storageCookieRepository = storageCookieRepository;
@@ -62,18 +65,16 @@ namespace OnlineStore.MvcWebProject.Controllers
             _currencyConverter = currencyConverter;
             _tableManager = tableManager;
             _tableManagement = tableManagement;
+            _elasticRepository = elasticRepository;
         }
 
         public ActionResult Index()
         {
-            var id = (_storageSessionRepository.Get(Session, Settings.Management_OldPageIndexName) ?? 1).ToString();
-
             var model = new ManagementModel
             {
-                TableData = GetTableData(id),
                 Settings = new MainLayoutSettings
                 {
-                    Title = Lang.ProductCatalog_Title,
+                    Title = Lang.Management_Title,
                     MoneyVisible = true,
                     LinkProfileText = string.Format(Lang.MainLayout_LinkProfileText, _userGroup.GetUser().UserName),
                     LogoutVisible = true,
@@ -82,18 +83,35 @@ namespace OnlineStore.MvcWebProject.Controllers
                 }
             };
 
+            try
+            {
+                _elasticRepository.CheckConnection();
+            }
+            catch(Exception ex)
+            {
+                model.Message = new Message {Text = ex.Message, Color = _failColor};
+                return View(model);
+            }
+            
+            var pageIndex = _tableManager.GetOldPageIndexFromRepository(Session, Settings.Management_OldPageIndexName);
+            model.TableData = GetTableData(pageIndex);
+
             return View(model);
         }
-
-        public PartialViewResult PageChange(int pageindex)
+        
+        public ActionResult PageChange(int pageindex)
         {
-            var table = GetTableData(pageindex.ToString());
+            _elasticRepository.CheckConnection();
+
+            var table = GetTableData(pageindex);
 
             return PartialView("_managementTable", table);
         }
-
+        
         public string Add(string jsonProduct)
         {
+            _elasticRepository.CheckConnection();
+
             var productAnonymous =
                 new { Id = string.Empty, Name = string.Empty, Category = string.Empty, Price = string.Empty };
             var product = JsonConvert.DeserializeAnonymousType(jsonProduct, productAnonymous);
@@ -103,36 +121,33 @@ namespace OnlineStore.MvcWebProject.Controllers
             var result = _tableManagement.AddOrUpdateProduct(null, product.Name, product.Category, product.Price, culture);
 
             Message message;
-            switch (result)
+            if (result.EditingResult == EditingResults.Success)
             {
-                case EditingResults.Success:
-                    message = new Message {Text = Lang.Management_AddSuccess, Color = _successColor};
-                    Log.Info(string.Format("Product {0} successfully added.", product.Name));
-                    break;
-                case EditingResults.FailValidProduct:
-                    message = new Message {Text = Lang.Management_AddValidFail, Color = _failColor};
-                    break;
-                case EditingResults.FailAddOrUpdate:
-                    message = new Message {Text = Lang.Management_AddFail, Color = _failColor};
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                _elasticRepository.AddOrUpdate(new ProductElasticDto(result.Product.Id, product.Name, product.Category));
+                message = new Message {Text = Lang.Management_AddSuccess, Color = _successColor};
+                Log.Info(string.Format("Product {0} successfully added.", product.Name));
             }
+            else if (result.EditingResult == EditingResults.FailValidProduct)
+                message = new Message {Text = Lang.Management_AddValidFail, Color = _failColor};
+            else
+                message = new Message {Text = Lang.Management_AddFail, Color = _failColor};
 
-            var products = GetProducManagementDtoList();
+            _storageSessionRepository.Set(Session, Settings.Management_OldPageIndexName,
+                _tableManager.GetPagesCount(_elasticRepository.GetCount(), PageSize));
 
-            _storageSessionRepository.Set(Session, Settings.Management_OldPageIndexName, _tableManager.GetPagesCount(products.Count, PageSize));
-
-            return JsonConvert.SerializeObject(new {result = result == EditingResults.Success, message});
+            return JsonConvert.SerializeObject(new {result = result.EditingResult == EditingResults.Success, message});
         }
-
+        
         public string Delete(int id)
         {
+            _elasticRepository.CheckConnection();
+
             var product = _dbProductRepository.GetById(id);
 
             Message message;
-            if (_dbProductRepository.RemoveById(id))
+            if (_dbProductRepository.RemoveById(id) != null)
             {
+                _elasticRepository.RemoveById(id);
                 message = new Message {Text = Lang.Management_DeleteSuccess, Color = _successColor};
                 Log.Info(string.Format("Product {0} successfully removed.", product.Name));
             }
@@ -144,6 +159,8 @@ namespace OnlineStore.MvcWebProject.Controllers
         
         public string Edit(string jsonProduct)
         {
+            _elasticRepository.CheckConnection();
+
             var productAnonymous =
                 new {Id = string.Empty, Name = string.Empty, Category = string.Empty, Price = string.Empty};
             var product = JsonConvert.DeserializeAnonymousType(jsonProduct, productAnonymous);
@@ -153,28 +170,25 @@ namespace OnlineStore.MvcWebProject.Controllers
             var result = _tableManagement.AddOrUpdateProduct(product.Id, product.Name, product.Category, product.Price, culture);
 
             Message message;
-            switch (result)
+            if (result.EditingResult == EditingResults.Success)
             {
-                case EditingResults.Success:
-                    message = new Message {Text = Lang.Management_EditSuccess, Color = _successColor};
-                    Log.Info(string.Format("Product {0} successfully edited.", product.Name));
-                    break;
-                case EditingResults.FailValidProduct:
-                    message = new Message {Text = Lang.Management_EditValidFail, Color = _failColor};
-                    break;
-                case EditingResults.FailAddOrUpdate:
-                    message = new Message { Text = Lang.Management_EditFail, Color = _failColor };
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                _elasticRepository.AddOrUpdate(new ProductElasticDto(result.Product.Id, product.Name, product.Category));
+                message = new Message {Text = Lang.Management_EditSuccess, Color = _successColor};
+                Log.Info(string.Format("Product {0} successfully edited.", product.Name));
             }
+            else if (result.EditingResult == EditingResults.FailValidProduct)
+                message = new Message {Text = Lang.Management_EditValidFail, Color = _failColor};
+            else
+                message = new Message {Text = Lang.Management_EditFail, Color = _failColor};
 
             return JsonConvert.SerializeObject(new {message});
         }
 
-        public PartialViewResult RefresshTable()
+        public ActionResult RefresshTable()
         {
-            var pageIndex = (_storageSessionRepository.Get(Session, Settings.Management_OldPageIndexName) ?? 1).ToString();
+            _elasticRepository.CheckConnection();
+
+            var pageIndex = _tableManager.GetOldPageIndexFromRepository(Session, Settings.Management_OldPageIndexName);
 
             var table = GetTableData(pageIndex);
 
@@ -182,16 +196,18 @@ namespace OnlineStore.MvcWebProject.Controllers
         }
 
 
-        private Table<ProductManagementDto> GetTableData(string id)
+        private Table<ProductManagementDto> GetTableData(int pageIndex)
         {
-            var producManagementDtoList = GetProducManagementDtoList();
+            var productsCount = _elasticRepository.GetCount();
 
-            var pagesCount = _tableManager.GetPagesCount(producManagementDtoList.Count, PageSize);
+            var pagesCount = _tableManager.GetPagesCount(productsCount, PageSize);
 
-            var newPageIndex = _tableManager.GetNewPageIndex(Session, Settings.Management_OldPageIndexName, id, pagesCount);
+            var oldPageIndex = _tableManager.GetOldPageIndexFromRepository(Session, Settings.Management_OldPageIndexName);
+            var newPageIndex = _tableManager.GetNewPageIndex(pageIndex, oldPageIndex, pagesCount);
+            _tableManager.SetNewPageIndexToRepository(Session, Settings.Management_OldPageIndexName, newPageIndex);
 
-            var data = _tableManager.GetPageData(producManagementDtoList, newPageIndex, PageSize);
-
+            var producManagementDtoList = GetProducManagementDtos(newPageIndex-1);
+            
             var pager = new Pager
             {
                 PageIndex = newPageIndex,
@@ -201,12 +217,12 @@ namespace OnlineStore.MvcWebProject.Controllers
                 PagerSettings = _pagerSettings
             };
 
-            return new Table<ProductManagementDto> { Data = data, Pager = pager };
+            return new Table<ProductManagementDto> { Data = producManagementDtoList, Pager = pager };
         }
 
-        private List<ProductManagementDto> GetProducManagementDtoList()
+        private ProductManagementDto[] GetProducManagementDtos(int pageIndex)
         {
-            var products = _dbProductRepository.GetAll();
+            var products = _dbProductRepository.GetRange(pageIndex, PageSize);
 
             var culture = GetCurrencyCultureInfo();
 
@@ -214,9 +230,9 @@ namespace OnlineStore.MvcWebProject.Controllers
             foreach (var p in products)
                 p.Price = _currencyConverter.ConvertByRate(p.Price, rate);
 
-            return products.Select(p => p.ToProductManagementDto(culture)).ToList();
+            return products.Select(p => p.ToProductManagementDto(culture)).ToArray();
         }
-        
+
         private CultureInfo GetCurrencyCultureInfo()
         {
             var currencyCultureName =

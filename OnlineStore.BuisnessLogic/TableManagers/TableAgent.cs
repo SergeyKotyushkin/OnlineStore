@@ -14,46 +14,25 @@ namespace OnlineStore.BuisnessLogic.TableManagers
             _storageRepository = storageRepository;
         }
 
-        public int GetPagesCount(int count, int pageSize)
+        public int GetPagesCount(long count, int pageSize)
         {
             return (int)Math.Ceiling((double)count / pageSize);
         }
 
-        public int GetNewPageIndex(TRepository repository, string nameInStorage, string newIndex, int pagesCount)
+        public void SetNewPageIndexToRepository(TRepository repository, string nameInRepository, int newPageIndex)
         {
-            var oldPageIndex = (int) (_storageRepository.Get(repository, nameInStorage) ?? 1);
-            var newPageIndex = GetPageIndex(newIndex, oldPageIndex, pagesCount);
-            _storageRepository.Set(repository, nameInStorage, newPageIndex);
-
-            return newPageIndex;
+            _storageRepository.Set(repository, nameInRepository, newPageIndex);
         }
 
-        public int GetPageIndex(string newIndex, int oldIndex, int pagesCount)
+        public int GetOldPageIndexFromRepository(TRepository repository, string nameInRepository)
         {
-            int result;
-            switch (newIndex)
-            {
-                case null:
-                    result = 1;
-                    break;
-                case "prev":
-                    result = oldIndex > 1 ? oldIndex - 1 : 1;
-                    break;
-                case "next":
-                    result = oldIndex < pagesCount ? oldIndex + 1 : pagesCount;
-                    break;
-                default:
-                    {
-                        int i;
-                        if (!int.TryParse(newIndex, out i)) return oldIndex;
+            return (int) (_storageRepository.Get(repository, nameInRepository) ?? 1);
+        }
 
-                        if (i > 0 && i <= pagesCount) return i;
-                        result = i < 1 ? 1 : pagesCount;
-                        break;
-                    }
-            }
-
-            return result > 0 && result <= pagesCount ? result : 1;
+        public int GetNewPageIndex(int newIndex, int oldIndex, int pagesCount)
+        {
+            if (newIndex <= 1) return 1;
+            return newIndex > pagesCount ? pagesCount : newIndex;
         }
 
         public int[] GetPages(int newIndex, int pagesCount, int visiblePagesCount)

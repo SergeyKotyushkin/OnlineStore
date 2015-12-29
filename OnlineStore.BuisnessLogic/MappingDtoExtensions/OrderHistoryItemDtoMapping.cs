@@ -27,8 +27,8 @@ namespace OnlineStore.BuisnessLogic.MappingDtoExtensions
                     current +
                     string.Format("<b>{0}</b> ({1}: <b>{2}</b>; {3}: <b>{4}</b>)" + " {5} <b>{6}</b>{7}",
                         productOrder.Name, quantityTitle, productOrder.Count, priceTitle,
-                        decimal.Parse(productOrder.Price, currencyCulture).ToString("C", currencyCulture), totalTitle,
-                        decimal.Parse(productOrder.Total, currencyCulture).ToString("C", currencyCulture), newLine));
+                        decimal.Parse(productOrder.Price, CultureInfo.InvariantCulture).ToString("C", currencyCulture), totalTitle,
+                        decimal.Parse(productOrder.Total, CultureInfo.InvariantCulture).ToString("C", currencyCulture), newLine));
 
             return new OrderHistoryItemDto
             {

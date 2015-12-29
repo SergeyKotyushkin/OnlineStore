@@ -1,15 +1,18 @@
 ﻿using System.Drawing;
 using System.Threading;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using log4net;
 using OnlineStore.BuisnessLogic.Models;
 using OnlineStore.BuisnessLogic.UserGruop.Contracts;
-using OnlineStore.MvcWebProject.Models.Index;
+using OnlineStore.MvcWebProject.Models.Home;
+using OnlineStore.MvcWebProject.Utils.Attributes;
 using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [MyHandleError]
     public class HomeController : Controller
     {
         private readonly Color _validateUserFail = Color.Firebrick;

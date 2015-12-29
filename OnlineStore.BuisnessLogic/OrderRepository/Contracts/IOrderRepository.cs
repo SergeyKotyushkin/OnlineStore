@@ -3,12 +3,16 @@ using OnlineStore.BuisnessLogic.Models;
 
 namespace OnlineStore.BuisnessLogic.OrderRepository.Contracts
 {
-    public interface IOrderRepository<in T>
+    public interface IOrderRepository<in TRepository>
     {
-        int Add(T repository, string name, int id);
+        int Add(TRepository repository, string name, int id);
 
-        int Remove(T repository, string name, int id);
+        int Remove(TRepository repository, string name, int id);
 
-        List<Order> GetAll(T repository, string name);
+        List<Order> GetAll(TRepository repository, string name);
+
+        Order[] GetRange(TRepository repository, string name, int @from, int size);
+
+        int GetCount(TRepository repository, string name);
     }
 }

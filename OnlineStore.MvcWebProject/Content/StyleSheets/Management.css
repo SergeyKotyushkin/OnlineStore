@@ -21,3 +21,9 @@ a[disabled] {
     margin: 0 auto;
     width: 70%;
 }
+
+#managementSearchNoResult {
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+}

@@ -44,8 +44,6 @@ namespace OnlineStore.BuisnessLogic.Mail
         public void Create(string @from, string to, string subject, IEnumerable<OrderItem> orderItemsBody,
             bool isBodyHtml, string ordersFormat, string bodyFormat, IFormatProvider cultureCurrency)
         {
-            SuccessfulySend = false;
-
             _from = @from;
             _to = to;
             _subject = subject;
@@ -55,14 +53,10 @@ namespace OnlineStore.BuisnessLogic.Mail
 
         public bool CheckIsMessageCreated()
         {
-            SuccessfulySend = false;
-
             return !string.IsNullOrEmpty(_from) && 
                    !string.IsNullOrEmpty(_to) && 
                    !string.IsNullOrEmpty(_subject) &&
                    !string.IsNullOrEmpty(_body);
         }
-
-        public bool SuccessfulySend { get; private set; }
     }
 }

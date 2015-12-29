@@ -19,6 +19,8 @@
     {
         @RenderSection("StyleSheets")
     }
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common.js")"></script>
     @if (IsSectionDefined("Scripts"))
     {
         @RenderSection("Scripts")
@@ -63,7 +65,7 @@
                 {
                     <td class="mainLayoutTopTableTd mainLayoutTopTableTdRight">
                         <div>
-                            @Html.ActionLink(Model.Settings.LinkProfileText, "Info", "Profile", new {}, new {id="hlUser"})
+                            @Html.ActionLink(Model.Settings.LinkProfileText, "Info", "Profile", new {}, new {id = "hlUser"})
                         </div>
                     </td>
                 }

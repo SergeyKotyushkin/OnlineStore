@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -25,6 +24,7 @@ using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [MyHandleError]
     [OnlyForAuthenticated]
     public class ProfileController : Controller
     {
@@ -62,9 +62,11 @@ namespace OnlineStore.MvcWebProject.Controllers
             _imageService = imageService;
         }
 
-        public ActionResult Info(string id)
+        public ActionResult Info()
         {
             var user = _userGroup.GetUser();
+
+            var id = _tableManager.GetOldPageIndexFromRepository(Session, Settings.Profile_OldPageIndexName);
 
             var tableData = GetTableData(id, user.UserName);
 
@@ -155,25 +157,27 @@ namespace OnlineStore.MvcWebProject.Controllers
         public PartialViewResult PageChange(int pageIndex)
         {
             var user = _userGroup.GetUser();
-            var table = GetTableData(pageIndex.ToString(), user.UserName);
+            var table = GetTableData(pageIndex, user.UserName);
 
             return PartialView("_profileTable", table);
         }
 
 
-        private Table<OrderHistoryItemDto> GetTableData(string id, string userName)
+        private Table<OrderHistoryItemDto> GetTableData(int pageIndex, string userName)
         {
-            var orderHistoryItemDtoList = GetOrderHistoryItemDtoList(userName);
+            var orderHistoryItemsCount = _dbOrderHistoryRepository.GetCount();
 
-            var pagesCount = _tableManager.GetPagesCount(orderHistoryItemDtoList.Count, PageSize);
+            var pagesCount = _tableManager.GetPagesCount(orderHistoryItemsCount, PageSize);
 
-            var newPageIndex = _tableManager.GetNewPageIndex(Session, Settings.Profile_OldPageIndexName, id, pagesCount);
+            var oldPageIndex = _tableManager.GetOldPageIndexFromRepository(Session, Settings.Profile_OldPageIndexName);
+            var newPageIndex = _tableManager.GetNewPageIndex(pageIndex, oldPageIndex, pagesCount);
+            _tableManager.SetNewPageIndexToRepository(Session, Settings.Profile_OldPageIndexName, newPageIndex);
 
-            var data = _tableManager.GetPageData(orderHistoryItemDtoList, newPageIndex, PageSize);
+            var orderHistoryItemDtoList = GetOrderHistoryItemDtos(newPageIndex - 1, userName);
 
             return new Table<OrderHistoryItemDto>
             {
-                Data = data,
+                Data = orderHistoryItemDtoList,
                 Pager = new Pager
                 {
                     PageIndex = newPageIndex,
@@ -185,10 +189,9 @@ namespace OnlineStore.MvcWebProject.Controllers
             };
         }
 
-        private List<OrderHistoryItemDto> GetOrderHistoryItemDtoList(string userName)
+        private OrderHistoryItemDto[] GetOrderHistoryItemDtos(int pageIndex, string userName)
         {
-            var history =
-                _dbOrderHistoryRepository.GetAll().Where(o => o.PersonName == userName).OrderBy(u => u.Date);
+            var history = _dbOrderHistoryRepository.GetRange(pageIndex, PageSize, userName).OrderBy(u => u.Date);
 
             var number = 1;
             var ordersFromHistory = (from h in history
@@ -206,7 +209,7 @@ namespace OnlineStore.MvcWebProject.Controllers
             return
                 ordersFromHistory.Select(
                     o => o.ToOrderHistoryItemDto(_threadCulture, Lang.Profile_Quantity, Lang.Profile_Price,
-                        Lang.Profile_Total)).ToList();
+                        Lang.Profile_Total)).ToArray();
         }
         
         private byte[] GetDefaultImageBytes()

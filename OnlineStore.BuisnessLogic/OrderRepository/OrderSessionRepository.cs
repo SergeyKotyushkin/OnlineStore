@@ -51,6 +51,19 @@ namespace OnlineStore.BuisnessLogic.OrderRepository
             return _storageRepository.Get(repository, name) as List<Order> ?? new List<Order>();
         }
 
+        public Order[] GetRange(HttpSessionStateBase repository, string name, int @from, int size)
+        {
+            var orders = _storageRepository.Get(repository, name) as List<Order> ?? new List<Order>();
+            var count = orders.Count;
+            var rest = count - from * size;
+            return orders.GetRange(from * size, size > rest ? rest : size).ToArray();
+        }
+
+        public int GetCount(HttpSessionStateBase repository, string name)
+        {
+            return (_storageRepository.Get(repository, name) as List<Order> ?? new List<Order>()).Count;
+        }
+
         private void SetAll(HttpSessionStateBase repository, IEnumerable<Order> orders, string name)
         {
             _storageRepository.Set(repository, name, orders);

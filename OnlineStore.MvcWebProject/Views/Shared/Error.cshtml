@@ -1,0 +1,26 @@
+﻿@using Resources
+@model HandleErrorInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Unhandled Server Error</title>
+</head>
+<body>
+    <div>
+        <h2>Unhandled Server Error</h2>
+        <hr/>
+        <h3>@Lang.UnhandledErrorMessage</h3>
+        
+        <form action="/">
+            <input type="submit" value="@Lang.Errors_ButtonClearError"/>
+        </form>
+    </div>
+</body>
+</html>
+

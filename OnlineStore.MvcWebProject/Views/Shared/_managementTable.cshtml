@@ -19,7 +19,7 @@
             {
                 <tr @((rowOdd++)%2 == 1 ? "class=tableOddRow" : "class=tableEvenRow")>
                     <td class="tableTd managementDeleteButtons">
-                        @Ajax.ActionLink(Lang.Management_ButtonDelete, "Delete", "Management", new {id = @product.Id}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "onDeleteSuccess"}, new {@class = "buttonStyle"})
+                        @Ajax.ActionLink(Lang.Management_ButtonDelete, "Delete", "Management", new {id = @product.Id}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "onDeleteSuccess", OnFailure = "onAjaxFailture", OnBegin = "onDeleteBegin"}, new {@class = "buttonStyle"})
                         <input type="button" class="buttonStyle editAfter" value="@Lang.Management_ButtonCancel" onclick="editAfterClick(this, false)" style="display: none"/>
                     </td>
                     <td class="tableTd managementEditButtons">
@@ -35,27 +35,22 @@
             
         }
 
-        @*@using (Ajax.BeginForm("Add", "Management", null, new AjaxOptions {OnSuccess = "onAddSuccess"}, new {@class = "buttonStyle"}))
-        {
-            *@<tr>
-
-                <td class="tableTh"></td>
-                <td class="tableTh">
-                    <input type="button" id="addButton" class="buttonStyle" value="@Lang.Management_ButtonAdd" onclick="addClick(this)"/>
-                </td>
-                <td class="tableTh"></td>
-                <td class="tableTh">
-                    <input type="text" name="addName" class="managementAddInputs"/>
-                </td>
-                <td class="tableTh">
-                    <input type="text" name="addCategory" class="managementAddInputs"/>
-                </td>
-                <td class="tableTh tableThLast">
-                    <input type="text" name="addPrice" class="managementAddInputs"/>
-                </td>
-
-            </tr>
-        @*}*@
+        <tr>
+            <td class="tableTh"></td>
+            <td class="tableTh">
+                <input type="button" id="addButton" class="buttonStyle" value="@Lang.Management_ButtonAdd" onclick="addClick(this)"/>
+            </td>
+            <td class="tableTh"></td>
+            <td class="tableTh">
+                <input type="text" name="addName" class="managementAddInputs"/>
+            </td>
+            <td class="tableTh">
+                <input type="text" name="addCategory" class="managementAddInputs"/>
+            </td>
+            <td class="tableTh tableThLast">
+                <input type="text" name="addPrice" class="managementAddInputs"/>
+            </td>
+        </tr>
     </table>
     <br/>
     @Html.Partial("_pager", Model.Pager)

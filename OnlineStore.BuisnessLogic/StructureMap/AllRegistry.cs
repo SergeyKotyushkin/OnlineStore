@@ -2,9 +2,9 @@
 using OnlineStore.BuisnessLogic.Currency;
 using OnlineStore.BuisnessLogic.Currency.Contracts;
 using OnlineStore.BuisnessLogic.Database.Contracts;
-using OnlineStore.BuisnessLogic.Database.Models;
 using OnlineStore.BuisnessLogic.Database.Models.Dto;
 using OnlineStore.BuisnessLogic.Database.Realizations;
+using OnlineStore.BuisnessLogic.ElasticRepository.Contracts;
 using OnlineStore.BuisnessLogic.ImageService;
 using OnlineStore.BuisnessLogic.ImageService.Contracts;
 using OnlineStore.BuisnessLogic.JsonSerialize;
@@ -14,8 +14,6 @@ using OnlineStore.BuisnessLogic.Mail.Contracts;
 using OnlineStore.BuisnessLogic.Models.Dto;
 using OnlineStore.BuisnessLogic.OrderRepository;
 using OnlineStore.BuisnessLogic.OrderRepository.Contracts;
-using OnlineStore.BuisnessLogic.Searching;
-using OnlineStore.BuisnessLogic.Searching.Contracts;
 using OnlineStore.BuisnessLogic.StorageRepository;
 using OnlineStore.BuisnessLogic.StorageRepository.Contracts;
 using OnlineStore.BuisnessLogic.TableManagers;
@@ -50,6 +48,7 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             For<IDbPersonRepository>().Use<EfPersonRepository>().Singleton();
             For<IDbProductRepository>().Use<EfProductRepository>().Singleton();
             For<IDbOrderHistoryRepository>().Use<EfOrderHistoryRepository>().Singleton();
+            For<IElasticRepository>().Use<ElasticRepository.ElasticRepository>();
 
             //// GridViews
             For<ITableManagement>().Use<TableManagement>();
@@ -62,7 +61,6 @@ namespace OnlineStore.BuisnessLogic.StructureMap
             For<IUserGroup>().Use<UserGroup>();
             For<IJsonSerializer>().Use<JsonSerializer>();
             For<IImageService>().Use<ImageServiceAgent>();
-            For<ISearching<Product>>().Use<SimpleSearching>();
             For<IOrderRepository<HttpSessionStateBase>>().Use<OrderSessionRepository>();
             For<IStorageRepository<HttpSessionStateBase>>().Use<StorageSessionRepository>();
             For<IStorageRepository<HttpCookieCollection>>().Use<StorageCoockieRepository>();

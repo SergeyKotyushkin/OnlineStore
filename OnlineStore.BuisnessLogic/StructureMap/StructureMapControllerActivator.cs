@@ -21,7 +21,7 @@ namespace OnlineStore.BuisnessLogic.StructureMap
         public IController Create(RequestContext requestContext, Type controllerType)
         {
             var language =
-                (requestContext.RouteData.Values["language"] ?? Thread.CurrentThread.CurrentUICulture.Name)
+                (requestContext.RouteData.Values["language"] ?? Thread.CurrentThread.CurrentCulture.Name)
                     .ToString();
 
             var allowedLanguages = ConfigurationManager.AppSettings["Languages"].Split(',');

@@ -6,9 +6,15 @@ namespace OnlineStore.BuisnessLogic.Database.Contracts
     {
         Product[] GetAll();
 
-        bool AddOrUpdate(Product product);
+        Product[] GetByIds(params int[] ids);
 
-        bool RemoveById(int id);
+        Product[] GetRange(int @from, int size);
+
+        int GetCount();
+
+        Product AddOrUpdate(Product product);
+
+        Product RemoveById(int id);
 
         Product GetById(int id);
 

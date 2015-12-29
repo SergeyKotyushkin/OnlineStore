@@ -8,9 +8,10 @@ using OnlineStore.MvcWebProject.Utils.Attributes;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [MyHandleError]
     public class MainLayoutController : Controller
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(HomeController));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(MainLayoutController));
         private readonly IUserGroup _userGroup;
         private readonly IStorageRepository<HttpCookieCollection> _storageCookieRepository;
 
@@ -26,7 +27,7 @@ namespace OnlineStore.MvcWebProject.Controllers
         {
             var user = _userGroup.GetUser();
 
-            Log.Error(string.Format("User {0} sing out.", user.UserName));
+            Log.Info(string.Format("User {0} sing out.", user.UserName));
 
             _userGroup.LogOut(Response, Session);
 

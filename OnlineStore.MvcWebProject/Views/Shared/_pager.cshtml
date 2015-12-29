@@ -8,13 +8,15 @@
     var ajaxOptions = new AjaxOptions
     {
         InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = Model.PagerSettings.UpdateTargetId
+        UpdateTargetId = Model.PagerSettings.UpdateTargetId,
+        OnSuccess = "onPageChangedSuccess",
+        OnFailure = "onPageChangedFailture",
+        OnBegin = "onBeginPageChange"
     };
     var htmlAttributesLinks = new {@class = "pagerLinks"};
     var htmlAttributesCurrentLink = new {@class = "pagerLinks pagerCurrentLink"};
-
-    <div class=
-         "pager">
+    
+    <div class="pager">
         @Ajax.ActionLink(Lang.PagerFirstLink, action, controller, new {pageIndex = 1}, ajaxOptions, htmlAttributesLinks)
         @Ajax.ActionLink(Lang.PagerPrevLink, action, controller, new {pageIndex = (Model.PageIndex - 1)}, ajaxOptions, htmlAttributesLinks)
 

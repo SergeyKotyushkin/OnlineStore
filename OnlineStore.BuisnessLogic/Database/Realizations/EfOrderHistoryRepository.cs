@@ -21,6 +21,25 @@ namespace OnlineStore.BuisnessLogic.Database.Realizations
             }
         }
 
+        public OrderHistory[] GetRange(int from, int size, string userName)
+        {
+            using (var context = new EfPersonContext())
+            {
+                var orderHistories = context.OrdersHistoryTable.Where(o => o.PersonName == userName).ToList();
+                var count = orderHistories.Count;
+                var rest = count - from * size;
+                return orderHistories.GetRange(from * size, size > rest ? rest : size).ToArray();
+            }
+        }
+
+        public int GetCount()
+        {
+            using (var context = new EfPersonContext())
+            {
+                return context.OrdersHistoryTable.Count();
+            }
+        }
+
         public bool Add(OrderHistory orderHistory)
         {
             using (var context = new EfPersonContext())

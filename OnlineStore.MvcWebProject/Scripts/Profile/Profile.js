@@ -1,8 +1,17 @@
-﻿function onChangeImageClick() {
+﻿function onPasswordChangeBegin() {
+    setWaitWhileAjaxProcessing(true);
+}
+
+function onProfileChangeBegin() {
+    setWaitWhileAjaxProcessing(true);
+}
+
+function onChangeImageClick() {
     $("#fileUploader").click();
 }
 
 function onChosenImageChanged() {
+    setWaitWhileAjaxProcessing(true);
     $("#profileButtonImageChange").css("display", "none");
     $("#profileImage").css("display", "none");
     $("#profileLoader").css("display", "");
@@ -21,34 +30,29 @@ function onChosenImageChanged() {
             if (data != null) {
                 $("#profileImage").attr("src", data.urlToImage);
                 $("#profileHiddenImageSrc").attr("value", data.urlToImage);
-            } else
-                alert("It was error during image loading");
+            }
 
             $("#profileImage").css("display", "");
             $("#profileLoader").css("display", "none");
             $("#profileButtonImageChange").css("display", "");
+            setWaitWhileAjaxProcessing(false);
         },
-        error: function () {
-            alert("It was error during image loading");
+        error: function (result) {
+            var response = JSON.parse(result.responseText);
+            $("#mainLayoutBottom div").html("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
 
             $("#profileImage").css("display", "");
             $("#profileLoader").css("display", "none");
             $("#profileButtonImageChange").css("display", "");
+            setWaitWhileAjaxProcessing(false);
         }
     });
 }
 
 function onProfileChangedSuccessfully(data) {
     var response = JSON.parse(data);
-    $("#mainLayoutBottom div").html("");
-    $("#mainLayoutBottom div").append("<span style='color: " + response.color + "'>" + response.text + "</span>");
-}
-
-function onFileChanged() {
-    if ($("#fileUploader").val() !== "")
-        $("#profileButtonImageChange").css("display", "");
-    else 
-        $("#profileButtonImageChange").css("display", "none");
+    $("#mainLayoutBottom div").html("<span style='color: " + response.color + "'>" + response.text + "</span>");
+    setWaitWhileAjaxProcessing(false);
 }
 
 function onPasswordChanged(data) {
@@ -57,6 +61,6 @@ function onPasswordChanged(data) {
         $(this).val("");
     });
 
-    $("#mainLayoutBottom div").html("");
-    $("#mainLayoutBottom div").append("<span style='color: " + response.color + "'>" + response.text + "</span>");
+    $("#mainLayoutBottom div").html("<span style='color: " + response.color + "'>" + response.text + "</span>");
+    setWaitWhileAjaxProcessing(false);
 }

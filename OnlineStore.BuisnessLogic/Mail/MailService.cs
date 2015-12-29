@@ -14,18 +14,13 @@ namespace OnlineStore.BuisnessLogic.Mail
             var orderItems = orderItemsBody.ToArray();
 
             var orderList = string.Format("{0}</ul>", orderItems.Aggregate("<ul>",
-                (current, p) => current + string.Format(ordersFormat, p.Name, p.Count, p.Price)));
+                (current, p) =>
+                    current + string.Format(ordersFormat, p.Name, p.Count, p.Price.ToString("C", cultureCurrency))));
 
             var total = orderItems.Sum(p => p.Total);
 
-            var mailMessageBody =
-                string.Format(
-                    bodyFormat,
-                    DateTime.Now.Date.ToShortDateString(),
-                    orderList,
-                    total.ToString("C", cultureCurrency));
-
-            return mailMessageBody;
+            return string.Format(bodyFormat, DateTime.Now.Date.ToShortDateString(), orderList,
+                total.ToString("C", cultureCurrency));
         }
     }
 }

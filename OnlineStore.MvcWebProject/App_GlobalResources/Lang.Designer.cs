@@ -259,6 +259,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Some errors occured during processing operation. Please check your acts or get administratr&apos;s support..
+        /// </summary>
+        internal static string CommonError {
+            get {
+                return ResourceManager.GetString("CommonError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection to database failed.
+        /// </summary>
+        internal static string ElasticConnectionFailed {
+            get {
+                return ResourceManager.GetString("ElasticConnectionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email field is required.
         /// </summary>
         internal static string EmailFieldIsRequired {
@@ -547,6 +565,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No matching results.
+        /// </summary>
+        internal static string Management_SearchNoResult {
+            get {
+                return ResourceManager.GetString("Management_SearchNoResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Administration.
+        /// </summary>
+        internal static string Management_Title {
+            get {
+                return ResourceManager.GetString("Management_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First.
         /// </summary>
         internal static string PagerFirstLink {
@@ -799,6 +835,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to History is empty.
+        /// </summary>
+        internal static string Profile_SearchNoResult {
+            get {
+                return ResourceManager.GetString("Profile_SearchNoResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Second name.
         /// </summary>
         internal static string Profile_SecondName {
@@ -921,6 +966,15 @@ namespace Resources {
         internal static string Registration_Title {
             get {
                 return ResourceManager.GetString("Registration_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get administrator&apos;s support.
+        /// </summary>
+        internal static string UnhandledErrorMessage {
+            get {
+                return ResourceManager.GetString("UnhandledErrorMessage", resourceCulture);
             }
         }
     }

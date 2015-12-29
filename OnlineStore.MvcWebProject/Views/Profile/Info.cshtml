@@ -38,7 +38,7 @@
         </div>
         <div id="profilePersonDataContainer">
             <div>
-                @using (Ajax.BeginForm("ChangeProfile", "Profile", new {}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "onProfileChangedSuccessfully", LoadingElementId = "profileLoader"}))
+                @using (Ajax.BeginForm("ChangeProfile", "Profile", new {}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "onProfileChangedSuccessfully", OnBegin = "onProfileChangeBegin", LoadingElementId = "profileLoader"}))
                 {
                     @Html.Hidden("imageSrc", @Model.UserProfile.ImagePath, new {id = "profileHiddenImageSrc"})
                     @Lang.Profile_FirstName
@@ -59,7 +59,7 @@
     <div id="profilePasswordContainer">
         <img id="profilePasswordLoader" src="~/Content/Images/loader.gif" style="display: none; float: right;" alt=""/>
         <div id="profilePasswordForm" style="float: right;">
-            @using (Ajax.BeginForm("ChangePassword", "Profile", new {}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "onPasswordChanged", LoadingElementId = "profilePasswordLoader"}))
+            @using (Ajax.BeginForm("ChangePassword", "Profile", new {}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "onPasswordChanged", OnBegin = "onPasswordChangeBegin", LoadingElementId = "profilePasswordLoader"}))
             {
                 @Lang.Profile_OldPassword
                 <br/>
@@ -91,7 +91,7 @@
         }
         else
         {
-            <div id="profileSearchNoResult">@Lang.Catalog_SearchNoResult</div>
+            <div id="profileSearchNoResult">@Lang.Profile_SearchNoResult</div>
         }
         <br/>
     </div>

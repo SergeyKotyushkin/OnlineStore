@@ -1,22 +1,34 @@
-﻿function onDeleteSuccess(data) {
+﻿function onDeleteBegin() {
+    setWaitWhileAjaxProcessing(true);
+}
+
+function onDeleteSuccess(data) {
     var response = JSON.parse(data);
-    if (response.result) {
-        $("#mainLayoutBottom div").html("");
-        $("#mainLayoutBottom div").append("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
-        refreshTable();
-    }
+    $("#mainLayoutBottom div").html("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
+    refreshTable();
 }
 
 function onAddSuccess(data) {
     var response = JSON.parse(data);
-    if (response.result) {
-        $("#mainLayoutBottom div").html("");
-        $("#mainLayoutBottom div").append("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
-        refreshTable();
-    }
+    $("#mainLayoutBottom div").html("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
+    refreshTable();
+}
+
+function onEditSuccess(data) {
+    var response = JSON.parse(data);
+    $("#mainLayoutBottom div").html("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
+    refreshTable();
+}
+
+function onAjaxFailture(result) {
+    var response = JSON.parse(result.responseText);
+    $("#mainLayoutBottom div").html("<span style='color: " + response.message.Color.Name + "'>" + response.message.Text + "</span>");
+    setWaitWhileAjaxProcessing(false);
 }
 
 function startEdit(el) {
+    $("#mainLayoutBottom div").html("");
+
     $("#hiddenEditId").val($(el).attr("name"));
     $(".managementDeleteButtons a, .managementEditButtons input").each(function () {
         $(this).css("display", "none");
@@ -66,39 +78,14 @@ function startEdit(el) {
 
 function editAfterClick(el, result) {
     if (result) addOrUpdate(el, false, "#urlToEdit");
-    else refreshTable();
-
-}
-
-function addClick(el) {
-    addOrUpdate(el, true, "#urlToAdd");
-}
-
-function onEditSuccess(data) {
-    var response = JSON.parse(data);
-    if (response.result) {
-        $("#mainLayoutBottom div").html("");
-        $("#mainLayoutBottom div").append("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
+    else {
+        setWaitWhileAjaxProcessing(true);
         refreshTable();
     }
 }
 
-function refreshTable() {
-    $.ajax({
-        type: "POST",
-        url: $("#urlToRefresh").val(),
-        contentType: "html",
-        processData: false,
-        success: function(data) {
-            if (data != null) {
-                $("#managementTableContainer").html(data);
-            } else
-                alert("It was error during table refresh");
-        },
-        error: function() {
-            alert("It was error during table refresh");
-        }
-    });
+function addClick(el) {
+    addOrUpdate(el, true, "#urlToAdd");
 }
 
 function addOrUpdate(el, isAdd, urlAction) {
@@ -113,6 +100,7 @@ function addOrUpdate(el, isAdd, urlAction) {
         { Id: product[0], Name: product[1], Category: product[2], Price: product[3] };
 
     formData.append("jsonProduct", JSON.stringify(jsonProduct));
+    setWaitWhileAjaxProcessing(true);
 
     $.ajax({
         type: "POST",
@@ -121,12 +109,32 @@ function addOrUpdate(el, isAdd, urlAction) {
         dataType: "json",
         contentType: false,
         processData: false,
-        complete: function (data) {
-            var response = JSON.parse(data.responseText);
-            $("#mainLayoutBottom div").html("");
-            $("#mainLayoutBottom div").append("<span style='color: " + response.message.Color + "'>" + response.message.Text + "</span>");
-
+        success: function (data) {
+            $("#mainLayoutBottom div").html("<span style='color: " + data.message.Color + "'>" + data.message.Text + "</span>");
             refreshTable();
+        },
+        error: function (result) {
+            var response = JSON.parse(result.responseText);
+            $("#mainLayoutBottom div").html("<span style='color: " + response.message.Color.Name + "'>" + response.message.Text + "</span>");
+            setWaitWhileAjaxProcessing(false);
+        }
+    });
+}
+
+function refreshTable() {
+    $.ajax({
+        type: "POST",
+        url: $("#urlToRefresh").val(),
+        contentType: "html",
+        processData: false,
+        success: function(data) {
+            $("#managementTableContainer").html(data);
+            setWaitWhileAjaxProcessing(false);
+        },
+        error: function(result) {
+            var response = JSON.parse(result.responseText);
+            $("#mainLayoutBottom div").html("<span style='color: " + response.message.Color.Name + "'>" + response.message.Text + "</span>");
+            setWaitWhileAjaxProcessing(false);
         }
     });
 }

@@ -19,15 +19,15 @@ namespace OnlineStore.BuisnessLogic.TableManagers
             _dbProductRepository = dbProductRepository;
         }
 
-        public EditingResults AddOrUpdateProduct(string idString, string name, string category, string priceString,
+        public EditProductResult AddOrUpdateProduct(string idString, string name, string category, string priceString,
             CultureInfo currencyCulture)
         {
             var id = int.Parse(idString ?? "-1");
             decimal price;
 
             return CheckIsNewProductValid(name, category, priceString, out price, currencyCulture)
-                ? SetProduct(new Product { Id = id, Name = name, Category = category, Price = price }, currencyCulture)
-                : EditingResults.FailValidProduct;
+                ? SetProduct(new Product {Id = id, Name = name, Category = category, Price = price}, currencyCulture)
+                : new EditProductResult{EditingResult = EditingResults.FailValidProduct};
         }
 
 
@@ -41,11 +41,17 @@ namespace OnlineStore.BuisnessLogic.TableManagers
             return isDeimal && rgx.IsMatch(name) && rgx.IsMatch(category);
         }
 
-        private EditingResults SetProduct(Product product, CultureInfo currencyCulture)
+        private EditProductResult SetProduct(Product product, CultureInfo currencyCulture)
         {
             product.Price = _currencyConverter.ConvertToRubles(currencyCulture, product.Price, DateTime.Now);
 
-            return _dbProductRepository.AddOrUpdate(product) ? EditingResults.Success : EditingResults.FailAddOrUpdate;
+            var result = _dbProductRepository.AddOrUpdate(product);
+            
+            return new EditProductResult
+            {
+                Product = result,
+                EditingResult = result != null ? EditingResults.Success : EditingResults.FailAddOrUpdate
+            };
         }
     }
 }

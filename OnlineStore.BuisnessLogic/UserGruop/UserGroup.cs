@@ -29,8 +29,6 @@ namespace OnlineStore.BuisnessLogic.UserGruop
 
             FormsAuthentication.SignOut();
             sessionState.Abandon();
-
-            response.Redirect(@"/");
         }
 
         public void SetRoleForUser(string userName, string roleName = "Admin")

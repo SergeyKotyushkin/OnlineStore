@@ -11,6 +11,7 @@ using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [MyHandleError]
     [OnlyForAnonymous]
     public class RegistrationController : Controller
     {
@@ -23,7 +24,7 @@ namespace OnlineStore.MvcWebProject.Controllers
             SelectedLanguage = Thread.CurrentThread.CurrentCulture.Name
         };
 
-        private static readonly ILog Log = LogManager.GetLogger(typeof(BasketController));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(RegistrationController));
 
         private readonly IUserGroup _userGroup;
         

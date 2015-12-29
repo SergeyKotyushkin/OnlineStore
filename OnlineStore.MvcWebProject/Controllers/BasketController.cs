@@ -25,6 +25,7 @@ using Resources;
 
 namespace OnlineStore.MvcWebProject.Controllers
 {
+    [MyHandleError]
     [OnlyForRole("User")]
     public class BasketController : Controller
     {
@@ -65,8 +66,9 @@ namespace OnlineStore.MvcWebProject.Controllers
             _mailSender = mailSender;
         }
 
-        public ActionResult Orders(string id)
+        public ActionResult Orders()
         {
+            var id = _tableManager.GetOldPageIndexFromRepository(Session, Settings.Basket_OldPageIndexName);
             var currencyCulture = GetCurrencyCultureInfo();
 
             var model = new BasketModel
@@ -90,7 +92,7 @@ namespace OnlineStore.MvcWebProject.Controllers
         
         public PartialViewResult PageChange(int pageindex)
         {
-            var table = GetTableData(pageindex.ToString());
+            var table = GetTableData(pageindex);
 
             return PartialView("_basketTable", table);
         }
@@ -101,7 +103,7 @@ namespace OnlineStore.MvcWebProject.Controllers
 
             var currencyCulture = GetCurrencyCultureInfo();
 
-            var orderItemList = GetOrderItemList().ToArray();
+            var orderItemList = GetOrderItemList(0, true).ToArray();
 
             SaveOrderHistoryInDatabase(orderItemList, user.UserName, user.Email, currencyCulture);
 
@@ -113,15 +115,17 @@ namespace OnlineStore.MvcWebProject.Controllers
         }
 
 
-        private Table<OrderItemDto> GetTableData(string id)
+        private Table<OrderItemDto> GetTableData(int pageIndex)
         {
-            var orderItemDtos = GetOrderItemDtoList();
+            var ordersCount = _orderRepository.GetCount(Session, Settings.OrderInStorage);
 
-            var pagesCount = _tableManager.GetPagesCount(orderItemDtos.Count, PageSize);
+            var pagesCount = _tableManager.GetPagesCount(ordersCount, PageSize);
+            
+            var oldPageIndex = _tableManager.GetOldPageIndexFromRepository(Session, Settings.Basket_OldPageIndexName);
+            var newPageIndex = _tableManager.GetNewPageIndex(pageIndex, oldPageIndex, pagesCount);
+            _tableManager.SetNewPageIndexToRepository(Session, Settings.Basket_OldPageIndexName, newPageIndex);
 
-            var newPageIndex = _tableManager.GetNewPageIndex(Session, Settings.Basket_OldPageIndexName, id, pagesCount);
-
-            var data = _tableManager.GetPageData(orderItemDtos, newPageIndex, PageSize);
+            var orderItemDtos = GetOrderItemDtoList(newPageIndex - 1, false);
 
             var pager = new Pager
             {
@@ -132,22 +136,27 @@ namespace OnlineStore.MvcWebProject.Controllers
                 PagerSettings = _pagerSettings
             };
 
-            return new Table<OrderItemDto> { Data = data, Pager = pager };
+            return new Table<OrderItemDto> { Data = orderItemDtos, Pager = pager };
         }
 
-        private List<OrderItemDto> GetOrderItemDtoList()
+        private OrderItemDto[] GetOrderItemDtoList(int pageIndex, bool allOrders)
         {
-            var orderItemArray = GetOrderItemList();
+            var orderItemArray = GetOrderItemList(pageIndex, allOrders);
 
             var currencyCulture = GetCurrencyCultureInfo();
 
-            return orderItemArray.Select(ot => ot.ToOrderItemDto(currencyCulture)).ToList();
+            return orderItemArray.Select(ot => ot.ToOrderItemDto(currencyCulture)).ToArray();
         }
 
-        private IEnumerable<OrderItem> GetOrderItemList()
+        private IEnumerable<OrderItem> GetOrderItemList(int pageIndex, bool allOrders)
         {
-            var products = _dbProductRepository.GetAll();
-            var orders = _orderRepository.GetAll(Session, Settings.OrderInStorage);
+            var orders = allOrders
+                ? _orderRepository.GetAll(Session, Settings.OrderInStorage).ToArray()
+                : _orderRepository.GetRange(Session, Settings.OrderInStorage, pageIndex, PageSize);
+            
+            var productsId = orders.Select(o => o.Id).ToArray();
+            var products = _dbProductRepository.GetByIds(productsId);
+
             var currencyCulture = GetCurrencyCultureInfo();
             var rate = _currencyConverter.GetRate(new CultureInfo("ru-Ru"), currencyCulture, DateTime.Now);
 
@@ -162,7 +171,7 @@ namespace OnlineStore.MvcWebProject.Controllers
 
         private decimal GetTotal(IFormatProvider culture)
         {
-            return GetOrderItemDtoList().Sum(t => decimal.Parse(t.Total, NumberStyles.Currency, culture));
+            return GetOrderItemDtoList(0, true).Sum(t => decimal.Parse(t.Total, NumberStyles.Currency, culture));
         }
         
         private string GetTotalString(IFormatProvider currencyCulture)
@@ -180,7 +189,7 @@ namespace OnlineStore.MvcWebProject.Controllers
         {
             var currencyCulture = GetCurrencyCultureInfo();
             Log.Info(string.Format("Products has bought by user - {0}. {1}", userName, GetTotalString(currencyCulture)));
-            Session[Settings.BoughtInStorage] = 1;
+            Session[Settings.BoughtInStorage] = true;
             Session[Settings.OrderInStorage] = null;
         }
 
@@ -189,10 +198,7 @@ namespace OnlineStore.MvcWebProject.Controllers
             var @from = ((SmtpSection)ConfigurationManager.GetSection(Settings.Basket_SmtpSectionPath)).From;
             var mailMessageSubject = Lang.Basket_MailMessageSubject;
 
-            var currencyCultureName =
-                (_storageCookieRepository.Get(Request.Cookies, Settings.CurrencyInStorage) ?? _threadCulture.Name)
-                    .ToString();
-            var cultureCurrency = CultureInfo.GetCultureInfo(currencyCultureName);
+            var cultureCurrency = GetCurrencyCultureInfo();
 
             _mailSender.Create(@from, userEmail, mailMessageSubject, orderItemList, true, Lang.Basket_MailOrderList,
                 Lang.Basket_MailMessage, cultureCurrency);

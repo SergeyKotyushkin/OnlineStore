@@ -12,31 +12,57 @@ namespace OnlineStore.BuisnessLogic.Database.Realizations
         {
             using (var context = new EfProductContext())
             {
-                return context.ProductTable.OrderBy(p => p.Id).ToArray();
+                return context.ProductTable.ToArray();
             }
         }
 
-        public bool AddOrUpdate(Product product)
+        public Product[] GetByIds(params int[] ids)
+        {
+            using (var context = new EfProductContext())
+            {
+                return context.ProductTable.Where(p => ids.Contains(p.Id)).OrderBy(p => p.Id).ToArray();
+            }
+        }
+
+        public Product[] GetRange(int from, int size)
+        {
+            using (var context = new EfProductContext())
+            {
+                var products = context.ProductTable.ToList();
+                var count = products.Count;
+                var rest = count - from*size;
+                return products.GetRange(from*size, size > rest ? rest : size).ToArray();
+            }
+        }
+
+        public int GetCount()
+        {
+            using (var context = new EfProductContext())
+            {
+                return context.ProductTable.Count();
+            }
+        }
+
+        public Product AddOrUpdate(Product product)
         {
             using (var context = new EfProductContext())
             {
                 context.ProductTable.AddOrUpdate(product);
-                return context.SaveChanges() > 0;
+                return context.SaveChanges() > 0 ? product : null;
             }
             
         }
 
-        public bool RemoveById(int id)
+        public Product RemoveById(int id)
         {
             using (var context = new EfProductContext())
             {
-                var entity = context.ProductTable.Find(id);
-                if (entity == null)
-                    return false;
+                var product = context.ProductTable.Find(id);
+                if (product == null)
+                    return null;
 
-                context.ProductTable.Remove(entity);
-                context.SaveChanges();
-                return true;
+                context.ProductTable.Remove(product);
+                return context.SaveChanges() > 0 ? product : null;
             }
             
         }

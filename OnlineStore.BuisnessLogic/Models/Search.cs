@@ -9,6 +9,6 @@ namespace OnlineStore.BuisnessLogic.Models
 
         public string SearchCategory { get; set; }
 
-        public IEnumerable<SelectListItem> CategoryList { get; set; }
+        public IEnumerable<SelectListItem> Categories { get; set; }
     }
 }

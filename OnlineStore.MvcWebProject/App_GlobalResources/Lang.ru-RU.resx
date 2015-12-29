@@ -390,4 +390,22 @@
   <data name="Errors_ButtonClearError" xml:space="preserve">
     <value>Вернуться на начальную страницу</value>
   </data>
+  <data name="ElasticConnectionFailed" xml:space="preserve">
+    <value>Соединение с базой данных отсутствует</value>
+  </data>
+  <data name="Management_SearchNoResult" xml:space="preserve">
+    <value>Совпадений не найдено</value>
+  </data>
+  <data name="UnhandledErrorMessage" xml:space="preserve">
+    <value>Обратитесь к администратору</value>
+  </data>
+  <data name="CommonError" xml:space="preserve">
+    <value>Возникли ошибки в процессе выполнения операции. Проверьте правильность действий или обратитесь к администратору.</value>
+  </data>
+  <data name="Management_Title" xml:space="preserve">
+    <value>Администрирование</value>
+  </data>
+  <data name="Profile_SearchNoResult" xml:space="preserve">
+    <value>История пуста</value>
+  </data>
 </root>

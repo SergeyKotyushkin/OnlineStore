@@ -14,7 +14,7 @@
 {
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/Management/Management.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Management/Management.js?" + DateTime.Now.Ticks)"></script>
 }
 
 <div id="managementHeader">@Lang.Management_Header</div>
@@ -23,9 +23,13 @@
 <input type="text" id="urlToEdit" style="display: none;" value="@Url.Content("~/" + Model.Settings.SelectedLanguage + "/Management/Edit")"/>
 <input type="text" id="urlToAdd" style="display: none;" value="@Url.Content("~/" + Model.Settings.SelectedLanguage + "/Management/Add")"/>
 <div id="managementTableContainer">
-    @if (Model.TableData.Data != null)
+    @if (Model.TableData != null && Model.TableData.Data != null)
     {
         @Html.Partial("_managementTable", Model.TableData)
+    }
+    else
+    {
+        <div id="managementSearchNoResult">@Lang.Management_SearchNoResult</div>
     }
     <br/>
 </div>

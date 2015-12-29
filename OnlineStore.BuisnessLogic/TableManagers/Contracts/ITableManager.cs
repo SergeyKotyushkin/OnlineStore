@@ -4,11 +4,13 @@ namespace OnlineStore.BuisnessLogic.TableManagers.Contracts
 {
     public interface ITableManager<TData, in TRepository>
     {
-        int GetPagesCount(int count, int pageSize);
+        int GetPagesCount(long count, int pageSize);
 
-        int GetNewPageIndex(TRepository repository, string nameInStorage, string newIndex, int pagesCount);
+        int GetNewPageIndex(int newIndex, int oldIndex, int pagesCount);
 
-        int GetPageIndex(string newIndex, int oldIndex, int pagesCount);
+        int GetOldPageIndexFromRepository(TRepository repository, string nameInRepository);
+
+        void SetNewPageIndexToRepository(TRepository repository, string nameInRepository, int newPageIndex);
 
         int[] GetPages(int newIndex, int pagesCount, int visiblePagesCount);
 
