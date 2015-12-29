@@ -193,7 +193,8 @@ namespace OnlineStore.MvcWebProject.Controllers
         {
             var history = _dbOrderHistoryRepository.GetRange(pageIndex, PageSize, userName).OrderBy(u => u.Date);
 
-            var number = 1;
+            var number = 1 + PageSize*
+                         (_tableManager.GetOldPageIndexFromRepository(Session, Settings.Profile_OldPageIndexName) - 1);
             var ordersFromHistory = (from h in history
                                      let productOrder = _jsonSerializer.Deserialize<ProductOrder[]>(h.Order)
                                      select new OrderHistoryItem
